@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="org.ncbo.uvic.ontologytree.events.TreeRootChangedEvent"/>
+<classEntry path="org.ncbo.uvic.ontologytree.events.JumpToConceptEvent"/>
+<classEntry path="org.ncbo.uvic.ontologytree.events.TreeOntologyChangedEvent"/>
+<classEntry path="org.ncbo.uvic.ontologytree.OntologyTree"/>
+<classEntry path="org.ncbo.uvic.ontologytree.CustomTree"/>
+<classEntry path="org.ncbo.uvic.ontologytree.OntologyDataDescriptor"/>
+<classEntry path="org.ncbo.uvic.ontologytree.OntologyTreeItemRenderer"/>
+<classEntry path="org.ncbo.uvic.ontologytree.TreeNode"/>
+</includeClasses>
+<includeResources>
+<resourceEntry destPath="assets/plus.gif" sourcePath="assets/plus.gif"/>
+<resourceEntry destPath="assets/minus.gif" sourcePath="assets/minus.gif"/>
+<resourceEntry destPath="assets/class.gif" sourcePath="assets/class.gif"/>
+<resourceEntry destPath="assets/blank.gif" sourcePath="assets/blank.gif"/>
+<resourceEntry destPath="defaults.css" sourcePath="defaults.css"/>
+</includeResources>
+<namespaceManifests/>
+</flexLibProperties>
