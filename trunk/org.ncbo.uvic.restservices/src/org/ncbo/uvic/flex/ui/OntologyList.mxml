@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resize:ResizableBox 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:resize="flex.utils.ui.resize.*"
+	width="200" height="300" minWidth="50" minHeight="100" verticalGap="0" direction="vertical"
+	verticalScrollPolicy="off" horizontalScrollPolicy="off" creationPolicy="all">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.Application;
+			import mx.events.ResizeEvent;
+			import flash.utils.setTimeout;
+			import org.ncbo.uvic.flex.IRestService;
+			import org.ncbo.uvic.flex.model.NCBOOntology;
+			import mx.events.ListEvent;
+			import mx.collections.ArrayCollection;
+			import org.ncbo.uvic.flex.events.NCBOOntologiesEvent;
+			import mx.controls.PopUpButton;
+			import mx.events.DropdownEvent;
+			
+			public var service:IRestService = null;
+
+			private var _popUpButton:PopUpButton = null;
+			
+			private var _ontologies:ArrayCollection = new ArrayCollection([{ nameAndAbbreviation: "Loading..." }]);
+			[Bindable]
+			private var ontologiesLoaded:Boolean = false;
+			
+			private var _selectedOntology:NCBOOntology;
+			private var selectedOntologyChanged:Boolean;
+			
+			public function get popUpButton():PopUpButton {
+				return _popUpButton;
+			}
+			
+			public function set popUpButton(value:PopUpButton):void {
+				if (_popUpButton) {
+					_popUpButton.removeEventListener(DropdownEvent.OPEN, ontologiesListOpen);
+					_popUpButton.removeEventListener(DropdownEvent.CLOSE, ontologiesListClose);
+				}
+				this._popUpButton = value;
+				if (_popUpButton) {
+					_popUpButton.addEventListener(DropdownEvent.OPEN, ontologiesListOpen);
+					_popUpButton.addEventListener(DropdownEvent.CLOSE, ontologiesListClose);
+				}
+			}
+			
+			[Bindable]
+			public function get ontologies():ArrayCollection {
+				return _ontologies;
+			}
+			
+			public function set ontologies(value:ArrayCollection):void {
+				this._ontologies = value;
+				this.ontologiesLoaded = (_ontologies && (_ontologies.length > 0));
+			}
+			
+			public function get selectedOntology():NCBOOntology {
+				return (list ? (list.selectedItem as NCBOOntology) : _selectedOntology);
+			}
+			
+			public function set selectedOntology(ontology:NCBOOntology):void {
+				_selectedOntology = ontology;
+				selectedOntologyChanged = true;
+				invalidateProperties();
+			}
+			
+			public function get selectedOntologyID():String {
+				var ont:NCBOOntology = selectedOntology;
+				return (ont ? ont.id : null);
+			}
+			
+			public function get selectedOntologyName():String {
+				var ont:NCBOOntology = selectedOntology;
+				return (ont ? ont.name : null);
+			}
+			
+			public function hidePopUp(event:Event = null):void {
+				if (popUpButton) {
+					popUpButton.close();
+				}
+			}
+			
+			public function loadOntologies(event:Event = null):void {
+				if (!ontologiesLoaded && service) {
+					service.getNCBOOntologies(ontologiesLoadedHandler);
+				}
+			}
+						
+			private function ontologySelected(event:ListEvent):void {
+				if (popUpButton) {
+					setTimeout(hidePopUp, 200);
+				}
+			}
+			
+			private function ontologiesListOpen(event:DropdownEvent):void {
+				loadOntologies();
+			}
+			
+			private function ontologiesListClose(event:DropdownEvent):void {
+				//trace("Selected ontology: " + list.selectedItem);
+			}
+			
+			public function ontologiesLoadedHandler(event:NCBOOntologiesEvent):void {
+				if (!event.isError) {
+					ontologies.source = event.ontologies;
+					ontologiesLoaded = true;
+					if (_selectedOntology && list) {
+						list.selectedItem = _selectedOntology;
+					}
+				} else {
+					ontologies.source = [{ nameAndAbbreviation: event.error.message }];
+				}
+			}
+			
+			override protected function commitProperties():void {
+				super.commitProperties();
+				
+				if (selectedOntologyChanged && ontologiesLoaded) {
+					selectedOntologyChanged = false;
+					list.selectedItem = _selectedOntology;
+				}
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:HBox width="100%" backgroundColor="0xe2ebf0" 
+		horizontalScrollPolicy="off" horizontalAlign="center"
+		paddingTop="2" paddingBottom="2" borderColor="0xdddddd" borderStyle="solid" borderThickness="1">
+		<mx:Label text="Choose an ontology:"/>
+	</mx:HBox>
+	
+	<mx:List id="list" width="100%" height="100%" dataProvider="{ontologies}"
+		backgroundDisabledColor="0xf3f3f3" textAlign="left"
+		enabled="{ontologiesLoaded}" change="ontologySelected(event)" 
+		labelField="nameAndAbbreviation" dataTipField="nameAndAbbreviation" showDataTips="true"/>
+	
+	<mx:HBox width="100%" backgroundColor="0xe2ebf0" 
+		horizontalScrollPolicy="off" horizontalAlign="center"
+		paddingTop="2" paddingBottom="2" borderColor="0xdddddd" borderStyle="solid" borderThickness="1">
+		<mx:Button label="Close" height="18" click="hidePopUp(event)"/>
+	</mx:HBox>
+	
+</resize:ResizableBox>

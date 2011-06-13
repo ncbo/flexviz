@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOperationStartingEvent"/>
+<classEntry path="org.ncbo.uvic.flex.ui.AutoCompleteSearchBox"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadOntologiesOperation"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOSearchResultConcept"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOGroupsEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.ParallelOperation"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBORelationship"/>
+<classEntry path="org.ncbo.uvic.flex.doi.DegreeOfInterestService"/>
+<classEntry path="org.ncbo.uvic.flex.ui.SearchResultsPanel"/>
+<classEntry path="org.ncbo.uvic.flex.model.IConcept"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOperationStoppedEvent"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOCategory"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOntologyEvent"/>
+<classEntry path="org.ncbo.uvic.flex.IRestService"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOperationsEvent"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOntologyMetricsEvent"/>
+<classEntry path="org.ncbo.uvic.flex.ui.ConceptPropertyWindow"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOConcept"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOOntologyMetrics"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadConceptsOperation"/>
+<classEntry path="org.ncbo.uvic.flex.ui.OntologyChooser"/>
+<classEntry path="org.ncbo.uvic.flex.ui.DebugPanel"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOLogEvent"/>
+<classEntry path="org.ncbo.uvic.flex.ui.ConceptPropertyPane"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOConceptEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.AbstractRestServiceOperation"/>
+<classEntry path="org.ncbo.uvic.flex.NCBOAppParams"/>
+<classEntry path="org.ncbo.uvic.flex.NCBORestService"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadHierarchyToRootOperation"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadConceptOperation"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOConceptLoadedEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadNeighborhoodOperation"/>
+<classEntry path="org.ncbo.uvic.flex.ui.OntologyMetricsWindow"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOOntologyGroup"/>
+<classEntry path="org.ncbo.uvic.flex.search.SearchMode"/>
+<classEntry path="org.ncbo.uvic.flex.model.INCBOItem"/>
+<classEntry path="org.ncbo.uvic.flex.ui.OntologyList"/>
+<classEntry path="org.ncbo.uvic.flex.search.SearchParams"/>
+<classEntry path="org.ncbo.uvic.flex.NCBORestError"/>
+<classEntry path="org.ncbo.uvic.flex.search.SequenceOperation"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOConceptsEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadOntologyOperation"/>
+<classEntry path="org.ncbo.uvic.flex.util.NavigateToBioPortal"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOntologiesOperationsEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadParentsOperation"/>
+<classEntry path="org.ncbo.uvic.flex.logging.LogService"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOCategoriesEvent"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOItem"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOPathToRootEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadConceptsFromMultipleOntologiesOperation"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOntologiesEvent"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOSearchEvent"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOEvent"/>
+<classEntry path="org.ncbo.uvic.flex.search.MultipleConceptsOperation"/>
+<classEntry path="org.ncbo.uvic.flex.search.SearchShowOption"/>
+<classEntry path="org.ncbo.uvic.flex.search.LoadChildrenOperation"/>
+<classEntry path="org.ncbo.uvic.flex.model.IOntology"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOperationEvent"/>
+<classEntry path="org.ncbo.uvic.flex.events.NCBOOntologyOperationEvent"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOOntology"/>
+<classEntry path="org.ncbo.uvic.flex.model.NCBOSearchResultOntology"/>
+<classEntry path="org.ncbo.uvic.flex.OntologyConstants"/>
+<classEntry path="org.ncbo.uvic.flex.NCBORestParams"/>
+<classEntry path="org.ncbo.uvic.flex.search.IRestServiceOperation"/>
+</includeClasses>
+<includeResources>
+<resourceEntry destPath="org/ncbo/uvic/flex/ui/copy.png" sourcePath="org/ncbo/uvic/flex/ui/copy.png"/>
+<resourceEntry destPath="org/ncbo/uvic/flex/ui/link.gif" sourcePath="org/ncbo/uvic/flex/ui/link.gif"/>
+</includeResources>
+<namespaceManifests/>
+</flexLibProperties>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:ContentWindow 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ui="flex.utils.ui.*"
+	width="500" verticalGap="0" title="Search Results" 
+	creationComplete="created()">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.Container;
+			import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+			import mx.managers.PopUpManager;
+			import mx.collections.ArrayCollection;
+			import flex.utils.ui.TextHighlighter;
+			import flex.utils.ui.renderers.DataGridItemHighlightRenderer;
+			import flex.utils.ui.UIUtils;
+			import flex.utils.Utils;
+			import org.ncbo.uvic.flex.search.SearchShowOption;
+			import org.ncbo.uvic.flex.OntologyConstants;
+			import mx.events.CloseEvent;
+			
+			[Bindable]
+			private var renderer:DataGridItemHighlightRenderer;
+			private var _filterText:String = "";
+		
+			[Bindable]
+			private var _searchResults:ArrayCollection = new ArrayCollection();
+
+			private const SHOW_OPTIONS:Array = [ OntologyConstants.SHOW_NETWORK_NEIGHBORHOOD, 
+										   	   OntologyConstants.SHOW_HIERARCHY_TO_ROOT ];
+										   	   
+			private var _allowMultipleSelection:Boolean = true;
+			private var _filterBoxShown:Boolean = true;
+			private var _optionsBoxShown:Boolean = true;
+			private var _showOption:SearchShowOption = null;
+			
+			private function created():void {
+				renderer = new DataGridItemHighlightRenderer(new TextHighlighter(null, getFilterText));
+				filterBox.filterFields = [ "name", "id" ];
+				if (okButton) {
+					defaultButton = okButton;
+				}
+				if (_searchResults && (_searchResults.length > 0)) {
+					searchResultsDataGrid.selectedIndex = 0;
+				}
+				
+				filterBox.setFocus();
+				
+				showBox(topFilterBox, _filterBoxShown);
+				showBox(optionsBox, _optionsBoxShown);
+				
+				if (_showOption) {
+					showOption = _showOption;
+				} 
+			}
+			
+			private function filterTextChanged(event:TextEvent):void {
+				_filterText = event.text;
+			}
+			
+			public function getFilterText():String {
+				return _filterText;
+			}
+						
+			override public function setFocus():void {
+				super.setFocus();
+				if (filterBox) {
+					filterBox.setFocus();
+				}
+			}
+			
+			[Bindable]
+			public function get allowMultipleSelection():Boolean {
+				return _allowMultipleSelection;
+			}
+			
+			public function set allowMultipleSelection(value:Boolean):void {
+				if (value != _allowMultipleSelection) {
+					_allowMultipleSelection = value;
+					headerText.text = (allowMultipleSelection ? "Select one or more concepts:" :
+										"Select one concept:");
+				}
+			} 
+			
+			/** Sets the search results - an array of NCBOSearchResultConcept objects. */
+			public function set searchResults(ac:Array):void {
+				_searchResults = new ArrayCollection(ac);
+				if (searchResultsDataGrid) {
+					searchResultsDataGrid.selectedIndex = (ac.length > 0 ? 0 : -1);
+				}
+				status = ac.length + " concept" + (ac.length == 1 ? "" : "s");
+			}
+			
+			/** Returns the search results - an array of NCBOSearchResultConcept objects. */
+			public function get searchResults():Array {
+				return _searchResults.source;
+			}
+			
+			/** Returns the selected search results - an array of NCBOSearchResultConcept objects. */
+			public function get selectedResults():Array {
+				if (searchResultsDataGrid) {
+					return searchResultsDataGrid.selectedItems;
+				}
+				return []; 
+			}
+			
+			/** Returns the first selected search result. */
+			public function get selectedResult():NCBOSearchResultConcept {
+				if (searchResultsDataGrid) {
+					return (searchResultsDataGrid.selectedItem as NCBOSearchResultConcept);
+				}
+				return null;
+			}
+			
+			public function get showOption():SearchShowOption {
+				if (showCombo) {
+					if (showCombo.selectedItem == OntologyConstants.SHOW_NETWORK_NEIGHBORHOOD) {
+						return SearchShowOption.NEIGHBORHOOD;
+					} else if (showCombo.selectedItem == OntologyConstants.SHOW_HIERARCHY_TO_ROOT) {
+						return SearchShowOption.HIERARCHY_TO_ROOT;
+					}
+				}
+				return SearchShowOption.NEIGHBORHOOD;
+			}
+			
+			public function set showOption(option:SearchShowOption):void {
+				_showOption = option;
+				if (option && showCombo) {
+					if (option == SearchShowOption.HIERARCHY_TO_ROOT) {
+						showCombo.selectedIndex = 1;
+					} else {
+						showCombo.selectedIndex = 0;
+					}
+				}
+			}
+						
+			public function set filterBoxShown(show:Boolean):void {
+				_filterBoxShown = show;
+				showBox(topFilterBox, show);
+			}
+			
+			public function set optionsBoxShown(show:Boolean):void {
+				_optionsBoxShown = show;
+				showBox(optionsBox, show);
+			}
+						
+			private function showBox(box:Container, show:Boolean):void {
+				if (box && (box.visible != show)) {
+					box.visible = show;
+					if (show) {
+						box.percentWidth = 100;
+						box.height = NaN;
+					} else {
+						box.width = 0;
+						box.height = 0; 
+					} 
+				}
+			}
+						
+			public function show(searchResultConcepts:Array, title:String, parent:DisplayObject, 
+								 closeHandler:Function, showOption:SearchShowOption = null):void {
+				var resultsWindow:SearchResultsPanel = this;
+				resultsWindow.title = title;
+				resultsWindow.showOption = showOption;
+				resultsWindow.searchResults = searchResultConcepts;
+				resultsWindow.addEventListener(CloseEvent.CLOSE, function(event:CloseEvent):void {
+					PopUpManager.removePopUp(resultsWindow);
+					if (closeHandler != null) {
+						closeHandler(event);
+					}
+				});
+				PopUpManager.addPopUp(resultsWindow, parent, true);
+				PopUpManager.centerPopUp(resultsWindow);
+			}
+			
+			public static function showWindow(searchResultConcepts:Array, title:String, parent:DisplayObject, 
+							closeHandler:Function, showOption:SearchShowOption = null):SearchResultsPanel {
+				var resultsWindow:SearchResultsPanel = new SearchResultsPanel();
+				resultsWindow.show(searchResultConcepts, title, parent, closeHandler, showOption);
+				return resultsWindow;
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:VBox width="100%" height="100%" verticalGap="4"
+		paddingLeft="5" paddingRight="5" paddingTop="5" paddingBottom="5">
+		<mx:Text id="headerText" text="Select one or more concepts:" 
+			color="0x336699" fontWeight="bold" fontSize="12"/>
+		<mx:HBox horizontalGap="2" verticalAlign="middle" id="topFilterBox">
+			<mx:Label text="Filter:" color="0x336699"/>
+			<ui:FilterBox id="filterBox" filterList="{searchResultsDataGrid}" text="" filterTextChanged="filterTextChanged(event)"/>
+		</mx:HBox>
+		<mx:DataGrid id="searchResultsDataGrid" width="100%" dataProvider="{_searchResults}" 
+			sortableColumns="true" editable="false" allowMultipleSelection="{allowMultipleSelection}">
+			<mx:columns>
+				<mx:DataGridColumn headerText="ID" dataField="id" width="80" itemRenderer="{renderer}"/>
+				<mx:DataGridColumn headerText="Name" dataField="name" width="200" itemRenderer="{renderer}"/>
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:HBox id="optionsBox" width="100%" horizontalGap="2" verticalAlign="middle">
+			<mx:ComboBox id="showCombo" editable="false" dataProvider="{SHOW_OPTIONS}" selectedIndex="0"/>
+		</mx:HBox>
+	</mx:VBox>
+	
+</ui:ContentWindow>
