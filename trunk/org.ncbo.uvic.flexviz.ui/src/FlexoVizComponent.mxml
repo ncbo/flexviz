@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExtendedFlexGraph xmlns="ca.uvic.cs.chisel.flexviz.*" xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="created()" width="100%" height="100%" nodeDoubleClick="nodeDoubleClicked(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import org.ncbo.uvic.flex.events.NCBOConceptLoadedEvent;
+			import ca.uvic.cs.chisel.flexviz.events.GraphSearchResultsEvent;
+			import ca.uvic.cs.chisel.flexviz.layouts.CircleLayoutCenterAlgorithm;
+			import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+			import org.ncbo.uvic.flex.NCBOAppParams;
+			import org.ncbo.uvic.flex.events.NCBOOntologyEvent;
+			import ca.uvic.cs.chisel.flexviz.events.GraphNodeEvent;
+			import mx.core.IUITextField;
+			import mx.controls.TextArea;
+			import mx.controls.TextInput;
+			import mx.core.Application;
+			import mx.events.FlexEvent;
+			import mx.events.CloseEvent;
+			import mx.controls.Alert;
+			import mx.controls.ComboBox;
+			import flex.utils.ui.UIUtils;
+			import flex.utils.ArrayUtils;
+			import ca.uvic.cs.chisel.flexviz.events.GraphLayoutEvent;
+			import ca.uvic.cs.chisel.flexviz.events.SelectedNodesChangedEvent;
+			import ca.uvic.cs.chisel.flexviz.model.GroupedNode;
+			import ca.uvic.cs.chisel.flexviz.util.Fisheye;
+			import ca.uvic.cs.chisel.flexviz.renderers.IArcRenderer;
+			import ca.uvic.cs.chisel.flexviz.renderers.INodeRenderer;
+			import ca.uvic.cs.chisel.flexviz.model.DefaultGraphModel;
+			import ca.uvic.cs.chisel.flexviz.model.IGraphArc;
+			import ca.uvic.cs.chisel.flexviz.model.IGraphNode;
+			import ca.uvic.cs.chisel.flexviz.layouts.Layouts;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.SpringLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.CircleLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.RadialLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.HorizontalLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.VerticalLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.GridLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.HorizontalTreeLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.VerticalTreeLayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.layouts.algorithms.ILayoutAlgorithm;
+			import ca.uvic.cs.chisel.flexviz.ui.ErrorPane;
+			import ca.uvic.cs.chisel.flexviz.ui.HelpPanel;
+			import org.ncbo.uvic.flex.events.NCBOToolTipChangedEvent;
+			import org.ncbo.uvic.flex.menu.NCBOMenuBar;
+			import org.ncbo.uvic.flex.model.NCBOOntology;
+			import org.ncbo.uvic.flex.search.SearchShowOption;
+			import org.ncbo.uvic.flex.search.SearchBy;
+			import org.ncbo.uvic.flex.search.NCBOSearchProvider;
+			import org.ncbo.uvic.flex.search.SearchMode;
+			import org.ncbo.uvic.flex.ui.NCBOArcRenderer;
+			import org.ncbo.uvic.flex.ui.NCBOColorProvider;
+			import org.ncbo.uvic.flex.ui.NCBONodeRenderer;
+			import org.ncbo.uvic.flex.ui.NCBOHelpPanel;
+			import org.ncbo.uvic.flex.FlexVizParams;
+			import org.ncbo.uvic.flex.NCBOVersion;
+			import org.ncbo.uvic.flex.ui.PropertiesPane;
+			import org.ncbo.uvic.flex.model.NCBOConcept;
+			import org.ncbo.uvic.flex.Shared;
+			import org.ncbo.uvic.flex.OntologyConstants;
+			
+			[Embed(source="/assets/show_roots.png")]
+			private const showRootsIcon:Class;
+//			[Embed(source="/assets/focus.png")]
+//			public var focusIcon:Class;
+			
+			private var _searchProvider:NCBOSearchProvider;
+			
+			private var menuBar:NCBOMenuBar;
+			private var _searchModeComboBox:ComboBox;
+			private var _searchByComboBox:ComboBox;
+			private var _showComboBox:ComboBox;
+			
+			private var _propsPane1:PropertiesPane;
+			private var _propsPane2:PropertiesPane;
+			private var _propsPane3:PropertiesPane;
+			
+			private var _lastOntologyID:String = null;
+			
+			public var isWidget:Boolean = false;
+			public var canChangeOntology:Boolean = true;
+
+			public var showProperties:Boolean = true;
+
+			//-----------------
+			// PUBLIC METHODS
+			//-----------------
+			
+			public function get lastOntologyID():String {
+				return _lastOntologyID;
+			}
+			
+			public function get searchProvider():NCBOSearchProvider {
+				if (_searchProvider == null) {
+					_searchProvider = new NCBOSearchProvider(this, true);
+					// add logging
+					_searchProvider.initLogger();
+					// listen for concepts being loaded by the rest service
+					_searchProvider.service.addEventListener(NCBOConceptLoadedEvent.CONCEPT_LOADED, restServiceConceptLoaded, false, 0, true);
+				}
+				return _searchProvider;
+			}
+			
+			/**
+			 * When a concept is loaded in the rest service - need to check if it already 
+			 * exists in the graph, if so we need to refresh in case the "+" icon needs to be shown/hidden.
+			 */
+			private function restServiceConceptLoaded(event:NCBOConceptLoadedEvent):void {
+				var id:String = event.conceptID;
+				var node:IGraphNode = model.getNode(id);
+				var nodeUI:UIComponent = nodeToUI(node);
+				if (nodeUI != null) {
+					nodeUI.invalidateDisplayList();
+				}
+			}
+			
+			public function get swfID():String {
+				return (Application.application.parameters.hasOwnProperty("swfid") ? 
+					String(Application.application.parameters.swfid) : Application.application.id);
+			}
+			
+			/**
+			 * Loads the graph that was saved in the shared object by the BasicFlexoVizComponent.
+			 * Returns true if the data was present and loaded
+			 */
+			public function loadSharedGraph():Boolean {
+				var loaded:Boolean = false;
+				try {
+					loaded = Shared.loadSharedGraph(this, searchProvider);
+				} catch (error:Error) {
+					trace("FlexoVizComponent: error loading shared data.");
+					trace("This is most likely a permissions problem or perhaps the XML is badly formed?");
+					trace(error);
+				}
+				return loaded;
+			}
+			
+			public function loadOntology(ontologyID:String, searchBy:SearchBy = null, searchMode:SearchMode = null, 
+								searchText:String = "", showOption:SearchShowOption = null, isVirtual:Boolean = false):void {
+				if (isVirtual) {
+					// load the ontology and set the ontology version id
+					var callback:Function = function(event:NCBOOntologyEvent):void {
+						if (!event.isError && event.ontology) {
+							loadOntology(event.ontology.ontologyVersionID, searchBy, searchMode, searchText, showOption, false);
+						} else {
+							trace("Invalid virtual ontology id: " + ontologyID); 
+						}
+					};
+					searchProvider.service.getOntologyByVirtualID(ontologyID, callback);
+				} else {				
+					var loadOntologyName:Boolean = false;
+					if (searchProvider.ontologyID != ontologyID) {
+						searchProvider.ontologyID = ontologyID;
+						clear();
+						loadOntologyName = true;
+					}
+					if (searchBy != null) {
+						searchProvider.searchBy = searchBy;
+					}
+					// don't update this combobox - always keep it as it was before
+					//searchByComboBox.selectedItem = searchBy;
+					if (showOption != null) {
+						searchProvider.showOption = showOption;
+						showComboBox.selectedItem = showOption;
+					}
+					if (searchMode != null) {
+						searchProvider.searchMode = searchMode;
+						searchModeComboBox.selectedItem = searchMode;
+					}
+					if (ontologyID != null) {
+						// show the initial data - either the root nodes, or the node neighborhood
+						if (searchText.length > 0) {
+							if (searchBy == SearchBy.NAME) {
+								searchProvider.searchBoxText = searchText;
+							}
+							searchProvider.performSearch(searchText);
+						} else {
+							// show roots (and children)
+							searchProvider.showRoots();
+						}
+						if (loadOntologyName) {
+							// set the ontology name on the graph's watermark label
+							searchProvider.loadOntologyName();
+						}
+						
+						// save this in our list of recent 
+					}
+				}
+			}
+			
+			public function nodeExists(id:String):Boolean {
+				return model.containsNodeByID(id);
+			}
+			
+			override public function selectNodeByID(id:String, append:Boolean = false, ensureVisible:Boolean = false):Boolean {
+				var sel:Boolean = false;
+				var node:IGraphNode = model.getNode(id);
+				if (node && node.visible) {
+					sel = super.selectNodeByID(id, append, ensureVisible);
+				} else {
+					// what do we want to do here?  Show the neighborhood?  Clear the graph?
+					searchProvider.performSearchByID(id, true, true, false, false);
+					sel = true;
+				}
+				return sel;
+			}
+			
+			public function focusOnNodeByID(id:String, show:SearchShowOption = null):void {
+				if (show == null) {
+					show = (searchProvider ? searchProvider.showOption : SearchShowOption.NEIGHBORHOOD);
+				}
+				if (searchProvider) {
+					searchProvider.showOption = show;
+					showComboBox.selectedItem = show;
+				}
+				
+				var node:IGraphNode = model.getNode(id);
+				if (node != null) {
+					selectedNode = node;
+					searchProvider.showNeighborsOfSelected(show, true);
+				} else if (searchProvider) {
+					// what do we want to do here?  Show the neighborhood?  Clear the graph?
+					searchProvider.performSearchByID(id, true, true, true, false);
+				} else {
+					trace("No ontology loaded");
+				}
+			}
+			
+			
+			//-----------------
+			// PRIVATE METHODS
+			//-----------------
+						
+			override public function get VERSION():String {
+				return NCBOVersion.VERSION_DATE;
+			}
+
+			override protected function createHelpPanel():HelpPanel {
+				return new NCBOHelpPanel();
+			}
+			
+			private function get propertiesPane1():PropertiesPane {
+				if (_propsPane1 == null) {
+					_propsPane1 = new PropertiesPane();
+				}
+				return _propsPane1;
+			}
+
+			private function get propertiesPane2():PropertiesPane {
+				if (_propsPane2 == null) {
+					_propsPane2 = new PropertiesPane();
+				}
+				return _propsPane2;
+			}
+
+			private function get propertiesPane3():PropertiesPane {
+				if (_propsPane3 == null) {
+					_propsPane3 = new PropertiesPane();
+				}
+				return _propsPane3;
+			}
+			
+			protected function loadParameters():void {
+				_debug = FlexVizParams.getBooleanParam(NCBOAppParams.DEBUG, NCBOAppParams.DEFAULT_DEBUG);
+				//searchProvider.userID = FlexVizParams.getParam(FlexVizParams.USERID);				
+				var title:String = FlexVizParams.getParam(NCBOAppParams.TITLE);
+				if (title) {
+					searchProvider.baseTitle = title;
+				}
+				emailURL = FlexVizParams.getParam(FlexVizParams.ADMIN_EMAIL, FlexVizParams.DEFAULT_ADMIN_EMAIL);
+				bugURL = FlexVizParams.getParam(FlexVizParams.BUG_URL, FlexVizParams.DEFAULT_BUG_URL);
+				isWidget = FlexVizParams.getBooleanParam(FlexVizParams.WIDGET, FlexVizParams.DEFAULT_WIDGET);
+				canChangeOntology = FlexVizParams.getBooleanParam(FlexVizParams.CAN_CHANGE_ONTOLOGY, FlexVizParams.DEFAULT_CAN_CHANGE_ONTOLOGY);
+				animateLayouts = FlexVizParams.getBooleanParam(FlexVizParams.ANIMATE, true);
+				
+				var linkToURL:String = FlexVizParams.getParam(FlexVizParams.LINK_TO_URL);
+				if (linkToURL) {
+					searchProvider.linkToURL = linkToURL;
+				}
+				
+				var redirectURL:String = FlexVizParams.getParam(NCBOAppParams.REDIRECT_URL);
+				if (redirectURL) {
+					NavigateToBioPortal.baseURL = redirectURL;
+				}
+			}
+			
+			override protected function addChildren():void {
+				loadParameters();
+				
+				// add the menubar first
+				var menubar:NCBOMenuBar = new NCBOMenuBar(canChangeOntology);
+				menubar.createMenus(this, searchProvider);
+				menubar.height = 22;
+				addChildAt(menubar, 0);
+				super.addChildren();
+				
+				// add extra UI components the to the searchbar
+				
+				searchBar.extraBox.addChild(searchModeComboBox);
+				searchBar.extraBox.addChild(UIUtils.createLabel("Search by:"));
+				searchBar.extraBox.addChild(searchByComboBox);
+				// only show in DEBUG mode
+				if (DEBUG) {
+					searchBar.extraBox.addChild(UIUtils.createLabel("Show:"));
+					searchBar.extraBox.addChild(showComboBox);
+				}
+			}
+			
+			/**
+			 * Calls the NCBOSearchProvider.performSearch function instead
+			 * of the default one.
+			 */
+			override public function performSearch(text:String):void {
+				var searchBy:SearchBy = SearchBy(searchByComboBox.selectedItem);
+				searchProvider.searchBy = searchBy;
+				
+				var matches:Array = new Array();
+				var msg:String = null;
+				var doSearch:Boolean = true;
+				// first try to find matching nodes already in the model
+				if (searchBy == SearchBy.ID) {
+					// there can only be one node with the given id, if found then stop searching 
+					if (model.containsNodeByID(text)) {
+						var node1:IGraphNode = model.getNode(text);
+						matches.push(node1);
+						doSearch = false;
+					}
+				} else {
+					matches = super.findMatchingNodes(text);
+					if (matches.length == 1) {
+						var node2:IGraphNode = IGraphNode(matches[0]);
+						var exact:Boolean = ((searchModeComboBox.selectedItem as SearchMode) == SearchMode.EXACT_MATCH);
+						if (exact) {
+							// we have found an exact match, so no point in searching
+							doSearch = false;
+						} else {
+							msg = "There is already a term in the graph with the name '" + node2.text + "'.\nDo you still want to perform the search?";
+						}
+					}
+				}
+				if (msg != null) {
+					var closeHandler:Function = function(event:CloseEvent):void {
+						if (event.detail == Alert.YES) {
+							searchProvider.performSearch(text);
+						} else {
+							matchingNodes = matches;
+							selectedNodes = matches;
+							centerOnNode(IGraphNode(matches[0]));
+							dispatchEvent(new GraphSearchResultsEvent(GraphSearchResultsEvent.SEARCH_RESULTS, matches));
+						}
+					};
+					Alert.show(msg, "Perform Search", Alert.YES | Alert.NO, this, closeHandler, null, Alert.YES);
+				} else if (doSearch) {
+					searchProvider.performSearch(text);
+				} else if (matches.length > 0) {
+					matchingNodes = matches;
+					selectedNodes = matches;
+					centerOnNode(IGraphNode(matches[0]));
+					dispatchEvent(new GraphSearchResultsEvent(GraphSearchResultsEvent.SEARCH_RESULTS, matches));
+				}
+				//return matches;
+			}
+			
+			private function get searchModeComboBox():ComboBox {
+				if (_searchModeComboBox == null) {
+					_searchModeComboBox = new ComboBox();
+					_searchModeComboBox.dataProvider = new Array(SearchMode.CONTAINS, SearchMode.EXACT_MATCH/*, 
+										SearchMode.STARTS_WITH, SearchMode.ENDS_WITH, SearchMode.SOUNDS_LIKE*/);
+					_searchModeComboBox.selectedIndex = 0;
+					_searchModeComboBox.addEventListener(Event.CHANGE, function(event:Event):void {
+						searchProvider.searchMode = SearchMode(_searchModeComboBox.selectedItem);
+					});			
+				}
+				return _searchModeComboBox;
+			}
+	
+			private function get searchByComboBox():ComboBox {
+				if (_searchByComboBox == null) {
+					_searchByComboBox = new ComboBox();
+					_searchByComboBox.dataProvider = new Array(SearchBy.ID, SearchBy.NAME);
+					_searchByComboBox.selectedIndex = 1;
+					_searchByComboBox.addEventListener(Event.CHANGE, function(event:Event):void {
+						searchProvider.searchBy = SearchBy(_searchByComboBox.selectedItem);
+						// also update the search mode combo enablement - only valid for search by name
+						searchModeComboBox.enabled = (searchProvider.searchBy == SearchBy.NAME);
+					});
+				}
+				return _searchByComboBox;
+			}
+			
+			private function get showComboBox():ComboBox {
+				if (_showComboBox == null) {
+					_showComboBox = new ComboBox();
+					_showComboBox.dataProvider = new Array(SearchShowOption.NEIGHBORHOOD, SearchShowOption.HIERARCHY_TO_ROOT);
+						//SearchShowOption.CHILDREN, SearchShowOption.PARENTS);	// I don't think these are useful
+					_showComboBox.selectedIndex = 0;
+					_showComboBox.addEventListener(Event.CHANGE, function(event:Event):void {
+						searchProvider.showOption = SearchShowOption(_showComboBox.selectedItem);
+					});
+				}
+				return _showComboBox;
+			}
+				
+			protected function keyDownListener(event:KeyboardEvent):void {
+				var char:String = String.fromCharCode(event.charCode).toUpperCase();
+				if (event.ctrlKey && event.shiftKey && (char == "D")) {
+					searchProvider.showDebugPanel();
+				}
+				// make sure the focus is on something in the graph
+				else if (event.target is FlexoVizComponent) {
+				// old way - make sure the focus isn't in a textbox 
+				//else if (!(event.target is IUITextField) && !(event.target is TextInput) && !(event.target is TextArea)) {
+					if (event.keyCode == Keyboard.DELETE) {	
+						searchProvider.removeSelected();
+					} else if (char == "N") {
+						searchProvider.showNeighborsOfSelected(SearchShowOption.NEIGHBORHOOD, !event.shiftKey);
+					} else if (char == "H") {
+						searchProvider.showNeighborsOfSelected(SearchShowOption.HIERARCHY_TO_ROOT, !event.shiftKey);
+					} else if ((char == "F") && event.ctrlKey) {
+						searchBar.searchBox.setFocus();
+					} else if (char ==  "P") {
+						searchProvider.showParentsOfSelected(!event.shiftKey);
+					} else if (char == "C") {
+						searchProvider.showChildrenOfSelected(!event.shiftKey);
+					}
+				}
+			}
+			
+			private function appCompleteHandler(event:FlexEvent):void {
+				Application.application.removeEventListener(FlexEvent.APPLICATION_COMPLETE, appCompleteHandler);
+				Application.application.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownListener);
+				// notify javascript that we are finished loading
+				callLater(function():void {
+					ExternalInterface.call("flexVizLoaded", swfID);
+				});
+			}
+		
+			private function created():void {
+				// we have to wait for the application to be completed before the stage is available
+				Application.application.addEventListener(FlexEvent.APPLICATION_COMPLETE, appCompleteHandler);
+				
+				// TODO it might be better to have one per ontology?!?
+				var sharedColors:NCBOColorProvider = new NCBOColorProvider();
+				this.arcRenderer = new NCBOArcRenderer(sharedColors, searchProvider.getRelationship);
+				this.nodeRenderer = new NCBONodeRenderer(sharedColors, searchProvider.getConcept, 
+														 searchProvider.childrenVisibleByID);
+								
+				// don't show the progress stop button for now
+				this.progressPanel.showStopButton = false;
+				this.progressPanel.showCloseButton = true;
+				
+				// add the extra buttons
+				this.topControlBar.addChild(UIUtils.createVRule(10, 20));
+				this.topControlBar.addChild(UIUtils.createIconTextButton("Show Roots", showRootsIcon, showRootsHandler, 
+							"Show the top level nodes and their children"));
+				//this.topControlBar.addChild(UIUtils.createIconTextButton("Focus On", focusIcon, focusOnHandler, 
+				//			"Show the local neighborhood of the selected node(s)"));
+				
+				// for showing node properties
+				this.addEventListener(SelectedNodesChangedEvent.SELECTED_NODES_CHANGED, selectedNodesChanged);
+			}
+			
+			private function debug(str:String = "", alert:Boolean = false):void {
+				if (DEBUG) {
+					trace(str);
+					if (alert) {
+						Alert.show(str, "DEBUG");
+					}
+				}
+			}
+			
+			private function showRootsHandler(event:MouseEvent):void {
+				if (searchProvider) {
+					debug("Show roots of " + searchProvider.ontologyID);
+					searchProvider.showRoots();
+				}
+			}
+		
+			private function focusOnHandler(event:MouseEvent):void {
+				if (searchProvider) {
+					debug("Focus On " + ArrayUtils.arrayToString(this.selectedNodes, ", ", 40));
+					searchProvider.showNeighborsOfSelected(SearchShowOption.NEIGHBORHOOD, true);
+				}
+			}
+			
+			override public function showPropertiesWindow(node:IGraphNode):void {
+				if (node) {
+					var concept:NCBOConcept = searchProvider.getConcept(node.id);
+					searchProvider.showConceptProperties(concept);
+				}
+			}
+			
+			override protected function createNodesLayerContextMenuItems(menu:ContextMenu):void {
+				super.createNodesLayerContextMenuItems(menu);
+				
+				// You can only have 15 custom menu items!!!
+					var linkToItem:ContextMenuItem = new ContextMenuItem("Link To This Term", false);
+				linkToItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showLinkToWindow(false);
+				});
+				menu.customItems.push(linkToItem);
+				
+				var hideChildrenItem:ContextMenuItem = new ContextMenuItem("Hide Children", true, false);
+				hideChildrenItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.removeChildrenOfSelected();
+				});
+				menu.customItems.push(hideChildrenItem);
+				var groupSubgraph:ContextMenuItem = new ContextMenuItem("Group Subgraph", false, true, false);
+				groupSubgraph.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.groupSubgraph(selectedNode, false, true);
+				});
+				menu.customItems.push(groupSubgraph);
+//				var selectSubgraph:ContextMenuItem = new ContextMenuItem("Select Subgraph", false, true, false);
+//				selectSubgraph.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+//					searchProvider.selectSubgraph(selectedNode);
+//				});
+//				menu.customItems.push(selectSubgraph);
+				
+				var focusOnNeighborhoodItem:ContextMenuItem = new ContextMenuItem("Focus On Neighborhood (N)", true, false);
+				focusOnNeighborhoodItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showNeighborsOfSelected(SearchShowOption.NEIGHBORHOOD, true);
+				});
+				menu.customItems.push(focusOnNeighborhoodItem);
+				var focusOnHierarchyItem:ContextMenuItem = new ContextMenuItem("Focus On Hierarchy To Root (H)", false, false);
+				focusOnHierarchyItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showNeighborsOfSelected(SearchShowOption.HIERARCHY_TO_ROOT, true);
+				});
+				menu.customItems.push(focusOnHierarchyItem);
+				
+				var showNeighborhoodItem:ContextMenuItem = new ContextMenuItem("Show Local Neighborhood (Shift+N)", false, false);
+				showNeighborhoodItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showNeighborsOfSelected(SearchShowOption.NEIGHBORHOOD);
+				});
+				menu.customItems.push(showNeighborhoodItem);
+				var showHierarchyToRootItem:ContextMenuItem = new ContextMenuItem("Show Hierarchy To Root (Shift+H)", false, false);
+				showHierarchyToRootItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showHierarchyToRootOfSelected();
+				});
+				menu.customItems.push(showHierarchyToRootItem);
+				
+				/* simplifying the context menu
+				var showParentsItem:ContextMenuItem = new ContextMenuItem("Show Parents", false, false);
+				showParentsItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showNeighborsOfSelected(SearchShowOption.PARENTS);
+				});
+				menu.customItems.push(showParentsItem);
+
+				var showChildrenItem:ContextMenuItem = new ContextMenuItem("Show Children", false, false);
+				showChildrenItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+					searchProvider.showNeighborsOfSelected(SearchShowOption.CHILDREN);
+				});
+				menu.customItems.push(showChildrenItem);
+				*/
+
+				// added by default now - instead we override the showPropertiesWindow function above
+//				var propertiesItem:ContextMenuItem = new ContextMenuItem("Properties", false);
+//				propertiesItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+//					searchProvider.showSelectedNodeProperties();
+//				});
+//				menu.customItems.push(propertiesItem);
+				
+				if (menu.customItems.length > 15) {
+					throw new Error("Too many context menu items!  15 is the max");
+				}
+				
+				// update the captions based on the selected items
+				menu.addEventListener(ContextMenuEvent.MENU_SELECT, function(event:ContextMenuEvent):void {
+					var selNodes:Array = selectedNodes;
+					var enabled:Boolean = (selNodes.length > 0);
+					var oneOnly:Boolean = (selNodes.length == 1);
+					var firstIsGroupNode:Boolean = enabled && (selNodes[0] is GroupedNode);
+					var childrenVisible:Boolean = oneOnly && searchProvider.someChildrenVisibleByID(selectedNode.id);
+					hideChildrenItem.enabled = (oneOnly && !childrenVisible ? false : enabled);
+					groupSubgraph.visible = childrenVisible;
+					//selectSubgraph.visible = childrenVisible;
+					// require at least one non-grouped node
+					var ok:Boolean = false;
+					for each (var node:IGraphNode in selNodes) {
+						if (!(node is GroupedNode)) {
+							ok = true;
+							break;
+						}
+					}
+					focusOnNeighborhoodItem.enabled = ok;
+					focusOnHierarchyItem.enabled = ok;
+					showNeighborhoodItem.enabled = ok;
+					//showParentsItem.enabled = ok;
+					//showChildrenItem.enabled = ok;
+					showHierarchyToRootItem.enabled = ok;
+					
+					// don't show links & properties for grouped nodes
+					linkToItem.enabled = oneOnly && !firstIsGroupNode;
+					//propertiesItem.enabled = oneOnly && !firstIsGroupNode;
+//					if (selNodes.length > 0) {
+//						var items:String = ArrayUtils.arrayToString(selectedNodes, ", ", 30);
+//						//hideItem.caption = "Hide " + items + " (Delete)";
+//						focusOnNeighborhoodItem.caption = "Focus On Neighborhood Of " + items + " (N)";
+//						focusOnHierarchyItem.caption = "Focus On Hierarchy To Root Of " + items + " (H)";
+//						showNeighborhoodItem.caption = "Show Neighborhood for " + items + " (Ctrl+N)";
+//						//showParentsItem.caption = "Show Parents for " + items;
+//						//showChildrenItem.caption = "Show Children for " + items;
+//						showHierarchyToRootItem.caption = "Show Hierarchy To Root for " + items + " (Ctrl+H)";
+//					}
+				});
+			}
+			
+			override protected function createArcsLayerContextMenuItems(menu:ContextMenu):void {
+				super.createArcsLayerContextMenuItems(menu);
+			}
+			
+			override protected function createCanvasContextMenuItems(menu:ContextMenu):void {
+				super.createCanvasContextMenuItems(menu);
+				
+				var emailItem:ContextMenuItem = new ContextMenuItem("Email feedback!", true);
+				emailItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, emailHandler);
+				menu.customItems.push(emailItem);
+				
+				menu.customItems.push(createLayoutContextMenuItem(VerticalTreeLayoutAlgorithm.NAME, true));
+				menu.customItems.push(createLayoutContextMenuItem(HorizontalTreeLayoutAlgorithm.NAME));
+				menu.customItems.push(createLayoutContextMenuItem(RadialLayoutAlgorithm.NAME));
+				menu.customItems.push(createLayoutContextMenuItem(GridLayoutAlgorithm.NAME_ALPHA));
+				menu.customItems.push(createLayoutContextMenuItem(CircleLayoutAlgorithm.NAME));
+				menu.customItems.push(createLayoutContextMenuItem(CircleLayoutCenterAlgorithm.NAME));
+				menu.customItems.push(createLayoutContextMenuItem(VerticalLayoutAlgorithm.NAME));
+				menu.customItems.push(createLayoutContextMenuItem(HorizontalLayoutAlgorithm.NAME));
+			}
+			
+			private function createLayoutContextMenuItem(layoutName:String, separatorBefore:Boolean = false):ContextMenuItem {
+				var layout:ILayoutAlgorithm = Layouts.getInstance().getLayout(layoutName);
+				var cmi:ContextMenuItem = new ContextMenuItem(layoutName, separatorBefore);
+				if (layout != null) {
+					cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+						runLayout(layout);
+					});
+				} else {
+					trace("Warning - couldn't find layout with name '" + layoutName + "'");
+					cmi.visible = false;
+				}
+				return cmi;
+			}
+
+			public function nodeDoubleClicked(event:GraphNodeEvent):void {
+				//saveNodesBeforeExpand(event.node);
+				searchProvider.toggleNeighborhood(event.node);
+			}
+			
+			private function selectedNodesChanged(event:SelectedNodesChangedEvent):void {
+				// show property panes for each selected node (up to 3 max)
+				if (rightResizePane.isOpen && showProperties) {
+					var count:uint = event.selectedNodes.length;
+					var node1:IGraphNode = null, node2:IGraphNode = null, node3:IGraphNode = null;
+					if (count == 1) {
+						node1 = (event.selectedNodes[0] as IGraphNode);
+					} else if (count == 2) {
+						node1 = (event.selectedNodes[0] as IGraphNode);
+						node2 = (event.selectedNodes[1] as IGraphNode);
+					} else if (count >= 3) {
+						node1 = (event.selectedNodes[count-3] as IGraphNode);
+						node2 = (event.selectedNodes[count-2] as IGraphNode);
+						node3 = (event.selectedNodes[count-1] as IGraphNode);
+					}
+					showNodeProperties(node1, propertiesPane1);
+					showNodeProperties(node2, propertiesPane2);
+					showNodeProperties(node3, propertiesPane3);
+				} else {
+					//trace("right resize pane is closed, not showing properties");
+				}
+			}
+			
+			private function showNodeProperties(node:IGraphNode, propertiesPane:PropertiesPane):void {
+				var concept:NCBOConcept = (node ? searchProvider.getConcept(node.id) : null);
+				propertiesPane.concept = concept;
+				if (node != null) {
+					if (propertiesPane.parent == null) {
+						rightResizePane.addChild(propertiesPane);
+					} else {
+						//trace("Already added" + propertiesPane.width + "x" + propertiesPane.height + ", " + propertiesPane.visible);
+					}
+				} else if ((node == null) && (propertiesPane.parent != null)) {
+					propertiesPane.parent.removeChild(propertiesPane);
+				}
+			}
+			
+//			private var savedNode:IGraphNode;
+//			private var savedNodesBeforeExpansion:Object;
+//			private var savedNodesCount:int = 0;
+//			
+//			private function saveNodesBeforeExpand(node:IGraphNode):void {
+//				savedNode = node;
+//				savedNodesBeforeExpansion = new Object();
+//				var nodes:Array = model.visibleNodes;
+//				savedNodesCount = nodes.length;
+//				nodes.forEach(function(node:IGraphNode, i:int, a:Array):void {
+//					savedNodesBeforeExpansion[node.id] = true;
+//				});
+//			}
+			
+			override protected function runLayoutAlgorithm(layoutToRun:ILayoutAlgorithm, nodes:Array, arcs:Array, 
+														   bounds:Rectangle):void {
+				//trace("Running " + layoutToRun.name);
+				var node:IGraphNode = searchProvider.nodeBeingExpanded;
+				if ((layoutToRun.name == SpringLayoutAlgorithm.NAME) && node) {
+					// position a box around the node
+					// determine this bounds for the fisheye based on the number of 
+					// nodes being added vs. the total number of nodes in the graph
+					var fisheyeWidth:Number = 300;
+					var fisheyeHeight:Number = 300; 
+					var total:int = model.visibleNodes.length;
+					if (total > 0) {
+						var concept:NCBOConcept = searchProvider.getConcept(node.id);
+						var subset:int = concept.childCount + 1;
+						var portion:Number = 0.3;
+						portion = subset / total;
+						//trace("New nodes are " + Math.round(portion * 100) + "% of the graph");
+						portion = Math.min(0.7, Math.max(0.2, portion));
+						fisheyeWidth = portion * canvas.width;
+						fisheyeHeight = portion * canvas.height;
+						//trace("Fisheye bounds: " + fisheyeWidth + "x" + fisheyeHeight);
+					}
+					
+					var dx:Number = (fisheyeWidth - node.width) / 2;
+					var dy:Number = (fisheyeHeight - node.height) / 2;
+					var smallBounds:Rectangle = new Rectangle(node.x - dx, node.y - dy, fisheyeWidth, fisheyeHeight);
+					
+					/*
+					var g:Graphics = canvas.graphics;
+					g.clear();
+					g.lineStyle(2, 0x808080, 1);
+					g.drawRect(smallBounds.x, smallBounds.y, smallBounds.width, smallBounds.height);
+					*/
+					
+					// apply a fisheye to the selected node
+					var fisheye:Fisheye = new Fisheye(false, 30);
+					fisheye.runFisheye(this, node, smallBounds.width, smallBounds.height);
+					runLayoutOnExpandedNode(node, smallBounds, layoutToRun, nodes, arcs, bounds);
+					//animateNodes(nodes);
+				} else {
+					super.runLayoutAlgorithm(layoutToRun, nodes, arcs, bounds);
+				}
+				// clear the node being expanded
+				searchProvider.clearBeingExpanded();
+			}
+			
+			private function runLayoutOnExpandedNode(node:IGraphNode, smallBounds:Rectangle, 
+					layoutToRun:ILayoutAlgorithm, nodes:Array, arcs:Array, bounds:Rectangle):void {
+				var addedNodes:Array = [ node ];
+				var addedArcs:Array = [];
+				for (var i:int = 0; i < node.arcsCount; i++) {
+					var arc:IGraphArc = node.arcs[i];
+					var otherNode:IGraphNode = (arc.destinationNode == node ? arc.sourceNode : arc.destinationNode);
+					if (searchProvider.isChildByID(otherNode.id, node.id)) {
+						addedNodes.push(otherNode);
+						addedArcs.push(arc);
+					}
+				}
+				if (addedNodes.length > 1) {
+					// run it the subset of the nodes
+					super.runLayoutAlgorithm(layoutToRun, addedNodes, addedArcs, smallBounds);
+				} else {
+					// run it on all nodes
+					super.runLayoutAlgorithm(layoutToRun, nodes, arcs, bounds);
+				}
+			}
+						
+			override public function groupNodes(nodes:Array, defaultName:String = null, 
+												groupedNodeType:String = "GroupedNode", 
+												animate:Boolean = true, location:Point = null):void {
+				super.groupNodes(nodes, defaultName, OntologyConstants.GROUPED_CONCEPTS, animate, location);
+			}
+						
+		]]>
+	</mx:Script>
+	
+</ExtendedFlexGraph>

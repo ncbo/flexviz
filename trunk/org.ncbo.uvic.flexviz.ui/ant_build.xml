@@ -1,0 +1,125 @@
+<project name="flexviz" default="zip_release" basedir=".">
+	<description>FlexViz Source Projects Build</description>
+	       
+	<!-- set global properties for this build -->
+	<property name="programName" value="flexviz"/>
+	<property name="version_" value="2.3.1"/>
+	<property name="zip_prefix" value="${programName}_${version_}"/>
+	<property name="buildDir" location="build"/>
+	<property name="distDir" location="releases"/>
+	<property name="binReleaseDir" location="bin-release"/>
+	
+	<target name="clean" description="clean up" >
+    	<!-- Delete the ${buildDir} directory trees -->
+    	<delete dir="${buildDir}"/>
+  	</target>
+
+	<target name="init" description="updates build properties">
+		<!-- Create the build directory -->
+		<mkdir dir="${buildDir}"/>
+		
+		<tstamp>
+			<format property="TODAY1" pattern="ddMMMyy" />
+		</tstamp>
+		
+	</target>
+	
+	<target name="zip_release" depends="init" description="Zips up the files in the bin-release directory">
+			<delete file="${distDir}/${zip_prefix}_${TODAY1}.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}.zip">
+			<zipfileset dir="${binReleaseDir}">
+				<include name="**/*"/>
+				<exclude name="test.html"/>
+			</zipfileset>
+		</zip>
+	</target>
+
+    <target name="build_src" depends="init" description="Copies all the source files into the build directory">
+
+    	<!-- Util Project -->
+    	<mkdir dir="${buildDir}/flex.utils"/>
+		<copy todir="${buildDir}/flex.utils">
+			<fileset dir="../flex.utils">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+			</fileset>
+		</copy>
+
+    	<!-- Util UI Project -->
+    	<mkdir dir="${buildDir}/flex.utils.ui"/>
+		<copy todir="${buildDir}/flex.utils.ui">
+			<fileset dir="../flex.utils.ui">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+			</fileset>
+		</copy>
+
+    	<!-- FlexViz Project -->
+    	<mkdir dir="${buildDir}/ca.uvic.cs.chisel.flexviz"/>
+		<copy todir="${buildDir}/ca.uvic.cs.chisel.flexviz">
+			<fileset dir="../ca.uvic.cs.chisel.flexviz">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+			</fileset>
+		</copy>
+    	
+    	<!-- FlexViz Test Project -->
+    	<!--
+    	<mkdir dir="${buildDir}/ca.uvic.cs.chisel.flexviz.test"/>
+		<copy todir="${buildDir}/ca.uvic.cs.chisel.flexviz.test">
+			<fileset dir="../ca.uvic.cs.chisel.flexviz.test">
+				<exclude name="bin-debug/**"/>
+				<exclude name="bin-release/**"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</copy>
+		-->
+
+    	<!-- OntologyTree Project -->
+    	<mkdir dir="${buildDir}/org.ncbo.uvic.ontologytree"/>
+		<copy todir="${buildDir}/org.ncbo.uvic.ontologytree">
+			<fileset dir="../org.ncbo.uvic.ontologytree">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</copy> 
+
+    	<!-- NCBO REST Services Project -->
+    	<mkdir dir="${buildDir}/org.ncbo.uvic.restservices"/>
+		<copy todir="${buildDir}/org.ncbo.uvic.restservices">
+			<fileset dir="../org.ncbo.uvic.restservices">
+				<exclude name="bin/**"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="xml/**"/>
+			</fileset>
+		</copy>
+
+    	<!-- NCBO FlexViz UI Project -->
+    	<mkdir dir="${buildDir}/org.ncbo.uvic.flexviz.ui"/>
+		<copy todir="${buildDir}/org.ncbo.uvic.flexviz.ui">
+			<fileset dir="../org.ncbo.uvic.flexviz.ui">
+				<exclude name="bin-debug/**"/>
+				<exclude name="bin-release/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="build/**"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</copy>
+    	
+	</target>
+
+	<target name="zip_src" depends="build_src" description="Zips up all the files inside the build directory">
+		<delete file="${distDir}/${zip_prefix}_${TODAY1}_src.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}_src.zip" basedir="${buildDir}" />
+	</target>
+	
+</project>

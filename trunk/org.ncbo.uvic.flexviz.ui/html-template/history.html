@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+	<title>BioPortal Ontology Visualization Version History</title>
+	<style type="text/css">
+	.title {
+		font-size: 12pt;
+		font-weight: bold;
+		color: 	#316AC5;
+	}
+	.list {
+		color: #000000;
+		font-weight: normal;
+		font-size: small;
+	}
+	.bold {
+		color: #336699;
+		font-weight: bold;
+		font-size: small;
+	}
+	hr.thick {
+		width:	100%;
+		height: 2px;
+		color: #7BA4E0;
+		background-color: #7BA4E0;
+	}
+	</style>
+	</head>
+<body>
+<br/>
+<table cellpadding="2" cellspacing="2" width="95%" align="center">
+<tr>
+	<td colspan="2" class="title"><h2>NCBO BioPortal Ontology Visualization Version History:</h2></td>
+</tr>
+<tr>
+	<td colspan="2"><hr class="thick"/><br/></td>
+</tr>
+
+<tr>
+	<td class="bold">Version:</td>
+	<td class="bold">2.3.5</td>
+</tr>
+<tr>
+	<td class="bold">Date:</td>
+	<td class="bold">November 9th, 2010</td>
+</tr>
+<tr>
+	<td class="bold" valign="top">Changes:&nbsp;&nbsp;</td>
+	<td class="list">
+	  <ul>
+	  	<!-- 2.3.4 and 2.3.5 Nov 2010
+	  	<li>Fixed "+" icon now showing up bug</li>
+	  	<li>Fixed Path Hierarchy bugy</li>
+	  	<li>Fixed arc direction bug</li>
+	  	 -->
+	  	<!-- 2.3.3 April 26th, 2010 -->
+	  	<li>When trying to load a deprecated version of an ontology, it now prompts the user if they want to load a different version.</li>
+	  	<li>Improved the error messages when the server can't load an ontology or concept</li>
+	  	<li>Fixed a problem where some arc arrows are pointed the wrong way</li>
+	  	<li>When showing multiple roots, the children aren't loaded anymore (takes too long). If there is only one root then the children are loaded.</li>
+	  	<li>Added a new layout - Circle Layout Center - which positions the selected nodes in the center of the circle</li>
+	  	<li>Added a stop button in the progress dialog that lets the user cancel the current operation</li>
+	  	<li>Added warning dialog when loading the hierarchy to root and more than 50 terms have been loaded so far</li>
+	  	<li>Improved the tree layouts by ignoring duplicate relationships between the same source and destination nodes</li>
+	  	<!-- 2.3.2 April 7th, 2010 -->
+	  	<li>Changes to the NCBO search service to handle specical characters like backslash</li>
+	  	<!-- 2.3.1 Feb 15th, 2010 -->
+	  	<!-- Changes to the rest service model items -->
+	  	<li>Added a recent ontologies sub-menu to the Ontologies menu</li>
+	  	<!-- 2.3.0 Feb 5th, 2010 -->
+	  	<li>Added two new layouts - the ForceDirectLayout and IndentedTreeLayout</li>
+	  	<li>Many minor fixes and improvements</li> 
+	  	<!-- 2.2.2 Dec 11th, 2009 -->
+	  	<li>Updated the rest services for the new BioPortal release (v2.2.2).  There are now three node types - Class, Individual, and Property.</li>
+	  	<li>Added new menu items to the Ontology menu for downloading the current ontology and for viewing a different version of the current ontology</li>
+	  	<li>Added autocompletion using the NCBO Search service in the Ontology Tree search box</li>
+	  	<li>Changed all occurrances of "Concept" to "Term"</li>
+	  	<li>When the ontology tree and the flexviz graph are linked the selection is now copied from the graph to the tree</li>
+	  	<!-- 2.2.0 Nov 23rd - changes to rest services, logging -->
+	  	<!-- 2.1.9 Nov 16th, 2009 -->
+	  	<li>Added support for setting the virtual="true" parameter so that the virtual ontology id can be used instead of the version id</li>
+	  	<!-- 2.1.8 Nov 3rd, 2009 -->
+	  	<li>Some changes to the graph and how node double click events are handled</li>
+	  	<li>Added expand/collapse double click support in the basicflexviz</li>
+	  	<li>Added more parameters for better configuration when used as a widget</li>
+	  	<li>Added a new functions to IExternalGraphInterface for more JavaScript support</li>
+	  	<!-- 2.1.7 Sept 25th, 2009 -->
+	  	<li>Some changes to the rest services and BioPortal urls</li>
+		<!-- 2.1.6 Sept 10th, 2009 -->
+		<li>Added ontology groups support to the OntologyChooser</li>
+		<li>Fixed arc rendering bug when lots of arcs were displayed (arcs wouldn't show up)</li>
+		<li>Improved the support for custom node and arc renderers and styles</li>
+		<!-- 2.1.5 August 17th, 2009 -->
+		<li>Fixed up the JavaScript API</li>
+		<li>Added export to XML/Image option (in main toolbar)</li>
+		<!-- 2.1.4 July 7th and 17th, 2009 -->
+		<li>Fixed a bug that happens when searching from the FlexViz tree</li>
+		<li>Changed some of the context menus on the graph</li>
+		<li>The Ontology Tree expansions and collapses are now linked with the graph</li>
+		<!-- 2.1.4 June 24th, 2009 -->
+		<li>Added a close button to the ontology tree as well as a hide/show menu item in the Ontology menu</li>
+		<li>Update to incorporate changes to the underlying graph component (grouped nodes, marquee node selection)</li>
+		<li>Improved filtering</li>
+		<!-- 2.1.3 June 12th, 2009 -->
+		<li>Minor fix to the ontology tree where a null pointer was happening on startup</li>
+		<li>Improved the "Link To This Concept" context menu item - now a popup window is shown with options for copying urls to FlexViz, BioPortal, or copying the iframe embed html code.</li>
+		<!-- 2.1.2 May 15th, 2009 -->
+		<li>Minor fixes to the ontology tree synchronization</li>
+		<li>The Spring layout when used on a node being expanded now runs a fisheye algorithm first to make space for the children</li>
+		<!-- 2.1.1 May 1st, 2009 -->
+		<li>Released with BioPortal 2.1</li>
+		<li>Added the ontology tree on the left of FlexViz</li>
+		<li>Added up to 3 properties panes in the right panel for showing the selected node properties</li>
+		<!-- 2.1.0 April 20th, 2009 -->
+		<li>Added a "Link To Concept" context menu item for bookmarking a concept</li>
+		<li>A minor fix in the rest services and error handling</li>
+		<!-- 2.0.9 April 6th, 2009 -->
+		<li>Added history navigation (back/forwards)</li>
+		<li>Removed some icons</li>
+		<li>Removed the root nodes (owl:Thing/THING)</li>
+		<li>Improved the search autocomplete box</li>
+		<li>Added the Spring layout algorithm</li>
+		<!-- 2.0.8 January 19th, 2009 -->
+		<li>Improved the "Fit to screen" and "Expand graph" actions</li>
+		<li>Fixed a bug where nodes and arcs are shown even when the node/arc type is filtered</li>
+		<li>Changed the Search bar to prompt the user whether he/she wants to continue searching even when a node has the exact
+			text that was entered in the search.  If the user chooses yes then a search call is made to the REST services.</li>
+		<!-- 2.0.7 January 7th, 2009 -->
+		<li>Fixed the xml parser to work with the latest REST services</li>
+		<li>Added an ontology category filter combobox to the Ontology Chooser window, and a label which shows the selected ontology</li>
+		<!-- 2.0.7 December 12th, 2008 -->
+		<li>Added three more application parameters: adminemail (the admin email address), bugurl (the bug tracking url), and title (browser title)</li>
+		<li>Added a "Properties" option to the nodes context menu which pops up a resizable window showing all the properties of the concept</li>
+		<!-- 2.0.6 November 17th, 2008 -->
+		<li>Added a warning dialog which gets displayed before a node is expanded IF it has more than 50 children</li>
+		<li>Fixed the ontology chooser dialog to only display local ontologies (remote ones can't be visualized)</li>
+		<!-- 2.0.5 October 2nd, 2008 -->
+		<li>Some minor performance improvements</li>
+		<li>Added a menu item under the Nodes menu which lets you choose which property to use for node labeling (e.g. Prefered_Name, rdfs:label, etc)</li>
+		<li>Added shortcut keys for showing/focussing on the neighborhood (N) and hierarchy to root (H) of the selected node</li>
+		<li>Changed the graph to now have a blue border when it is focussed</li>
+		<li>Changed the plus icon to be rendered below the node indicating the it has hidden children</li>
+		<li>Added a new search results panel for displaying multiple search results (instead of just showing the neighborhood for all)</li>
+		<li>Added "part of" to the list of inverted arc types</li>
+		<li>Also added an "invert" menu item arcs context menu in the full version, it changes the arrow head direction</li>
+		<!-- 2.0.4 September 10th, 2008 -->
+		<li>Fixed the tree and grid layouts to ensure that a minimum separation of 20 pixels exists between each node</li>
+		<li>Changed the graph to center on a focussed node <b>after</b> the layout animation has finished, it is smoother this way</li> 
+		<!-- 2.0.3 August 26st, 2008 -->
+		<li>Added a warning dialog when too many (>40 nodes) are going to be displayed on the screen, this warning can be turned off</li>
+		<li>Improved the node and arc tooltip configuration (under the Node and Arc menus)</li>
+		<li>Added support for passing in the <b>ontology</b> and <b>nodeid</b> parameters in the browser URL.
+			By default it looks at the application parameters first, then the browser url.</li> 
+		<li>Fixed some problems with the REST XML parser and adding relationships
+		<li>Added a double click handler on the BasicFlexoViz which opens the direct link to the clicked concept in the current window</li>
+		<li>Minor fixes to the vertical tree layout when there are multiple roots in the tree</li>
+		<li>Added scroll-to-node support so that a single node can be centered in the screen when the graph has scrollbars</li>
+		<li>Added all concept properties as a tooltip, including comments, definitions, synonyms, etc</li>
+	  </ul>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"><br/><hr class="thick"/><br/></td>
+</tr>
+<tr>
+	<td class="bold">Version:</td>
+	<td class="bold">2.0.0</td>
+</tr>
+<tr>
+	<td class="bold">Date:</td>
+	<td class="bold">August 8th, 2008</td>
+</tr>
+<tr>
+	<td class="bold" valign="top">Changes:</td>
+	<td class="list">
+	  <ul>
+		<!-- 2.0.0 - 2.0.2 July -August, 2008 -->
+		<li>Released with BioPortal 2.0</li>
+		<li>Added the 'Hide Orphans' action under the Arc Types panel - this action hides all unconnected nodes</li>
+		<li>Improved debugging support</li>
+		<li>Added some content to the help panel on the ontology navigation actions</li>
+		<li>Added the "Fit To Screen" and "Expand Graph" actions to the full FlexoViz toolbar</li>
+		<li>In the full version you can now choose which ontology to load from the Ontology menu</li>
+		<li>Added descriptions, comments, and synonyms to concept tooltips</li>
+	  </ul>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"><br/><hr class="thick"/><br/></td>
+</tr>
+</table>
+
+</body>
+</html>
