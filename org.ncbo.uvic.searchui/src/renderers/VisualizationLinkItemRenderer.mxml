@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory"
+	useHandCursor="true" buttonMode="true" click="linkClicked(event)" width="24" 
+	toolTip="Visualization" styleName="conceptResultLinkButton">
+
+	<mx:Script>
+	<![CDATA[
+		import events.ConceptLinkEvent;
+		import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+		
+		[Embed(source="/assets/viz.png")]
+		private static const ICON:Class;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (concept) {
+				var ok:Boolean = (concept.id != "");
+				toolTip = (ok ? "Open the visualization window for " + concept.name : "");
+				setStyle("icon", (ok ? ICON : null));
+				enabled = ok;
+				buttonMode = ok;
+				useHandCursor = ok;
+			}
+		}
+		
+		override public function set label(value:String):void {
+			//super.label = "visualize";
+		}
+	
+		private function linkClicked(event:MouseEvent):void {
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (owner != null) {
+				owner.dispatchEvent(new ConceptLinkEvent(ConceptLinkEvent.VISUALIZATION_LINK_CLICKED, concept, event));
+			}
+		}
+		
+		public function newInstance():*	{
+			var renderer:VisualizationLinkItemRenderer = new VisualizationLinkItemRenderer();
+			return renderer;
+		}
+		
+	]]>
+	</mx:Script>
+	
+</mx:LinkButton>

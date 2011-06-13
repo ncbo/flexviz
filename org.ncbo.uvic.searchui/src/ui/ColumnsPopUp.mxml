@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="130" height="190"
+	creationComplete="createCheckBoxes(event)" implements="mx.core.IUIComponent" 
+	verticalScrollPolicy="off" horizontalScrollPolicy="off">
+	
+	<mx:Script>
+		<![CDATA[
+			import flex.utils.ui.CheckBox;
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import mx.controls.PopUpButton;
+			import mx.events.FlexEvent;
+			import util.Shared;
+			
+			private var columns:Array;
+			
+			public function loadColumns(columns:Array):void {
+				Shared.loadResultColumns(columns);
+				this.columns = columns;
+				if (cbBox != null) {
+					createCheckBoxes();
+				}
+			}
+			
+			private function createCheckBoxes(event:FlexEvent = null):void {
+				if (cbBox.numChildren == 0) {
+					for each (var col:DataGridColumn in columns) {
+						var cb:CheckBox = createCheckBox(col);
+						cbBox.addChild(cb);
+					}
+				}
+			}
+			
+			private function createCheckBox(col:DataGridColumn):CheckBox {
+				var cb:CheckBox = new CheckBox();
+				cb.data = col;
+				cb.label = col.headerText;
+				cb.toolTip = "Click to toggle if the '" + cb.label + "' column is shown";
+				cb.selected = col.visible;
+				cb.addEventListener(Event.CHANGE, itemChanged);
+				return cb;
+			}
+			
+			private function hidePopup(event:MouseEvent):void {
+				if (owner) {
+					PopUpButton(owner).close();
+				}
+			}
+			
+			private function itemChanged(event:Event):void {
+				var cb:CheckBox = CheckBox(event.currentTarget);
+				var col:DataGridColumn = cb.data as DataGridColumn;
+				col.visible = cb.selected;
+				Shared.saveResultColumns(columns);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:VBox verticalGap="0" paddingTop="2" paddingRight="8" paddingLeft="8" paddingBottom="2" 
+		id="cbBox" height="100%">
+		<!--
+		<mx:CheckBox label="Term Name" selected="true" id="conceptNameCheckBox" change="itemChanged(event)"/>
+		<mx:CheckBox label="Term ID" selected="true" id="conceptIDCheckBox" change="itemChanged(event)"/>
+		<mx:CheckBox label="Ontology" selected="true" id="ontologyCheckBox" change="itemChanged(event)"/>
+		<mx:CheckBox label="Found In" selected="true" id="foundInCheckBox" change="itemChanged(event)"/>
+		<mx:CheckBox label="Details" selected="true" id="detailsCheckBox" change="itemChanged(event)"/>
+		<mx:CheckBox label="Visualize" selected="true" id="visualizeCheckBox" change="itemChanged(event)"/>
+		-->	
+	</mx:VBox>
+	<mx:HBox width="100%" horizontalAlign="center" styleName="barBox">
+		<mx:Button label="Close" id="closeButton" click="hidePopup(event)" height="18"/>
+	</mx:HBox>
+	
+</mx:VBox>

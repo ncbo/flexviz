@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:EscapeWindow
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ui="flex.utils.ui.*"
+	xmlns:resize="flex.utils.ui.resize.*" 
+	width="600" height="500" close="{ this.visible = false; }"
+	resizable="true" movable="true" showCloseButton="true">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.SystemManager;
+			import mx.events.ResizeEvent;
+			import mx.events.FlexEvent;
+			import mx.controls.Alert;
+			import mx.controls.SWFLoader;
+			import mx.core.Application;
+			
+			private var flexVizLoader:SWFLoader;
+			private var flexVizContent:DisplayObject;
+			private var flexVizApp:Application;
+			
+			private function resized(event:ResizeEvent):void {
+				flexVizHolder.width = flexVizCanvasHolder.width;
+				flexVizHolder.height = flexVizCanvasHolder.height;
+				if (flexVizApp) {
+					flexVizApp.width = flexVizHolder.width;
+					flexVizApp.height = flexVizHolder.height;					
+				}
+			}
+			
+			public function showConcept(conceptID:String, ontologyID:String, conceptName:String, 
+										ontologyName:String, server:String):void {
+				if (!visible) {
+					visible = true;
+				}
+				title = "Visualization of " + conceptName + " [" + ontologyName + "]";
+				if (flexVizApp == null) {
+					progress.visible = true;
+					var url:String = Application.application.loaderInfo.url;
+					var lastSlash:int = url.lastIndexOf("/");
+					url = url.substr(0, lastSlash + 1);
+					// FlexViz is located in a different directory? ../flexviz/ not working
+					var fullVersionURL:String = "http://keg.cs.uvic.ca/ncbo/flexviz/FlexoViz.html";
+					url = url + "BasicFlexoViz.swf?ontology=" + ontologyID + "&nodeid=" + conceptID + "&show=Neighborhood" + 
+							"&fullversionurl=" + fullVersionURL;
+					if (server != null) { 
+						url += "&server=" + server;
+					}
+					if (flexVizLoader != null) {
+						// Flex 3.2 only
+						flexVizLoader.unloadAndStop(true);
+						flexVizLoader = null;
+					}
+					if (flexVizContent != null) {
+						if (flexVizContent.parent == flexVizHolder) {
+							flexVizHolder.removeChild(flexVizContent);
+						}
+						flexVizContent = null;
+					}
+					flexVizLoader = new SWFLoader();
+					flexVizLoader.addEventListener(Event.COMPLETE, flexVizLoaded);
+					flexVizLoader.addEventListener(IOErrorEvent.IO_ERROR, errorLoadingSWF);
+					flexVizLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorLoadingSWF);
+					trace("Loading FlexViz: " + url);
+					flexVizLoader.load(url);
+				} else {
+					if (flexVizApp.hasOwnProperty("loadOntology") && (flexVizApp["loadOntology"] is Function)) {
+						try {
+							var loadOntology:Function = (flexVizApp["loadOntology"] as Function);
+							loadOntology(ontologyID, conceptID);
+						} catch (error:Error) {
+							Alert.show("Error communicating with FlexViz:\n" + error.message, "Error"); 
+						}
+					} else {
+						Alert.show("No loadOntology() function found on FlexViz application", "Error");
+					}
+				}
+			}
+			
+			private function errorLoadingSWF(event:Event):void {
+				Alert.show("Error loading FlexViz: " + event);
+				trace(event);
+				progress.visible = false;
+			}
+			
+			private function flexVizLoaded(event:Event):void {
+				flexVizLoader.removeEventListener(Event.COMPLETE, flexVizLoaded);
+				flexVizContent = flexVizLoader.content;
+				if (progress.visible) {
+					progress.visible = false;
+				}
+				flexVizHolder.addChild(flexVizContent);
+				
+				if (flexVizContent is SystemManager) {
+					var sysmgr:SystemManager = (flexVizContent as SystemManager);
+					sysmgr.addEventListener(FlexEvent.APPLICATION_COMPLETE, function(evt:FlexEvent):void {
+						flexVizApp = (sysmgr.application as Application);
+						flexVizApp.width = flexVizHolder.width;
+						flexVizApp.height = flexVizHolder.height;
+					});
+				}
+			}
+
+		]]>
+	</mx:Script>
+	
+	<mx:Canvas id="flexVizCanvasHolder" width="100%" height="100%" resize="resized(event)">
+		<mx:UIComponent id="flexVizHolder" width="100%" height="100%"/>
+		<mx:ProgressBar id="progress" width="200" height="20" 
+				indeterminate="true" indeterminateMoveInterval="30" themeColor="0x6699bb"
+				label="Loading FlexViz..." labelPlacement="center" visible="true" verticalCenter="0" horizontalCenter="0"/>
+	</mx:Canvas>
+	
+</ui:EscapeWindow>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:URLLinkButton xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory" xmlns:ui="flex.utils.ui.*"
+	textAlign="left" openInSameWindow="true">
+
+	<mx:Script>
+	<![CDATA[
+		import org.ncbo.uvic.flex.logging.LogService;
+		import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+		import events.ConceptLinkEvent;
+		import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			this.enabled = false;
+			url = null;
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (concept) {
+				label = concept.ontologyName;
+				toolTip = concept.ontologyName + " (click to view in BioPortal)";
+				if (concept.ontologyVersionID) {
+					this.enabled = true;
+					url = NavigateToBioPortal.getBioPortalOntologyMetaDataURL(concept.ontologyVersionID);
+				}
+			}
+		}
+		
+		override protected function openURL(windowName:String):Boolean {
+			var ok:Boolean = super.openURL(windowName);
+			if (ok) {
+				var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+				if (concept) {
+					LogService.logOntologyEvent(concept.ontology, NavigateToBioPortal.LOG_LINK);
+				}
+			}
+			return ok;
+		}
+	
+		public function newInstance():*	{
+			var renderer:ConceptLinkItemHighlightRenderer = new ConceptLinkItemHighlightRenderer();
+			return renderer;
+		}
+		
+	]]>
+	</mx:Script>
+	
+</ui:URLLinkButton>

@@ -1,0 +1,86 @@
+<project name="org.ncbo.uvic.searchui" default="zip_src" basedir=".">
+	<description>NCBO SearchUI Build</description>
+	       
+	<!-- set global properties for this build -->
+	<property name="programName" value="org.ncbo.uvic.searchui"/>
+	<property name="version_" value="1.2.1"/>
+	<property name="zip_prefix" value="${programName}_${version_}"/>
+	<property name="buildDir" location="build"/>
+	<property name="distDir" location="releases"/>
+	<property name="binDir" location="bin-release"/>
+	
+	<target name="clean" description="clean up" >
+    	<delete dir="${buildDir}"/>
+  	</target>
+
+	<target name="init" description="updates build properties">
+		<mkdir dir="${buildDir}"/>
+		<mkdir dir="${distDir}"/>
+		<tstamp>
+			<format property="TODAY1" pattern="ddMMMyy" />
+		</tstamp>
+	</target>
+	
+	<target name="zip_release" depends="init" description="Zips up the files in the bin directory">
+		<delete file="${distDir}/${zip_prefix}_${TODAY1}.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}.zip">
+			<zipfileset dir="${binDir}">
+				<include name="**/*"/>
+			</zipfileset>
+		</zip>
+	</target>
+
+    <target name="build_src" depends="clean,init" description="Copies all the source files into the build directory">
+    	<!-- SearchUI Project -->
+    	<mkdir dir="${buildDir}/${programName}"/>
+		<copy todir="${buildDir}/${programName}">
+			<fileset dir=".">
+				<exclude name="bin-debug/**"/>
+				<exclude name="bin-release/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="xml/**"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</copy>
+
+    	<!-- NCBO REST Services Project -->
+    	<mkdir dir="${buildDir}/org.ncbo.uvic.restservices"/>
+		<copy todir="${buildDir}/org.ncbo.uvic.restservices">
+			<fileset dir="../org.ncbo.uvic.restservices">
+				<exclude name="bin/**"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="xml/**"/>
+			</fileset>
+		</copy>
+
+    	<!-- Util Project -->
+    	<mkdir dir="${buildDir}/flex.utils"/>
+		<copy todir="${buildDir}/flex.utils">
+			<fileset dir="../flex.utils">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+			</fileset>
+		</copy>
+
+    	<!-- Util UI Project -->
+    	<mkdir dir="${buildDir}/flex.utils.ui"/>
+		<copy todir="${buildDir}/flex.utils.ui">
+			<fileset dir="../flex.utils.ui">
+				<exclude name="bin/**"/>
+				<exclude name="**/Thumbs.db"/>
+				<exclude name="build/**"/>
+				<exclude name="releases/**"/>
+			</fileset>
+		</copy>
+    	
+	</target>
+
+	<target name="zip_src" depends="build_src" description="Zips up all the files inside the build directory">
+		<delete file="${distDir}/${zip_prefix}_${TODAY1}_src.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}_src.zip" basedir="${buildDir}" />
+	</target>
+	
+</project>
