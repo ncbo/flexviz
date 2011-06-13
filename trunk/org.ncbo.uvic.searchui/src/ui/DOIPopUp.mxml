@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="300" implements="mx.core.IUIComponent" 
+	verticalScrollPolicy="off" horizontalScrollPolicy="off" xmlns:ui="flex.utils.ui.*">
+	
+	<mx:Metadata>
+		[Event(name="highlightingChanged", type="flash.events.Event")]
+		[Event(name="filteringChanged", type="flash.events.Event")]
+		[Event(name="sortingChanged", type="flash.events.Event")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import org.ncbo.uvic.flex.doi.DegreeOfInterestService;
+			import mx.controls.PopUpButton;
+			
+			public static const HIGHLIGHTING_CHANGED:String = "highlightingChanged";
+			public static const FILTERING_CHANGED:String = "filteringChanged";
+			public static const SORTING_CHANGED:String = "sortingChanged";
+			
+			[Embed(source="assets/filter.gif")]
+			private const filterIcon:Class;
+			[Embed(source="assets/highlight.gif")]
+			private const highlightIcon:Class;
+			[Embed(source="assets/sort.gif")]
+			private const sortIcon:Class;
+			
+			private var _source:String;
+			
+			/** The DOI source. */
+			public function get source():String {
+				return _source;
+			}
+			
+			public function set source(value:String):void {
+				_source = value;
+			}
+			
+			public function get isHighlighting():Boolean {
+				return (highlightCheckBox ? highlightCheckBox.selected : false);
+			}
+			
+			public function get isFiltering():Boolean {
+				return (filterCheckBox ? filterCheckBox.selected : false);
+			}
+						
+			public function get isSorting():Boolean {
+				return (sortCheckBox ? sortCheckBox.selected : false);
+			}
+			
+			private function hidePopup(event:MouseEvent):void {
+				if (owner) {
+					PopUpButton(owner).close();
+				}
+			}
+			
+			private function changeHandler(event:Event):void {
+				var on:Boolean = (event.currentTarget as ImageCheckBox).selected;
+				if (event.currentTarget == highlightCheckBox) {
+					DegreeOfInterestService.setHighlighting(source, on);
+					dispatchEvent(new Event(HIGHLIGHTING_CHANGED));
+				} else if (event.currentTarget == filterCheckBox) {
+					DegreeOfInterestService.setFiltering(source, on);
+					dispatchEvent(new Event(FILTERING_CHANGED));
+				} else if (event.currentTarget == sortCheckBox) {
+					DegreeOfInterestService.setSorting(source, on);
+					dispatchEvent(new Event(SORTING_CHANGED));
+				}
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:VBox verticalGap="0" paddingTop="2" paddingRight="8" paddingLeft="8" paddingBottom="2" height="100%">
+		<ui:ImageCheckBox id="highlightCheckBox" imageSource="{highlightIcon}" 
+			label="Apply Degree Of Interest Highlighting" change="changeHandler(event)"/>
+		<ui:ImageCheckBox id="filterCheckBox" imageSource="{filterIcon}" 
+			label="Apply Degree Of Interest Filtering" change="changeHandler(event)"/>
+		<ui:ImageCheckBox id="sortCheckBox" imageSource="{sortIcon}" 
+			label="Sort Results By Degree Of Interest" change="changeHandler(event)"/>
+	</mx:VBox>
+	<mx:HBox width="100%" horizontalAlign="center" styleName="barBox">
+		<mx:Button label="Close" id="closeButton" click="hidePopup(event)" height="18"/>
+	</mx:HBox>
+	
+</mx:VBox>

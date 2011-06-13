@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<success>
+  <accessedResource>/bioportal/rest/search/cell</accessedResource>
+  <accessDate>2008-12-03 13:53:11.575 PST</accessDate>
+  <data>
+    <page>
+      <pageNum>1</pageNum>
+      <numPages>150</numPages>
+      <pageSize>5</pageSize>
+      <numResultsPage>5</numResultsPage>
+      <numResultsTotal>747</numResultsTotal>
+      <contents class="org.ncbo.stanford.bean.search.SearchResultListBean">
+        <searchResultList>
+          <searchBean>
+            <ontologyVersionId>29684</ontologyVersionId>
+            <ontologyId>1089</ontologyId>
+            <ontologyDisplayLabel>BIRNLex</ontologyDisplayLabel>
+            <recordType>RECORD_TYPE_PREFERRED_NAME</recordType>
+            <conceptId>http://bioontology.org/projects/ontologies/birnlex#birnlex_12</conceptId>
+            <conceptIdShort>birnlex_12</conceptIdShort>
+            <preferredName>Cell</preferredName>
+            <contents>Cell</contents>
+          </searchBean>
+          <searchBean>
+            <ontologyVersionId>38763</ontologyVersionId>
+            <ontologyId>1048</ontologyId>
+            <ontologyDisplayLabel>C. elegans gross anatomy</ontologyDisplayLabel>
+            <recordType>RECORD_TYPE_PREFERRED_NAME</recordType>
+            <conceptId>WBbt:0006676</conceptId>
+            <conceptIdShort>WBbt:0006676</conceptIdShort>
+            <preferredName>Cell</preferredName>
+            <contents>Cell</contents>
+          </searchBean>
+          <searchBean>
+            <ontologyVersionId>38763</ontologyVersionId>
+            <ontologyId>1048</ontologyId>
+            <ontologyDisplayLabel>C. elegans gross anatomy</ontologyDisplayLabel>
+            <recordType>RECORD_TYPE_PREFERRED_NAME</recordType>
+            <conceptId>WBbt:0004017</conceptId>
+            <conceptIdShort>WBbt:0004017</conceptIdShort>
+            <preferredName>Cell</preferredName>
+            <contents>Cell</contents>
+          </searchBean>
+          <searchBean>
+            <ontologyVersionId>4513</ontologyVersionId>
+            <ontologyId>1053</ontologyId>
+            <ontologyDisplayLabel>FMA</ontologyDisplayLabel>
+            <recordType>RECORD_TYPE_PREFERRED_NAME</recordType>
+            <conceptId>http://bioontology.org/projects/ontologies/fma/fma20OwlDlComponent#Cell</conceptId>
+            <conceptIdShort>Cell</conceptIdShort>
+            <preferredName>Cell</preferredName>
+            <contents>Cell</contents>
+          </searchBean>
+          <searchBean>
+            <ontologyVersionId>13578</ontologyVersionId>
+            <ontologyId>1032</ontologyId>
+            <ontologyDisplayLabel>NCI Thesaurus</ontologyDisplayLabel>
+            <recordType>RECORD_TYPE_PREFERRED_NAME</recordType>
+            <conceptId>http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Cell</conceptId>
+            <conceptIdShort>Cell</conceptIdShort>
+            <preferredName>Cell</preferredName>
+            <contents>Cell</contents>
+          </searchBean>
+        </searchResultList>
+        <ontologyHitList>
+          <ontologyHitBean>
+            <ontologyVersionId>38857</ontologyVersionId>
+            <ontologyId>1070</ontologyId>
+            <ontologyDisplayLabel>Biological process</ontologyDisplayLabel>
+            <numHits>52</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>29684</ontologyVersionId>
+            <ontologyId>1089</ontologyId>
+            <ontologyDisplayLabel>BIRNLex</ontologyDisplayLabel>
+            <numHits>8</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38763</ontologyVersionId>
+            <ontologyId>1048</ontologyId>
+            <ontologyDisplayLabel>C. elegans gross anatomy</ontologyDisplayLabel>
+            <numHits>10</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38827</ontologyVersionId>
+            <ontologyId>1067</ontologyId>
+            <ontologyDisplayLabel>C. elegans phenotype</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38550</ontologyVersionId>
+            <ontologyId>1072</ontologyId>
+            <ontologyDisplayLabel>Cell Cycle Ontology (A. thaliana)</ontologyDisplayLabel>
+            <numHits>17</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38675</ontologyVersionId>
+            <ontologyId>1006</ontologyId>
+            <ontologyDisplayLabel>Cell type</ontologyDisplayLabel>
+            <numHits>61</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>37416</ontologyVersionId>
+            <ontologyId>1001</ontologyId>
+            <ontologyDisplayLabel>Cereal plant gross anatomy</ontologyDisplayLabel>
+            <numHits>5</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>13305</ontologyVersionId>
+            <ontologyId>1063</ontologyId>
+            <ontologyDisplayLabel>Common Anatomy Reference Ontology</ontologyDisplayLabel>
+            <numHits>3</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>36622</ontologyVersionId>
+            <ontologyId>1008</ontologyId>
+            <ontologyDisplayLabel>Dictyostelium discoideum anatomy</ontologyDisplayLabel>
+            <numHits>2</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>37575</ontologyVersionId>
+            <ontologyId>1015</ontologyId>
+            <ontologyDisplayLabel>Drosophila gross anatomy</ontologyDisplayLabel>
+            <numHits>13</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38782</ontologyVersionId>
+            <ontologyId>1069</ontologyId>
+            <ontologyDisplayLabel>Environment Ontology</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>15751</ontologyVersionId>
+            <ontologyId>1011</ontologyId>
+            <ontologyDisplayLabel>Event (INOH pathway ontology)</ontologyDisplayLabel>
+            <numHits>14</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38879</ontologyVersionId>
+            <ontologyId>1130</ontologyId>
+            <ontologyDisplayLabel>Experiment Factor Ontology</ontologyDisplayLabel>
+            <numHits>6</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>35710</ontologyVersionId>
+            <ontologyId>1017</ontologyId>
+            <ontologyDisplayLabel>FlyBase Controlled Vocabulary</ontologyDisplayLabel>
+            <numHits>2</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>4513</ontologyVersionId>
+            <ontologyId>1053</ontologyId>
+            <ontologyDisplayLabel>FMA</ontologyDisplayLabel>
+            <numHits>138</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38291</ontologyVersionId>
+            <ontologyId>1082</ontologyId>
+            <ontologyDisplayLabel>Gene Regulation Ontology (GRO)</ontologyDisplayLabel>
+            <numHits>10</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38859</ontologyVersionId>
+            <ontologyId>1009</ontologyId>
+            <ontologyDisplayLabel>Human disease</ontologyDisplayLabel>
+            <numHits>3</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>3294</ontologyVersionId>
+            <ontologyId>1050</ontologyId>
+            <ontologyDisplayLabel>Maize gross anatomy</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38800</ontologyVersionId>
+            <ontologyId>1025</ontologyId>
+            <ontologyDisplayLabel>Mammalian phenotype</ontologyDisplayLabel>
+            <numHits>2</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>15764</ontologyVersionId>
+            <ontologyId>1029</ontologyId>
+            <ontologyDisplayLabel>Molecule role (INOH Protein name/family name ontology)</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38483</ontologyVersionId>
+            <ontologyId>1030</ontologyId>
+            <ontologyDisplayLabel>Mosquito gross anatomy</ontologyDisplayLabel>
+            <numHits>20</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>3134</ontologyVersionId>
+            <ontologyId>1031</ontologyId>
+            <ontologyDisplayLabel>Mouse pathology</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>13578</ontologyVersionId>
+            <ontologyId>1032</ontologyId>
+            <ontologyDisplayLabel>NCI Thesaurus</ontologyDisplayLabel>
+            <numHits>232</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>28096</ontologyVersionId>
+            <ontologyId>1084</ontologyId>
+            <ontologyDisplayLabel>NIFSTD</ontologyDisplayLabel>
+            <numHits>70</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38642</ontologyVersionId>
+            <ontologyId>1123</ontologyId>
+            <ontologyDisplayLabel>Ontology for Biomedical Investigations</ontologyDisplayLabel>
+            <numHits>9</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>22824</ontologyVersionId>
+            <ontologyId>1035</ontologyId>
+            <ontologyDisplayLabel>Pathway ontology</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>14174</ontologyVersionId>
+            <ontologyId>1059</ontologyId>
+            <ontologyDisplayLabel>Problem-Oriented Medical Record Ontology</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>24814</ontologyVersionId>
+            <ontologyId>1040</ontologyId>
+            <ontologyDisplayLabel>Protein-protein interaction</ontologyDisplayLabel>
+            <numHits>2</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38611</ontologyVersionId>
+            <ontologyId>1122</ontologyId>
+            <ontologyDisplayLabel>Skin Physiology Ontology</ontologyDisplayLabel>
+            <numHits>2</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>13209</ontologyVersionId>
+            <ontologyId>1061</ontologyId>
+            <ontologyDisplayLabel>SO-Pharm</ontologyDisplayLabel>
+            <numHits>4</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>14391</ontologyVersionId>
+            <ontologyId>1068</ontologyId>
+            <ontologyDisplayLabel>Subcellular Anatomy Ontology (SAO)</ontologyDisplayLabel>
+            <numHits>1</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38846</ontologyVersionId>
+            <ontologyId>1110</ontologyId>
+            <ontologyDisplayLabel>Teleost anatomy and development</ontologyDisplayLabel>
+            <numHits>22</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38366</ontologyVersionId>
+            <ontologyId>1065</ontologyId>
+            <ontologyDisplayLabel>Tick gross anatomy</ontologyDisplayLabel>
+            <numHits>3</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38570</ontologyVersionId>
+            <ontologyId>1095</ontologyId>
+            <ontologyDisplayLabel>Xenopus anatomy and development</ontologyDisplayLabel>
+            <numHits>4</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38587</ontologyVersionId>
+            <ontologyId>1115</ontologyId>
+            <ontologyDisplayLabel>Yeast phenotypes</ontologyDisplayLabel>
+            <numHits>3</numHits>
+          </ontologyHitBean>
+          <ontologyHitBean>
+            <ontologyVersionId>38828</ontologyVersionId>
+            <ontologyId>1051</ontologyId>
+            <ontologyDisplayLabel>Zebrafish anatomy and development</ontologyDisplayLabel>
+            <numHits>22</numHits>
+          </ontologyHitBean>
+        </ontologyHitList>
+      </contents>
+    </page>
+  </data>
+</success>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" 
+	horizontalScrollPolicy="off" verticalScrollPolicy="off" color="0x0" 
+	verticalGap="0" paddingLeft="2" paddingTop="1" paddingRight="2" paddingBottom="1"
+	resize="resized()" creationComplete="created()">
+	
+  	<mx:Script>
+    <![CDATA[
+    	import mx.formatters.DateFormatter;
+    	import org.ncbo.uvic.flex.search.SearchParams;
+    	
+    	private static const RIGHT:int = 70;
+    
+	    override public function set data(value:Object):void {
+	    	super.data = value;
+	    	if (value is SearchParams) {
+	    		var params:SearchParams = SearchParams(value);
+		    	searchLabel.text = params.searchText;
+		    	searchLabel.toolTip = searchLabel.text;
+		    	if (params.results > 0) {
+	    			hitsLabel.text = params.results + " hit" + (params.results != 1 ? "s" : "");
+	    		} else {
+	    			hitsLabel.text = "";
+	    		}
+		    	if (params.ontologyNames.length > 0) {
+		    		ontologiesLabel.text = params.ontologyNames;
+		    	} else {
+		    		ontologiesLabel.text = "All";
+		    	}
+		    	ontologiesLabel.toolTip = ontologiesLabel.text;
+		    	dateLabel.text = formatter.format(params.date);
+	    	}
+	    }
+	    
+	    private function resized():void {
+	    	if (width > RIGHT) {
+		    	//searchLabel.maxWidth = width - RIGHT;
+		    	ontologiesLabel.maxWidth = width - RIGHT;
+		    	//dateLabel.maxWidth = searchLabel.maxWidth;
+		    	topBox.width = width;
+		    	bottomBox.width = width;
+		    }
+	    }
+	    
+	    private function created():void {
+	    	if (width > RIGHT) {
+		    	//searchLabel.maxWidth = width - RIGHT;
+		    	ontologiesLabel.maxWidth = width - RIGHT;
+		    	//dateLabel.maxWidth = searchLabel.maxWidth;
+		    	topBox.width = width;
+		    	bottomBox.width = width;
+		    }
+	    }
+    
+    ]]>
+	</mx:Script>
+	
+	<mx:DateFormatter id="formatter" formatString="L:NN A, MMM D, 'YY" />
+	
+	<mx:HBox id="topBox" verticalAlign="middle" horizontalGap="2"
+		horizontalScrollPolicy="off">
+		<mx:Label text="Text:" width="{RIGHT}"/>
+		<mx:Label id="searchLabel" truncateToFit="true" fontWeight="bold" fontSize="12"/>
+		<mx:Spacer width="100%" height="10"/>
+		<mx:Label id="hitsLabel" textAlign="right" paddingRight="10"/>
+		<mx:Label id="dateLabel" truncateToFit="true"/>
+		<mx:Spacer width="2" height="10"/>
+	</mx:HBox>
+	<mx:HBox id="bottomBox" verticalAlign="middle" horizontalGap="2"
+		horizontalScrollPolicy="off">
+		<mx:Label text="Ontologies:" width="{RIGHT}"/>
+		<mx:Label id="ontologiesLabel" truncateToFit="true" fontSize="11"/>
+	</mx:HBox>
+	
+</mx:VBox>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:flexUI="flex.utils.ui.*"
+	width="100%" height="100%" verticalGap="0" styleName="whitebg" 
+	paddingLeft="2" paddingTop="2" paddingRight="2" paddingBottom="2"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off" 
+	resize="topOntologiesBoxResized(event)" creationComplete="created(event)" xmlns:ui="ui.*">
+	
+	<mx:Metadata>
+		[Event(name="itemsChanged", type="flex.utils.ui.events.ItemsChangedEvent")]
+		[Event(name="ontologiesLoaded", type="flash.events.Event")]
+		[Event(name="serviceChanged", type="flash.events.Event")]
+		[Event(name="showCategoriesChanged", type="flash.events.Event")]
+		[Event(name="showGroupsChanged", type="flash.events.Event")]
+		[Event(name="showFilterBoxChanged", type="flash.events.Event")]
+		[Event(name="showDOIChanged", type="flash.events.Event")]
+	</mx:Metadata>
+	
+	<mx:Script source="OntologyFilterBoxFunctions.as"/>
+	
+	<mx:Form id="filterForm" width="100%" horizontalGap="1" verticalGap="2" indicatorGap="4"  
+			horizontalScrollPolicy="off" verticalScrollPolicy="off" 
+			paddingBottom="2" paddingLeft="0" paddingRight="0" paddingTop="0">
+		<flexUI:FormItemVerticalAlign id="categoriesFormItem" horizontalGap="2" label="Categories" 
+			toolTip="Select a category to filter the ontologies list below" verticalAlign="middle"
+			horizontalScrollPolicy="off" verticalScrollPolicy="off" width="100%">
+			<mx:ComboBox id="categoriesCombo" height="22" width="100%" rowCount="12" editable="false" 
+				enabled="{categories.length > 1}" dataProvider="{categories}" 
+				change="categoryChanged(event)" fontSize="10"/>
+		</flexUI:FormItemVerticalAlign>
+		<flexUI:FormItemVerticalAlign id="groupsFormItem" horizontalGap="2" label="Groups" 
+			toolTip="Select a group to filter the ontologies list below" verticalAlign="middle"
+			horizontalScrollPolicy="off" verticalScrollPolicy="off" width="100%">
+			<mx:ComboBox id="groupsCombo" height="22" width="100%" rowCount="12" editable="false" 
+				enabled="{groups.length > 1}" dataProvider="{groups}"
+				change="groupChanged(event)" fontSize="10" dropdownWidth="375"/>
+		</flexUI:FormItemVerticalAlign>
+		<flexUI:FormItemVerticalAlign id="filterFormItem" horizontalGap="2" label="Filter" 
+			verticalAlign="middle" toolTip="Type in text to filter the ontologies list below" 
+			horizontalScrollPolicy="off" verticalScrollPolicy="off" width="100%">
+			<flexUI:FilterBox width="100%" id="filterBox" filterFields="{['nameAndAbbreviation', 'id']}" 
+				enabled="{ontologiesList.enabled}" horizontalScrollPolicy="off"/>
+		</flexUI:FormItemVerticalAlign>
+	</mx:Form>
+	<mx:HBox verticalAlign="middle" width="100%" styleName="barBox">
+		<mx:Label text=" Ontologies:" fontWeight="bold"/>
+		<mx:Spacer width="100%" height="16"/>
+		<mx:HBox width="40%" horizontalAlign="center" horizontalGap="2">
+			<mx:LinkButton id="selectAllLink" click="selectAllOntologies(event)" label="Select All" styleName="link" 
+				enabled="{ontologiesList.enabled}" toolTip="Selects all the ontologies in the list below"/>
+			<mx:LinkButton id="selectNoneLink" click="selectNoOntologies(event)" label="Select None" styleName="link" 
+				enabled="{ontologiesList.enabled}" toolTip="Selects none of the ontologies in the list below"/>
+		</mx:HBox>
+		<mx:Spacer width="100%" height="16"/>
+		<ui:DOIPopUpButton id="ontologiesDOIPopUpButton" label="" width="50" height="23" openAlways="true" 
+			enabled="false" visible="{showDOI}" toolTip="Degree Of Interest Options"/>
+		<mx:Button id="hideFilterFormButton" toggle="true" selected="false" width="23"
+			toolTip="{hideFilterFormButton.selected ? 'Show filter fields' : 'Hide filter fields'}"
+			click="toggleFilterFields(event)" icon="{hideFilterFormButton.selected ? ICON_DOWN : ICON_UP}"/>
+	</mx:HBox>
+	
+	<flexUI:ButtonBox id="ontologiesList" height="100%" width="100%" 
+		enabled="{ontologies.source.length > 1}" horizontalScrollPolicy="off"
+		dataProvider="{ontologies}" dataField="nameAndAbbreviation" 
+		itemsChanged="ontologySelected(event)" 
+		verticalScrollBarStyleName="{ontologiesBoxVerticalScrollBarStyleName}"/>
+	
+</mx:VBox>

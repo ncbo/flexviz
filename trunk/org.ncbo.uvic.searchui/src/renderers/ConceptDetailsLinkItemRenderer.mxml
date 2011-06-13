@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory"
+	useHandCursor="true" buttonMode="true" click="linkClicked(event)" styleName="conceptResultLinkButton">
+
+	<mx:Script>
+	<![CDATA[
+		import events.ConceptLinkEvent;
+		import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+		
+		[Embed(source="/assets/view_details.png")]
+		private static const ICON:Class;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (concept) {
+				var ok:Boolean = (concept.id != "");
+				toolTip = (ok ? "Open the details window for " + concept.name : "");
+				setStyle("icon", (ok ? ICON : null));
+				enabled = ok;
+				buttonMode = ok;
+				useHandCursor = ok;
+			}
+		}
+		
+		override public function set label(value:String):void {
+			//super.label = "details";
+		}
+	
+		private function linkClicked(event:MouseEvent):void {
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (owner != null) {
+				owner.dispatchEvent(new ConceptLinkEvent(ConceptLinkEvent.DETAILS_LINK_CLICKED, concept, event));
+			}
+		}
+		
+		public function newInstance():*	{
+			var renderer:ConceptDetailsLinkItemRenderer = new ConceptDetailsLinkItemRenderer();
+			return renderer;
+		}
+		
+	]]>
+	</mx:Script>
+	
+</mx:LinkButton>
