@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>org.ncbo.uvic.ontologytree</name>
+	<comment></comment>
+	<projects>
+		<project>flex.utils</project>
+		<project>flex.utils.ui</project>
+		<project>org.ncbo.uvic.restservices</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.flexbuilder.project.flexlibnature</nature>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+	</natures>
+</projectDescription>
