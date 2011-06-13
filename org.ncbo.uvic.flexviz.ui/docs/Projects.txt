@@ -1,0 +1,76 @@
+NCBO FlexViz Projects
+---------------------
+
+1. flex.utils
+    - A utility project: contains useful classes for working with Arrays, Strings, Dates, etc
+      The Utils class is especially useful for working with parameters that are passed into FlexViz by way of the 
+      URL or the FlashVars.  It handles the various parameters types Boolean, String, int, etc.
+
+2. flex.utils.ui
+	- Another utility project which contains useful UI components and classes.
+	  There are many custom renderers, components and other useful classes.
+
+3. ca.uvic.cs.chisel.flexviz
+    - The generic graph library project - it knows nothing of ontologies, only of graphs: nodes, arcs, and layouts.
+      The main classes in this project are the FlexGraph component (basic canvas) and the ExtendedFlexGraph (canvas plus
+      toolbar, searchbar, and right hand pane which contains the node/arc filter panels).  It supports back/forwards navigation,
+      filtering (by node/arc type, and hiding orphans or unconnected nodes), zooming, searching (only on nodes in the graph).
+      The graph contains a model (IGraphModel/DefaultGraphModel) object which stores all the graph data elements.
+      Each data element is then mapped to a visual UIComponent that is of the type specified by the nodeRenderer and arcRenderer
+      properties (defaults to DefaultNodeRenderer/DefaultArcRenderer).  The data and visual components are kept in sync (position, size, visibility etc).
+      The data elements are of type IGraphNode/DefaultGraphNode and IGraphArc/DefaultGraphArc.
+      It uses the ca.uvic.cs.chisel.flexviz.layouts library project (usually compiled into an SWC in the libs folder)
+      to run the layouts.  The IGraphNode and IGraphArc interfaces extend the ILayoutEntity and ILayoutRelationship
+      interfaces used by the layouts project.  
+
+4. org.ncbo.uvic.flexviz.ui
+    - This is the Flex Application project - it contains two applications: a basic and a full version.  
+      The BasicFlexoViz.mxml application contains the BasicFlexoVizComponent, which extends FlexGraph (from the flexviz project above).
+      The FlexoViz.mxml application contains the OntologyTree and the FlexoVizComponent which extends the ExtendedFlexGraph class.
+      The OntologyTree is actually a org.ncbo.uvic.flex.ui.FlexVizOntologyTree, which extends the OntologyTree class.
+    - The most important class in this project is the org.ncbo.uvic.flex.search.NCBOSearchProvider.  It has all the common
+      functionality shared between the basic and full versions.  It builds the graphs from the concepts returned from the
+      rest services, and handles user interactions like double clicking on a node.
+
+5. org.ncbo.uvic.ontologytree
+    - This is the ontology tree library project.  It uses the rest services to populate a tree for a given ontology.
+      It can also show a dropdown menu of the other ontologies to let the user change ontologies.
+      And there is also a search box ("jump to") at the top.
+      The tree can optionally be made to show a subset of the ontology by specifying a root concept.
+      The OntologyDataDescriptor is the class responsible for loading the ontology concepts and caching them.
+      A custom tree itemRenderer is used (OntologyTreeItemRenderer) which shows nice icons for OBO and OWL ontologies.
+      Each node in the tree has a data object associated with it that is of type TreeNode.  Because concepts can have multiple
+      parents, the TreeNode class is just a wrapper for the NCBOConcept class but only has one parent, whichever parent
+      the node belongs to in the tree.
+      The tree is populated using a special path to root rest service call that returns only one single path to root,
+      this greatly speeds up the LoadHierarchyToRootOperation which loads ALL paths to root.
+
+6. org.ncbo.uvic.ontologytree.test
+	- This is the Flex application project that shows a single ontologytree, and handles the input parameters.
+	  It is the OntologyTree widget.  It has many different parameters for specifying the initial ontology,
+	  the root concept, whether the ontology can be changed, etc. 
+
+7. org.ncbo.uvic.restservices
+    - This is a stand-alone library project that makes calls to the NCBO Rest Services to get the following information:
+        - Get a list of all the ontologies (NCBOOntology objects)
+        - Get the details about one ontology
+        - Get all the versions for one ontology 
+        - Get all the ontology categories and groups (NCBOCategory/NCBOGroup)
+        - Get the root concepts for an ontology
+        - Get the details about one concept for a given id and ontology (NCBOConcept)
+        - Search across all ontologies or on a specific set of ontologies (NCBOSearchResultConcept/NCBOSearchResultOntology)
+        
+8. org.ncbo.uvic.searchui
+	- This project is the Search UI, it depends on the restservices project.
+	  It lets the user enter in search parameters, choose ontologies to limit the search and displays the results.
+	  There is also a list of the most used search terms (which are retrieved from our database on the keg server)
+	  and the most recently searched terms (for all users).
+	  Whenever a user performs a successful search, the search parameters and # of results are saved in the user's local
+	  SharedObject which allows the user to re-run the search at a later time (using the drop down button next to the search box).
+	- It uses BasicFlexoViz file to show the graph neighbourhood or path to root, 
+	  but the project doesn't depend on FlexViz. Instead it loads the BasicFlexoViz.swf file at run time.   
+	
+	
+* There are a few separate unit test projects for the above projects, these end with the name ".test".
+
+  

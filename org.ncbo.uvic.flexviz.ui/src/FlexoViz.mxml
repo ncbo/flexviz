@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:dockareafx="ca.uvic.cs.chisel.dockareafx.*"
+	xmlns:ontologytree="org.ncbo.uvic.ontologytree.*" 
+	xmlns:ui="org.ncbo.uvic.flex.ui.*"
+	layout="horizontal" backgroundColor="0xffffff" horizontalGap="0"
+	paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0"
+	xmlns:local="*" pageTitle="NCBO BioPortal Ontology Visualization"
+	creationComplete="created(event)" preloader="preloader.NCBOPreloader"
+	implements="IExternalGraphInterface">
+	
+<!--
+FlexoViz Parameters:
+
+	// the ID (version or virtual) of the ontology to load.
+	ontology = ""
+
+	// set to true to use a virtual ontology ID, set to false (default) to use the version id
+	virtual = false
+	
+	// debug messages will be displayed (true or false)
+	debug = false
+	
+	// the base server url (defaults to "http://rest.bioontology.org/bioportal/")
+	server = null 
+	
+	// the id of the node to display, if blank and searchText is blank, 
+	// then the root nodes are displayed and their children
+	nodeid = ""
+	
+	// the search text - doesn't work if the nodeid parameter is set
+	searchtext = ""
+	
+	// the search mode - allowed values are "Contains", "Starts With", "Ends With", "Exact Match", Sounds Like"
+	searchmode = "Contains"
+	
+	// what to show: "Neighborhood", "Parents", "Children", "Hierarchy To Root"
+	show = "Neighborhood"
+	
+	// what to search on - "Name" or "ID"
+	searchby = "ID"
+
+	// the currently logged on user
+	userid = null
+	
+	// if true then the top toolbar is collapsed on startup
+	hidetoolbar = "true"
+
+	// if true then the bottom searchbar is collapsed on startup
+	hidesearchbar = "true"
+
+	// if true then the right filters panel is collapsed on startup
+	hidefilterpanel = "true"
+
+	// if arc labels should be shown (true|false)
+	showarclabels = true
+	
+	// if arc labels are shown, then whether or not they should be rotated (true|false)
+	rotatearclabels = true
+	
+	// the email address for FlexViz
+	adminemail = "support@bioontology.org"
+	
+	// the bug tracker url for FlexViz
+	bugurl = "https://bmir-gforge.stanford.edu/gf/project/flexviz/tracker/"
+	
+	// the browser title
+	title = "BioPortal Ontology Visualization"
+	
+	// allow the user to view different ontologies
+	// if set the false, then the ontology parameter above must be specified!
+	canchangeontology = true
+	
+	// widget parameter - if true then the ontology can't be changed
+	widget = false
+	
+	// logging parameter - if true then flexviz usage is logged
+	log = false
+			
+	// if false then arcs aren't highlighted on mouseover
+	highlightarcs = true
+	
+	// if false then no tooltips are shown over nodes
+	nodetooltips = true
+	
+	// if false the no tooltips are shown over arcs
+	arctooltips = true
+	
+	// if false then no animation is performed during a layout
+	animate = true
+
+	// the optional URL used to link directly to a concept/term
+	linktourl = null
+	
+-->
+	
+	<mx:Script>
+		<![CDATA[
+			import org.ncbo.uvic.flex.NCBOAppParams;
+			import ca.uvic.cs.chisel.flexviz.events.GraphNodeEvent;
+			import ca.uvic.cs.chisel.flexviz.model.IGraphNode;
+			import mx.utils.StringUtil;
+			import mx.events.FlexEvent;
+			import org.ncbo.uvic.flex.events.OntologyTreeVisibilityChanged;
+			import mx.controls.Alert;
+			import flex.utils.ArrayUtils;
+			import flex.utils.Utils;
+			import ca.uvic.cs.chisel.dockareafx.VerticalResizeBarControl;
+			import org.ncbo.uvic.flex.FlexVizParams;
+			import org.ncbo.uvic.flex.logging.LogService;
+			import org.ncbo.uvic.flex.search.SearchMode;
+			import org.ncbo.uvic.flex.search.SearchShowOption;
+			import org.ncbo.uvic.flex.search.SearchBy;
+
+			
+			private function created(event:FlexEvent):void {
+				// When FlexViz is loaded by another SWF then parameters can be passed in through
+				// the loading SWF URL (e.g. FlexoViz.swf?ontology=12345
+				// the Utils class can't get at these parameters, so the only way to do this 
+				// is to add the parameters directory from this application
+				if (application.loaderInfo != null) {
+					FlexVizParams.addParams(parameters);
+				}
+				
+				var log:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG);
+				LogService.initialize(log, "flexviz");
+
+				// link the flexoviz view and the ontology tree
+				ontologyTree.init(flexoviz);
+				if (!flexoviz.canChangeOntology) {
+					ontologyTree.hideOpenButton();
+				}
+				
+				// add CTRL-T support
+				Utils.addOpenNewTabListener();
+				
+				var title:String = FlexVizParams.getParam(NCBOAppParams.TITLE);
+				if (title) {
+					Utils.changeBrowserTitle(title);
+				}
+
+				// set the server url
+				var serverURL:String = FlexVizParams.getParam(NCBOAppParams.SERVER);
+				if (serverURL) {
+					flexoviz.searchProvider.baseServerURL = serverURL;
+				}
+				
+				// first check if the basic flexoviz saved anything to the cache
+				var loadedFromCache:Boolean = flexoviz.loadSharedGraph();
+				// if this failed, then load from the flashvars parameters
+				if (!loadedFromCache) {
+					flexoviz.showArcLabels = FlexVizParams.getBooleanParam(FlexVizParams.SHOW_ARC_LABELS, FlexVizParams.DEFAULT_SHOW_ARC_LABELS);
+					flexoviz.rotateArcLabels = FlexVizParams.getBooleanParam(FlexVizParams.ROTATE_ARC_LABELS, FlexVizParams.DEFAULT_ROTATE_ARC_LABELS);
+					
+					var isVirtual:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.ONTOLOGY_VIRTUAL, NCBOAppParams.DEFAULT_ONTOLOGY_VIRTUAL);
+					var ontologyID:String = FlexVizParams.getParam(NCBOAppParams.ONTOLOGY, NCBOAppParams.DEFAULT_ONTOLOGY);
+					var canChangeOntology:Boolean = flexoviz.canChangeOntology;
+					if ((ontologyID == null) || (ontologyID.length == 0)) {
+						if (canChangeOntology) {
+							flexoviz.searchProvider.chooseOntology();
+						} else {
+							flexoviz.error(new Error("An ontology must be specified as a parameter"));
+						}
+					} else {
+						loadOntologyAndSettings(ontologyID, null, isVirtual);
+					}
+				}
+				
+				addExternalSupport();
+				Utils.callJSFunction("focusApp");
+			}
+			
+			private function addExternalSupport():void {
+				Utils.addJSCallback("loadOntology", loadOntology);
+				Utils.addJSCallback("selectNodeByID", selectNodeByID);
+				Utils.addJSCallback("searchByID", searchByID);
+				Utils.addJSCallback("searchByName", searchByName);
+				Utils.addJSCallback("getSelectedNodeID", getSelectedNodeID);
+				Utils.addJSCallback("getSelectedNodeName", getSelectedNodeName);
+				Utils.addJSCallback("getSelectedNodeIDs", getSelectedNodeIDs);
+				Utils.addJSCallback("getSelectedNodeNames", getSelectedNodeNames);
+				Utils.addJSCallback("setHeaderText", setHeaderText);
+				Utils.addJSCallback("setFooterText", setFooterText);
+				Utils.addJSCallback("addNodeMouseOutListener", addNodeMouseOutListener);
+				Utils.addJSCallback("addNodeMouseOverListener", addNodeMouseOverListener);
+				Utils.addJSCallback("clear", clear);
+			}
+			
+			private function debug(str:String = "", alert:Boolean = false):void {
+				if (flexoviz.DEBUG) {
+					trace(str);
+					if (alert) {
+						Alert.show(str, "DEBUG");
+					}
+				}
+			}
+
+			public function get swfID():String {
+				return flexoviz.swfID;
+			}
+
+			public function hideOntologyTree():void {
+				if (leftResizeArea.isOpen) {
+					leftResizeArea.isOpen = false;
+					flexoviz.dispatchEvent(new OntologyTreeVisibilityChanged(false));
+				}
+			} 
+			
+			public function showOntologyTree():void {
+				if (!leftResizeArea.isOpen) {
+					leftResizeArea.isOpen = true;
+					flexoviz.dispatchEvent(new OntologyTreeVisibilityChanged(true));
+				}
+			}
+			
+			public function get ontologyTreeShowing():Boolean {
+				return leftResizeArea.isOpen;
+			}
+			
+			private function loadOntologyAndSettings(ontologyID:String, nodeID:String = null, isVirtual:Boolean = false):void {
+				var searchNodeID:String = FlexVizParams.getParam(NCBOAppParams.NODE_ID, NCBOAppParams.DEFAULT_NODE_ID);
+				var searchText:String = FlexVizParams.getParam(NCBOAppParams.SEARCH, NCBOAppParams.DEFAULT_SEARCH);
+				var searchMode:SearchMode = SearchMode.parse(FlexVizParams.getParam(FlexVizParams.SEARCH_MODE, FlexVizParams.DEFAULT_SEARCH_MODE));
+				var showOption:SearchShowOption = SearchShowOption.parse(FlexVizParams.getParam(FlexVizParams.SHOW));
+				var searchBy:SearchBy = SearchBy.parse(FlexVizParams.getParam(FlexVizParams.SEARCH_BY, FlexVizParams.DEFAULT_SEARCH_BY));  
+				
+				// special case - search on node id, exact match.
+				if (searchNodeID.length > 0) {
+					searchBy = SearchBy.ID;
+					//searchMode = SearchMode.EXACT_MATCH;	// not necessary
+					searchText = searchNodeID;
+				} else if ((nodeID != null) && (nodeID.length > 0)) {
+					searchBy = SearchBy.ID;
+					searchText = nodeID;
+				}
+				
+				flexoviz.loadOntology(ontologyID, searchBy, searchMode, searchText, showOption, isVirtual);
+			}
+			
+			////////////////////////////////////////
+			// IExternalGraphInterface functions
+			////////////////////////////////////////
+			
+			public function clear():void {
+				loadOntology(null);
+			}
+			
+			public function loadOntology(ontologyID:String, nodeID:String = null, 
+									     isVirtual:Boolean = false, showOption:String = null):void {
+				var searchText:String = "";
+				var searchBy:SearchBy = flexoviz.searchProvider.searchBy;  
+				if ((nodeID != null) && (nodeID.length > 0)) {
+					searchBy = SearchBy.ID;
+					searchText = nodeID;
+				}
+				var option:SearchShowOption = SearchShowOption.parse(showOption);
+				flexoviz.loadOntology(ontologyID, searchBy, null, searchText, option, isVirtual);
+			}
+		
+			/**
+			 * Selects a node with the given id.
+			 * If the node doesn't exist in the graph then nothing happens.
+			 * @param id the id of the node to select
+			 * @param append if true then the node will be appended to the current selection
+			 */
+			public function selectNodeByID(id:String, append:Boolean = false):void {
+				flexoviz.selectNodeByID(id, append);
+			}
+			
+			/**
+			 * Searches for the node with the given id, and displays the appropriate graph.
+			 * @param id the id of the node
+			 * @param option the focus option - neighborhood, hierarchy to root, parents, children
+			 */
+			public function searchByID(id:String, option:String = null):void {
+				if ((id != null) && (StringUtil.trim(id).length > 0)) {
+					if (option != null) {
+						flexoviz.searchProvider.showOption = SearchShowOption.parse(option);
+					}
+					flexoviz.searchProvider.performSearchByID(id);
+				}				
+			}
+			
+			/**
+			 * Searches for the given concept/term by name, and shows the neighborhood or hierarchy to root.
+			 * @param name the concept/term name to search for
+			 */ 
+			public function searchByName(name:String, option:String = null):void {
+				if ((name != null) && (StringUtil.trim(name).length > 0)) {
+					if (option != null) {
+						flexoviz.searchProvider.showOption = SearchShowOption.parse(option);
+					}
+					flexoviz.searchProvider.performSearchByName(name, SearchMode.CONTAINS);
+				}
+			}
+			
+			/** Returns the id of the selected node or null. */
+			public function getSelectedNodeID():String {
+				return (flexoviz.selectedNode ? flexoviz.selectedNode.id : null);
+			}
+			
+			/** Returns the name of the selected node. */
+			public function getSelectedNodeName():String {
+				return (flexoviz.selectedNode ? flexoviz.selectedNode.text : null);				
+			}
+			
+			/** Returns the ids of the selected nodes. */
+			public function getSelectedNodeIDs():Array {
+				var ids:Array = [];
+				for each (var node:IGraphNode in flexoviz.selectedNodes) {
+					ids.push(node.id);
+				}
+				return  ids;
+			}
+			
+			/** Returns the names of the selected nodes in an array. */
+			public function getSelectedNodeNames():Array {
+				var names:Array = [];
+				for each (var node:IGraphNode in flexoviz.selectedNodes) {
+					names.push(node.text);
+				}
+				return  names;				
+			}
+			
+			/**
+			 * Adds an item to the nodes layer context menu.  When the menu item is selected
+			 * the JavaScript function is called with two parameters - the node id and name.
+			 * @param menuItemID the id for the menu item
+  			 * @param label the label for the context menu item
+			 * @param jsCallbackFunctionName the name of the JavaScript function to called when the
+			 * 	context menu is selected.
+			 */ 
+			public function addNodeContextMenuItem(menuItemID:String, label:String, jsCallbackFunctionName:String, 
+												   separatorBefore:Boolean = false):void {
+				if (label && jsCallbackFunctionName) {
+					var menu:ContextMenu = flexoviz.nodesLayerContextMenu;
+					if (menu.customItems.length < 15) {
+						var menuItem:ContextMenuItem = new ContextMenuItem(label, separatorBefore);
+						menuItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(event:ContextMenuEvent):void {
+							var node:IGraphNode = flexoviz.selectedNode;
+							ExternalInterface.call(jsCallbackFunctionName, node.id, node.text, menuItemID, swfID);
+						});
+						menu.customItems.push(menuItem);
+					} else {
+						Alert.show("Warning - too many context menu items were added (max is 15).");
+					}
+				}
+			}
+			
+			public function addNodeMouseOverListener(jsFunctionName:String):void {
+				flexoviz.addEventListener(GraphNodeEvent.NODE_MOUSE_OVER, function(event:GraphNodeEvent):void {
+					var node:IGraphNode = event.node;
+					if (node) {
+						Utils.callJSFunction(jsFunctionName, node.id, node.text, 
+								flexoviz.searchProvider.ontologyID, mouseX, mouseY, swfID);
+					} 
+				});
+			}
+			
+			public function addNodeMouseOutListener(jsFunctionName:String):void {
+				flexoviz.addEventListener(GraphNodeEvent.NODE_MOUSE_OUT, function(event:GraphNodeEvent):void {
+					var node:IGraphNode = event.node;
+					if (node) {
+						Utils.callJSFunction(jsFunctionName, node.id, node.text, 
+								flexoviz.searchProvider.ontologyID, mouseX, mouseY, swfID);
+					} 
+				});
+			}
+			
+			public function setHeaderText(text:String):void {
+				flexoviz.headerLabelText = text;
+			}
+						
+			public function setFooterText(text:String):void {
+				flexoviz.footerLabelText = text;
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Style source="assets/style.css"/>
+	
+	<dockareafx:ResizeDockAreaFX2 id="leftResizeArea" width="250" height="100%" dropEnabled="false"
+		showResizeBar="true" resizeEnabled="true" resizeBarPlacement="right" showBorder="false" 
+		resizeBarThickness="7" paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0"
+		backgroundAlpha="0" resizeBarRenderer="{ new VerticalResizeBarControl() }">
+		<ui:FlexoVizOntologyTree id="ontologyTree" width="100%" height="100%" 
+			treeStyleName="ontologyTree" busyStyleName="ontologyTreeBusy" 
+			topBarStyleName="ontologyTreeTopBar" ontologyLinkStyleName="ontologyLabel"/>
+	</dockareafx:ResizeDockAreaFX2>
+	<local:FlexoVizComponent id="flexoviz" width="100%" height="100%" />
+		
+</mx:Application>
