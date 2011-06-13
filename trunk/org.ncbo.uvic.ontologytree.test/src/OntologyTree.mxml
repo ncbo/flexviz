@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ontologytree="org.ncbo.uvic.ontologytree.*"
+	xmlns:ui="flex.utils.ui.*" width="300"
+	layout="absolute" backgroundColor="#ffffff" pageTitle="BioPortal Ontology Tree" 
+	creationComplete="created(event)" applicationComplete="appComplete(event)"
+	historyManagementEnabled="false" preloader="preloader.NCBOSmallPreloader">
+
+	<mx:Script>
+		<![CDATA[
+			import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+			import org.ncbo.uvic.flex.NCBOAppParams;
+			import org.ncbo.uvic.ontologytree.events.TreeRootChangedEvent;
+			import mx.events.TreeEvent;
+			import org.ncbo.uvic.flex.logging.LogService;
+			import org.ncbo.uvic.flex.model.NCBOOntology;
+			import org.ncbo.uvic.flex.model.NCBOConcept;
+			import org.ncbo.uvic.flex.events.NCBOConceptsEvent;
+			import org.ncbo.uvic.flex.ui.OntologyList;
+			import mx.events.DropdownEvent;
+			import org.ncbo.uvic.flex.events.NCBOOntologiesEvent;
+			import mx.controls.List;
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.events.IndexChangedEvent;
+			import mx.events.ListEvent;
+			import org.ncbo.uvic.ontologytree.TreeNode;
+			import mx.controls.Alert;
+			import org.ncbo.uvic.flex.events.NCBOOntologyEvent;
+			import mx.utils.StringUtil;
+			import flex.utils.Utils;
+			import org.ncbo.uvic.flex.NCBORestService;
+			import org.ncbo.uvic.flex.IRestService;
+
+			private static const EMAIL:String = "flexviztree@uvic.ca";
+			private static const PARAM_ALERT_ERRORS:String = "alerterrors";
+			private static const PARAM_CAN_CHANGE_ONTOLOGY:String = "canchangeontology";
+			private static const PARAM_CAN_CHANGE_ROOT:String = "canchangeroot"; 
+			private static const PARAM_ROOT_CONCEPT_ID:String = "rootconceptid";
+			private static const PARAM_NO_TOP_BAR:String = "notopbar";
+			private static const PARAM_NO_SEARCH_BAR:String = "nosearchbar";
+
+			private var service:IRestService;
+			private var alertErrors:Boolean = false;
+			private var canChangeOntology:Boolean = true;
+			
+			[Bindable]
+			private var ontologiesPopUp:OntologyList = new OntologyList();
+
+			
+			private function created(event:FlexEvent):void {
+				var server:String = Utils.getParam(NCBOAppParams.SERVER, null, parameters, true);
+				service = new NCBORestService(NCBORestService.APP_ID_FLEXVIZ, server, null, EMAIL);
+				tree.service = service;
+				
+				var redirectURL:String = Utils.getParam(NCBOAppParams.REDIRECT_URL, null, parameters, true);
+				if (redirectURL) {
+					NavigateToBioPortal.baseURL = redirectURL;
+				}
+				
+				alertErrors = Utils.getBooleanParam(PARAM_ALERT_ERRORS, false, parameters, true);
+				canChangeOntology = Utils.getBooleanParam(PARAM_CAN_CHANGE_ONTOLOGY, true, parameters, true);
+				if (!canChangeOntology) {
+					tree.hideOpenButton();
+				}
+				
+				var canChangeRoot:Boolean = Utils.getBooleanParam(PARAM_CAN_CHANGE_ROOT, true, parameters, true);
+				if (!canChangeRoot) {
+					tree.canChangeRoot = canChangeRoot;
+				}
+				
+				var title:String = Utils.getParam(NCBOAppParams.TITLE, null, parameters, true);
+				if (title) {
+					Utils.changeBrowserTitle(title);
+				}
+				
+				if (Utils.getBooleanParam(PARAM_NO_TOP_BAR, false, parameters, true)) {
+					tree.hideTopBar();
+				}
+				if (Utils.getBooleanParam(PARAM_NO_SEARCH_BAR, false, parameters, true)) {
+					tree.hideSearchBar();
+				}
+				// check if an initial node was set in the parameters, this is the node to select 
+				var nodeID:String = StringUtil.trim(Utils.getParam(NCBOAppParams.NODE_ID, "", parameters, true));
+				// check if a root concept id is defined
+				var rootConceptID:String = StringUtil.trim(Utils.getParam(PARAM_ROOT_CONCEPT_ID, "", parameters, true));
+				// load ontology from parameters - first try the virtual ontology id parameter
+				var ontologyID:String = StringUtil.trim(Utils.getParam(NCBOAppParams.ONTOLOGY, NCBOAppParams.DEFAULT_ONTOLOGY, parameters, true)); 
+				var isVirtual:Boolean = Utils.getBooleanParam(NCBOAppParams.ONTOLOGY_VIRTUAL, NCBOAppParams.DEFAULT_ONTOLOGY_VIRTUAL, parameters, true);
+				loadOntology(ontologyID, rootConceptID, isVirtual, nodeID);
+				addExternalSupport();
+				
+				var log:Boolean = Utils.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG, parameters, true);
+				LogService.initialize(log, "ontologytree");
+			}
+			
+			private function addExternalSupport():void {
+				ExternalInterface.addCallback("loadOntology", loadOntology);
+				ExternalInterface.addCallback("getOntologyID", getOntologyVersionID);
+				ExternalInterface.addCallback("getOntologyVersionID", getOntologyVersionID);
+				ExternalInterface.addCallback("getOntologyVirtualID", getOntologyVirtualID);
+				ExternalInterface.addCallback("getOntologyName", getOntologyName);
+				ExternalInterface.addCallback("getSelectedConceptID", getSelectedConceptID);
+				ExternalInterface.addCallback("getSelectedConceptFullID", getSelectedConceptFullID);
+				ExternalInterface.addCallback("getSelectedConceptName", getSelectedConceptName);
+				ExternalInterface.addCallback("loadConceptByID", loadConceptByID);
+				ExternalInterface.addCallback("loadConceptByName", loadConceptByName);
+			}
+			
+			private function appComplete(event:FlexEvent):void {
+				callLater(function():void {
+					ExternalInterface.call("appComplete", application.id);
+				});
+			}
+			
+			public function loadOntology(ontologyID:String, rootConceptID:String = "", 
+								isVirtual:Boolean = false, nodeIDToSelect:String = ""):void {
+				if ((tree.ontology == null) || canChangeOntology) {
+					// clear the current ontology
+					tree.ontology = null;
+					if ((ontologyID != null) && (ontologyID.length > 0)) {
+						var callback:Function = function(event:NCBOOntologyEvent):void {
+							ontologyLoaded(event, rootConceptID, nodeIDToSelect);
+						};
+						if (isVirtual) {
+							service.getOntologyByVirtualID(ontologyID, callback, alertErrors);
+						} else {
+							service.getNCBOOntology(ontologyID, callback, true, alertErrors);
+						}
+					}
+				}
+			}
+			
+			public function getOntologyVersionID():String {
+				return (tree.ontology ? tree.ontology.id : null);
+			}
+			
+			public function getOntologyVirtualID():String {
+				return (tree.ontology ? tree.ontology.ontologyID : null);
+			}
+			
+			public function getOntologyName():String {
+				return (tree.ontology ? tree.ontology.name : null);
+			}
+			
+			public function getSelectedConceptID():String {
+				var node:TreeNode = tree.selectedNode;
+				return (node ? node.id : null);
+			}
+			
+			public function getSelectedConceptFullID():String {
+				var fullID:String = null;
+				var node:TreeNode = tree.selectedNode;
+				if (node) {
+					if (node.concept) {
+						fullID = node.concept.fullID;
+					} else {
+						fullID = node.id;
+					}
+				}
+				return fullID;
+			}
+			
+			public function getSelectedConceptName():String {
+				var node:TreeNode = tree.selectedNode;
+				return (node ? node.name : null);
+			}
+			
+			public function loadConceptByID(conceptID:String):String {
+				var msg:String = null;
+				try {
+					if (tree.ontology != null) {
+						if ((conceptID != null) && (conceptID.length > 0)) {
+							tree.loadConceptByID(conceptID);
+							msg = "Loaded " + conceptID;
+						} else {
+							msg = "Invalid conceptID";
+						}
+					} else {
+						msg = "No ontology loaded";
+					}
+				} catch (error:Error) {
+					msg = error.message;
+				}
+				return msg;
+			}
+			
+			public function loadConceptByName(conceptName:String):void {
+				if (tree.ontology != null) {
+					if ((conceptName != null) && (conceptName.length > 0)) {
+						tree.loadConceptByName(conceptName);
+					}
+				}
+			}
+			
+			private function ontologyLoaded(event:NCBOOntologyEvent, rootConceptID:String = "",
+											nodeIDToSelect:String = ""):void {
+				if (event.isError) {
+					ExternalInterface.call("errorLoadingOntology", event.error.message, application.id);
+				} else {
+					var ontology:NCBOOntology = event.ontology;
+					if ((rootConceptID != null) && (rootConceptID.length > 0)) {
+						var callback:Function = function(event:NCBOConceptsEvent):void {
+							if (!event.isError && (event.concepts.length == 1)) {
+								var rootConcept:NCBOConcept = (event.concepts[0] as NCBOConcept);
+								// override the canChangeRoot setting
+								var canChangeRoot:Boolean = tree.canChangeRoot;
+								tree.canChangeRoot = true;
+								tree.rootConcept = rootConcept;
+								tree.canChangeRoot = canChangeRoot;
+								LogService.logConceptEvent(rootConcept, ontology.id, "tree root concept");
+							}
+							// now set the ontology which will load the roots
+							tree.ontology = ontology;
+
+							if (nodeIDToSelect) {
+								callLater(tree.loadConceptByID, [ nodeIDToSelect ]);
+							}
+						};
+						service.getConceptByID(ontology.id, rootConceptID, callback, true, alertErrors);
+					} else {
+						// load the ontology and the default roots
+						tree.ontology = ontology;
+						
+						if (nodeIDToSelect) {
+							callLater(tree.loadConceptByID, [ nodeIDToSelect ]);
+						}
+					}
+					LogService.logOntologyEvent(ontology, "loaded");
+				}
+			}
+			
+			private function treeSelectionChanged(event:ListEvent):void {
+				var node:TreeNode = tree.selectedNode;
+				if (node) {
+					var nodeID:String = node.id;
+					var nodeName:String = node.name;
+					ExternalInterface.call("treeSelectionChanged", nodeID, nodeName, application.id);
+					if (node.concept) {
+						LogService.logConceptEvent(node.concept, tree.ontology.id, "tree selection");
+					}
+				}
+			}
+
+			private function treeNodeDoubleClicked(event:MouseEvent):void {
+				var node:TreeNode = tree.selectedNode;
+				if (node) {
+					var nodeID:String = node.id;
+					var nodeName:String = node.name;
+					ExternalInterface.call("treeNodeDoubleClicked", nodeID, nodeName, application.id);
+					
+					if (node.concept) {
+						LogService.logConceptEvent(node.concept, tree.ontology.id, "tree double click");
+					}
+				}
+			}
+			
+			private function treeNodeExpanded(event:TreeEvent):void {
+				var treeNode:TreeNode = TreeNode(event.item);
+				if (treeNode && treeNode.concept && tree.ontology) {
+					LogService.logConceptEvent(treeNode.concept, tree.ontology.id, "tree expand");		
+				}
+			}
+			
+			private function treeNodeCollapsed(event:TreeEvent):void {
+				var treeNode:TreeNode = TreeNode(event.item);
+				if (treeNode && treeNode.concept && tree.ontology) {
+					LogService.logConceptEvent(treeNode.concept, tree.ontology.id, "tree collapse");		
+				}
+			}
+			
+			private function treeRootChanged(event:TreeRootChangedEvent):void {
+				if (event.concept && tree.ontology) {
+					var type:String;
+					if (event.type == TreeRootChangedEvent.TREE_ROOT_CHANGED) {
+						type = "tree root changed";
+					} else {
+						type = "tree root restored";
+					}
+					LogService.logConceptEvent(event.concept, tree.ontology.id, type); 
+				}
+			}
+
+		]]>
+	</mx:Script>
+	
+	<ontologytree:OntologyTree id="tree" x="0" y="0" width="100%" height="100%" 
+		change="treeSelectionChanged(event)" doubleClick="treeNodeDoubleClicked(event)"
+		itemOpen="treeNodeExpanded(event)" itemClose="treeNodeCollapsed(event)"
+		treeRootChanged="treeRootChanged(event)" treeRootRestored="treeRootChanged(event)"/>
+	
+</mx:Application>
