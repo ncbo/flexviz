@@ -102,8 +102,6 @@ package org.ncbo.uvic.flex.search
 	{
 
 		private static const EMAIL:String = "flexviz@uvic.ca";
-		public static var FULL_LINK_TO_URL:String = "http://keg.cs.uvic.ca/ncbo/flexviz/FlexoViz.html";
-		public static var BASIC_LINK_TO_URL:String = "http://keg.cs.uvic.ca/ncbo/flexviz/BasicFlexoViz.html"; 
 		
 		public static const WARNING_NODE_COUNT:int = 60;
 		public static const GROUP_CHILDREN_COUNT:int = 10;
@@ -118,7 +116,7 @@ package org.ncbo.uvic.flex.search
 		private var _graph:FlexGraph;
 		private var factory:OntologyGraphItemFactory;
 		private var _baseTitle:String = "BioPortal Ontology Visualization";
-		private var _linkToURL:String = FULL_LINK_TO_URL;
+		private var _swfURL:String;
 		
 		private var _lastSearch:String;
 		
@@ -202,13 +200,13 @@ package org.ncbo.uvic.flex.search
 			_userID = uid;
 		}
 		
-		public function get linkToURL():String {
-			return _linkToURL;
+		public function get swfURL():String {
+			return _swfURL;
 		}
 		
-		public function set linkToURL(url:String):void {
-			if (url) {
-				_linkToURL = url;
+		public function set swfURL(value:String):void {
+			if (value) {
+				_swfURL = value;
 			}
 		}
 			
@@ -991,16 +989,6 @@ package org.ncbo.uvic.flex.search
 		 * Returns the URL of the concept in FlexViz (to the html file).
 		 */
 		public function getConceptLink(conceptID:String = "", basic:Boolean = false):String {
-//			var url:String = Application.application.loaderInfo.url;
-//			var swf:int = url.toLowerCase().lastIndexOf(".swf");
-//			if (swf != -1) {
-//				url = url.substr(0, swf) + ".html";
-//			} else {
-//				var qm:int = url.lastIndexOf("?");
-//				if (qm != -1) {
-//					url = url.substr(0, qm);
-//				}
-//			}
 			var urlParams:URLVariables = new URLVariables();
 			urlParams["ontology"] =  ontologyID;
 			urlParams["virtual"] = false;	// important
@@ -1024,8 +1012,19 @@ package org.ncbo.uvic.flex.search
 				}
 			}
 			
-			var url:String = linkToURL;
-			url = url + (url.indexOf("?") == -1 ? "?" : "&") + urlParams.toString();
+			var url:String = swfURL;
+			if (url) {
+				var qm:int = url.indexOf("?");
+				if (qm != -1) {
+					url = url.substr(0, qm);
+				}
+				var hash:int = url.indexOf("#");
+				if (hash != -1) {
+					url = url.substr(0, hash);
+				}
+				url = url + (url.indexOf("?") == -1 ? "?" : "&") + urlParams.toString();
+				trace("Concept link: " + url);
+			}
 			return url;
 		}
 		

@@ -157,9 +157,9 @@ package org.ncbo.uvic.flex.menu
 				var showOntologyTreeItem:MenuItem = new MenuItem("Hide Ontology Tree", treeIcon, toggleOntologyTree);
 				_ontologyMenu.addChild(showOntologyTreeItem);
 
-				var exportGraphItem:MenuItem = new MenuItem("Export Graph", exportIcon, exportHandler);
-				_ontologyMenu.addChild(exportGraphItem);
-				
+				// no dependency on uvic servers
+				//var exportGraphItem:MenuItem = new MenuItem("Export Graph", exportIcon, exportHandler);
+				//_ontologyMenu.addChild(exportGraphItem);
 				
 				// listen for changes to the ontology tree visibility
 				graph.addEventListener(OntologyTreeVisibilityChanged.ONTOLOGY_TREE_VISIBILITY_CHANGED, 
