@@ -89,9 +89,6 @@ FlexoViz Parameters:
 	// if false then no animation is performed during a layout
 	animate = true
 
-	// the optional URL used to link directly to a concept/term
-	linktourl = null
-	
 -->
 	
 	<mx:Script>
@@ -121,8 +118,10 @@ FlexoViz Parameters:
 				if (application.loaderInfo != null) {
 					FlexVizParams.addParams(parameters);
 				}
+				// need to set the full url for the FlexoViz.swf file - it is needed for the link to concept
+				flexoviz.searchProvider.swfURL = url;
 				
-				var log:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG);
+				var log:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG) || FlexVizParams.getBooleanParam(NCBOAppParams.LOGGING, NCBOAppParams.DEFAULT_LOG);
 				LogService.initialize(log, "flexviz");
 
 				// link the flexoviz view and the ontology tree

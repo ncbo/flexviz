@@ -77,6 +77,3 @@ arctooltips = true
 // if false then no animation is performed during a layout
 animate = true
 
-// the optional URL used to link directly to a concept/term
-linktourl = null
-

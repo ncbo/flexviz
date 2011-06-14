@@ -30,7 +30,6 @@ package org.ncbo.uvic.flex
 		public static const HIDE_BUG:String 	  	  	= "hidebug";			// basic
 		public static const SHOW_ARC_LABELS:String		= "showarclabels"; 
 		public static const ROTATE_ARC_LABELS:String  	= "rotatearclabels";
-		public static const FULL_VERSION_URL:String		= "fullversionurl"; 
 		public static const ADMIN_EMAIL:String 			= "adminemail";
 		public static const BUG_URL:String 				= "bugurl";
 		public static const CAN_CHANGE_ONTOLOGY:String	= "canchangeontology";
@@ -42,7 +41,6 @@ package org.ncbo.uvic.flex
 		public static const ARC_TOOLTIPS:String			= "arctooltips";
 		public static const ANIMATE:String				= "animate";
 		public static const SHOW_ONTOLOGY_NAME:String 	= "showontologyname";	// basic
-		public static const LINK_TO_URL:String  		= "linktourl";
 		
 
 		public static const DEFAULT_SEARCH_MODE:String			= SearchMode.CONTAINS.toString().toLowerCase();

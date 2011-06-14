@@ -40,9 +40,6 @@ showarclabels = true
 // if arc labels are shown, then whether or not they should be rotated (true|false)
 rotatearclabels = true
 
-// a custom url for the full version of flexoviz
-fullversionurl = ""
-
 // the email address for FlexViz
 adminemail = "admin@bioontology.org"
 
@@ -75,6 +72,3 @@ arctooltips = true
 
 // if false then no animation is performed during a layout
 animate = true
-
-// the optional URL used to link directly to a concept/term
-linktourl = null

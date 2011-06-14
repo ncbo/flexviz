@@ -273,12 +273,7 @@
 				isWidget = FlexVizParams.getBooleanParam(FlexVizParams.WIDGET, FlexVizParams.DEFAULT_WIDGET);
 				canChangeOntology = FlexVizParams.getBooleanParam(FlexVizParams.CAN_CHANGE_ONTOLOGY, FlexVizParams.DEFAULT_CAN_CHANGE_ONTOLOGY);
 				animateLayouts = FlexVizParams.getBooleanParam(FlexVizParams.ANIMATE, true);
-				
-				var linkToURL:String = FlexVizParams.getParam(FlexVizParams.LINK_TO_URL);
-				if (linkToURL) {
-					searchProvider.linkToURL = linkToURL;
-				}
-				
+								
 				var redirectURL:String = FlexVizParams.getParam(NCBOAppParams.REDIRECT_URL);
 				if (redirectURL) {
 					NavigateToBioPortal.baseURL = redirectURL;
@@ -450,8 +445,11 @@
 				this.progressPanel.showStopButton = false;
 				this.progressPanel.showCloseButton = true;
 				
+				// remove the export button since it requires the PHP code on the uvic server
+				this.topControlBar.removeChild(exportButton);
+				
 				// add the extra buttons
-				this.topControlBar.addChild(UIUtils.createVRule(10, 20));
+				//this.topControlBar.addChild(UIUtils.createVRule(10, 20));
 				this.topControlBar.addChild(UIUtils.createIconTextButton("Show Roots", showRootsIcon, showRootsHandler, 
 							"Show the top level nodes and their children"));
 				//this.topControlBar.addChild(UIUtils.createIconTextButton("Focus On", focusIcon, focusOnHandler, 

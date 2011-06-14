@@ -71,7 +71,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 } else if (hasRequestedVersion) {
 	// if we've detected an acceptable version embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "${swf}?v=2.3.5",
+			"src", "${swf}?v=2.3.6",
 			"width", "${width}",
 			"height", "${height}",
 			"align", "middle",
@@ -81,7 +81,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 			"name", "${application}",
 			"allowScriptAccess","always",
 			"type", "application/x-shockwave-flash",
-			"flashVars", "server=&redirecturl=&ontology=44450&virtual=false&nodeid=",
+			"flashVars", "log=true&server=&redirecturl=&ontology=44450&virtual=false&nodeid=",
 			"pluginspage", "http://www.adobe.com/go/getflashplayer"
 	);
   } else {  

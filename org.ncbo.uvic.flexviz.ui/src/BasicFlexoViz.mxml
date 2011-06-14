@@ -47,9 +47,6 @@ BasicFlexoViz Parameters:
 	// if arc labels are shown, then whether or not they should be rotated (true|false)
 	rotatearclabels = true
 	
-	// a custom url for the full version of flexoviz
-	fullversionurl = ""
-	
 	// the email address for FlexViz
 	adminemail = "admin@bioontology.org"
 	
@@ -83,9 +80,6 @@ BasicFlexoViz Parameters:
 	// if false then no animation is performed during a layout
 	animate = true
 	
-	// the optional URL used to link directly to a concept/term
-	linktourl = null
-	
 -->
 	
 	<mx:Script>
@@ -113,8 +107,10 @@ BasicFlexoViz Parameters:
 				if (application.loaderInfo != null) {
 					FlexVizParams.addParams(parameters);
 				}
+				// need to set the full url for the BasicFlexoViz.swf file - it is needed for the link to concept
+				flexoviz.searchProvider.swfURL = url;
 				
-				var log:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG);
+				var log:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG) || FlexVizParams.getBooleanParam(NCBOAppParams.LOGGING, NCBOAppParams.DEFAULT_LOG);
 				LogService.initialize(log, "basicflexviz");
 				
 				var title:String = FlexVizParams.getParam(NCBOAppParams.TITLE);
@@ -154,11 +150,6 @@ BasicFlexoViz Parameters:
 				
 				flexoviz.showArcLabels = FlexVizParams.getBooleanParam(FlexVizParams.SHOW_ARC_LABELS, FlexVizParams.DEFAULT_SHOW_ARC_LABELS);
 				flexoviz.rotateArcLabels = FlexVizParams.getBooleanParam(FlexVizParams.ROTATE_ARC_LABELS, FlexVizParams.DEFAULT_ROTATE_ARC_LABELS);
-				
-				var fullVersionURL:String = FlexVizParams.getParam(FlexVizParams.FULL_VERSION_URL, "");
-				if (fullVersionURL.length > 0) {
-					flexoviz.fullVersionURL = fullVersionURL;
-				}
 				
 				if ((ontologyID == null) || (ontologyID.length == 0)) {
 					var alertNoOntology:Boolean = FlexVizParams.getBooleanParam(FlexVizParams.ALERT_NO_ONTOLOGY, FlexVizParams.DEFAULT_ALERT_NO_ONTOLOGY);

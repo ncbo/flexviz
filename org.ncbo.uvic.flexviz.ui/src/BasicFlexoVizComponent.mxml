@@ -53,7 +53,6 @@
 			public var fullVersionIcon:Class;
 			
 			private var _searchProvider:NCBOSearchProvider; 
-			private var _fullVersionURL:String = "";
 			// if true then nodes can be expanded/collapsed/removed
 			private var _allowNavigation:Boolean = false;
 			private var showOntologyName:Boolean = false;
@@ -84,14 +83,10 @@
 
 				emailURL = FlexVizParams.getParam(FlexVizParams.ADMIN_EMAIL, FlexVizParams.DEFAULT_ADMIN_EMAIL);
 				bugURL = FlexVizParams.getParam(FlexVizParams.BUG_URL, FlexVizParams.DEFAULT_BUG_URL);
-				fullVersionURL = FlexVizParams.getParam(FlexVizParams.FULL_VERSION_URL, fullVersionURL);
 				allowNavigation = FlexVizParams.getBooleanParam(FlexVizParams.ALLOW_NAVIGATION, FlexVizParams.DEFAULT_ALLOW_NAVIGATION);
 				
 				animateLayouts = FlexVizParams.getBooleanParam(FlexVizParams.ANIMATE, true);
 				showOntologyName = FlexVizParams.getBooleanParam(FlexVizParams.SHOW_ONTOLOGY_NAME, false);
-				
-				var linkToURL:String = FlexVizParams.getParam(FlexVizParams.LINK_TO_URL);
-				searchProvider.linkToURL = (linkToURL ? linkToURL : NCBOSearchProvider.BASIC_LINK_TO_URL);
 				
 				var redirectURL:String = FlexVizParams.getParam(NCBOAppParams.REDIRECT_URL);
 				if (redirectURL) {
@@ -254,15 +249,7 @@
 				}
 				return _searchProvider;
 			}
-			
-			public function get fullVersionURL():String {
-				return _fullVersionURL;
-			}
-			
-			public function set fullVersionURL(url:String):void {
-				_fullVersionURL = (url != null ? url : "");
-			}
-			
+						
 			/**
 			 * Returns true if double clicking on a node causes the neighborhood to 
 			 * be expanded or collapsed (false by default). Also will add context menu items.
@@ -483,14 +470,9 @@
 				saveSharedGraph();
 				
 				var url:String = "FlexoViz.html";
-				if (fullVersionURL.length == 0) {
-					var loaderURL:String = Application.application.loaderInfo.url;
-					var index:int = loaderURL.indexOf("BasicFlexoViz.swf");
-					if (index != -1) {
-						url = loaderURL.substring(0, index) + "FlexoViz.html"
-					}
-				} else {
-					url = fullVersionURL;
+				if (searchProvider.swfURL) {
+					var swfURL:String = searchProvider.swfURL;
+					url = swfURL.replace("BasicFlexoViz.swf", "FlexoViz.html");
 				}
 				navigateToURL(new URLRequest(url), "FlexoViz");
 				
