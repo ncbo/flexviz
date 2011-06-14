@@ -210,7 +210,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 	// if we've detected an acceptable version
 	// embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "${swf}?v=1.7",
+			"src", "${swf}?v=1.7.1",
 			"width", "${width}",
 			"height", "${height}",
 			"align", "middle",
@@ -219,7 +219,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 			"bgcolor", "${bgcolor}",
 			"name", "${application}",
 			"allowScriptAccess","always",
-			"flashVars", "ontology=1032&virtual=true&alerterrors=false&canchangeontology=true&rootconceptid=&nodeid=Antigen_Gene",
+			"flashVars", "log=true&ontology=1032&virtual=true&alerterrors=false&canchangeontology=true&rootconceptid=&nodeid=Antigen_Gene",
 			"type", "application/x-shockwave-flash",
 			"pluginspage", "http://www.adobe.com/go/getflashplayer"
 	);

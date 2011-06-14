@@ -90,7 +90,8 @@
 				loadOntology(ontologyID, rootConceptID, isVirtual, nodeID);
 				addExternalSupport();
 				
-				var log:Boolean = Utils.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG, parameters, true);
+				var log:Boolean = Utils.getBooleanParam(NCBOAppParams.LOG, NCBOAppParams.DEFAULT_LOG, parameters, true) || 
+					Utils.getBooleanParam(NCBOAppParams.LOGGING, NCBOAppParams.DEFAULT_LOG, parameters, true);
 				LogService.initialize(log, "ontologytree");
 			}
 			
