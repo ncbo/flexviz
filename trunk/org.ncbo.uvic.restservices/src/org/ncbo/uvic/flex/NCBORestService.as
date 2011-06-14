@@ -63,7 +63,7 @@ package org.ncbo.uvic.flex
 		
 		// PHP Proxy which forwards the contents from the given url parameter
 		// used to get the nice error message XML which Flex doesn't provide 
-		public static const PROXY_URL:String = "http://keg.cs.uvic.ca/proxy.php?url=";
+		//private static const PROXY_URL:String = "http://keg.cs.uvic.ca/proxy.php?url=";
 		
 		// alternates, they all re-direct to port 8080
 		//private static const DEFAULT_BASE_URL:String = "http://ncbo-core-prod1.stanford.edu/bioportal/";
@@ -420,7 +420,8 @@ package org.ncbo.uvic.flex
 					var url:String = params.url;
 					// use the proxy for the retries so that we can get the error message xml
 					if (useProxy) {
-						url = PROXY_URL + escape(url);
+						// don't use the proxy url anymore since it depends on a php file on the uvic servers
+						//url = PROXY_URL + escape(url);
 					}					
 					// save the call for debugging purposes
 					trace("[REST] " + url);
@@ -506,29 +507,7 @@ package org.ncbo.uvic.flex
   				}
   			}
 	    }
-	    
-//	    private function loadProxyURL(url:String, callback:Function):void {
-//			var proxy:String = PROXY_URL + url;
-//
-//	    	var handler:Function = function(event:Event):void {
-//				if (event.type == Event.COMPLETE) {
-//					callback(event.currentTarget.data);
-//				} else if (event.hasOwnProperty("text")) {
-//					callback(null, event["text"]);
-//				} else {
-//					callback(null, event.toString());
-//				}
-//			};
-//
-//			var request:URLRequest = new URLRequest(url);
-//			var loader:URLLoader = new URLLoader();
-//			loader.dataFormat = URLLoaderDataFormat.TEXT;
-//			loader.addEventListener(IOErrorEvent.IO_ERROR, handler);
-//			loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, handler);
-//			loader.addEventListener(Event.COMPLETE, handler);
-//			loader.load(request);
-//	    }
-	    
+	    	    
 	    /**
 	     * Get a nice error message instead of the default fault string.
 	     */ 

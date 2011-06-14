@@ -57,12 +57,14 @@ package org.ncbo.uvic.flex
 		 */
 		public static const LOG:String = "log";
 		
+		public static const LOGGING:String = "logging";
+		
 		public static const DEFAULT_ONTOLOGY:String		= "";
 		public static const DEFAULT_ONTOLOGY_VIRTUAL:Boolean = false;
 		public static const DEFAULT_SEARCH:String		= "";
 		public static const DEFAULT_NODE_ID:String		= "";
 		public static const DEFAULT_DEBUG:Boolean		= false;
-		public static const DEFAULT_LOG:Boolean 		= true;
+		public static const DEFAULT_LOG:Boolean 		= false;
 
 	}
 }
