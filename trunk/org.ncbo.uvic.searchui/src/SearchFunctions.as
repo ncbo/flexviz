@@ -22,8 +22,6 @@ import flex.utils.ui.chooser.ClearTextInput;
 import flex.utils.ui.events.ItemsChangedEvent;
 
 import mx.collections.ArrayCollection;
-import mx.collections.Sort;
-import mx.collections.SortField;
 import mx.controls.LinkButton;
 import mx.controls.TextInput;
 import mx.controls.dataGridClasses.DataGridColumn;
@@ -43,7 +41,6 @@ import mx.rpc.Fault;
 import mx.utils.StringUtil;
 
 import org.ncbo.uvic.flex.NCBORestService;
-import org.ncbo.uvic.flex.doi.DegreeOfInterestService;
 import org.ncbo.uvic.flex.events.NCBOConceptEvent;
 import org.ncbo.uvic.flex.events.NCBOLogEvent;
 import org.ncbo.uvic.flex.events.NCBOOntologiesEvent;
@@ -61,7 +58,6 @@ import org.ncbo.uvic.flex.util.NavigateToBioPortal;
 import renderers.ConceptLinkItemHighlightRenderer;
 
 import ui.ColumnsPopUp;
-import ui.DOIPopUp;
 import ui.OntologyResultsFilterPopUpBox;
 import ui.ScrollingButtonBox;
 
@@ -150,7 +146,7 @@ private function loadParameters():void {
 	
 	LogService.dispatcher.addEventListener(NCBOLogEvent.ITEM_LOGGED, searchItemLogged);
 	
-	DegreeOfInterestService.restService = service;
+	//DegreeOfInterestService.restService = service;
 }
 
 private function created():void {
@@ -353,7 +349,7 @@ private function performSearch(params:SearchParams, hits:Boolean = true):void {
 		// clear the results filters
 		conceptResultsFilter.text = "";
 		exactMatchesCheckBox.selected = false;
-		resultsDOIPopUpButton.enabled = false;
+		//resultsDOIPopUpButton.enabled = false;
 		
 		// temporary disable the search button
 		searchButton.enabled = false;
@@ -907,10 +903,10 @@ private function searchResultsHandler(event:NCBOSearchEvent, saveResults:Boolean
 	conceptResults.source = conceptResultsArray;
 	conceptResults.refresh();
 	
-	if (params.doi) {
-		// load the Degree Of Interest
-		this.callLater(loadConceptsDegreeOfInterest);
-	}
+//	if (params.doi) {
+//		// load the Degree Of Interest
+//		this.callLater(loadConceptsDegreeOfInterest);
+//	}
 }
 
 ///////////////////////////////////
@@ -977,19 +973,19 @@ private function initializeConceptResults():void {
 	//detailsColumn.headerRenderer = new IconItemRenderer(detailsIcon, null, "Concept Details");
 	//vizColumn.headerRenderer = new IconItemRenderer(vizIcon, null, "Visualization");
 	
-	var popUp:DOIPopUp = new DOIPopUp();
-	popUp.source = DOI_RESULTS;
-	popUp.addEventListener(DOIPopUp.HIGHLIGHTING_CHANGED, resultsDOIHighlightingChanged);
-	popUp.addEventListener(DOIPopUp.FILTERING_CHANGED, resultsDOIFilteringChanged);
-	popUp.addEventListener(DOIPopUp.SORTING_CHANGED, resultsDOISortChanged);
-	resultsDOIPopUpButton.popUp = popUp;
+//	var popUp:DOIPopUp = new DOIPopUp();
+//	popUp.source = DOI_RESULTS;
+//	popUp.addEventListener(DOIPopUp.HIGHLIGHTING_CHANGED, resultsDOIHighlightingChanged);
+//	popUp.addEventListener(DOIPopUp.FILTERING_CHANGED, resultsDOIFilteringChanged);
+//	popUp.addEventListener(DOIPopUp.SORTING_CHANGED, resultsDOISortChanged);
+//	resultsDOIPopUpButton.popUp = popUp;
 	
 	// Set up the experimental interest/landmark thresholds
-	DegreeOfInterestService.setThresholds(DOI_RESULTS, 3, 20);
-	if (!params.doi) {
-		resultsDOIPopUpButton.visible = false;
-		resultsDOIPopUpButton.width = 0;
-	}
+//	DegreeOfInterestService.setThresholds(DOI_RESULTS, 3, 20);
+//	if (!params.doi) {
+//		resultsDOIPopUpButton.visible = false;
+//		resultsDOIPopUpButton.width = 0;
+//	}
 }
 
 private function conceptResultsFilterFunction(item:Object):Boolean {
@@ -1014,9 +1010,9 @@ private function conceptResultsFilterFunction(item:Object):Boolean {
 		}
 		
 		// filter by degree of interest
-		if (pass && DegreeOfInterestService.isFiltering(DOI_RESULTS) && resultsDOIPopUpButton.enabled) {
-			pass = DegreeOfInterestService.isInteresting(concept, DOI_RESULTS);
-		}
+//		if (pass && DegreeOfInterestService.isFiltering(DOI_RESULTS) && resultsDOIPopUpButton.enabled) {
+//			pass = DegreeOfInterestService.isInteresting(concept, DOI_RESULTS);
+//		}
 	}
 	return pass;
 }
@@ -1041,58 +1037,58 @@ private function exactMatchesChanged(event:Event = null):void {
 	LogService.logNavigationEvent("", "", "filter results", "exact matches", (exactMatchesCheckBox.selected ? 1 : 0));
 }
 
-private function resultsDOIHighlightingChanged(event:Event):void {
-	var on:Boolean = DegreeOfInterestService.isHighlighting(DOI_RESULTS);
-	conceptsTextHighlighter.enabled = !on;
-	repaintConceptResultRenderers();
-}
-
-private function resultsDOIFilteringChanged(event:Event):void {
-	conceptResults.refresh();
-}
-
-private function resultsDOISortChanged(event:Event):void {
-	var on:Boolean = DegreeOfInterestService.isSorting(DOI_RESULTS);
-	var col:DataGridColumn = conceptResultsColumn;
-	var sortField:SortField = null;
-	if (on && (col.sortCompareFunction != DegreeOfInterestService.degreeOfInterestSortFunction)) {
-		col.sortCompareFunction = DegreeOfInterestService.degreeOfInterestSortFunction;
-		sortField = new SortField(col.dataField, false, false, true);
-		sortField.compareFunction = col.sortCompareFunction;
-	} else if (!on && (col.sortCompareFunction == DegreeOfInterestService.degreeOfInterestSortFunction)) {
-		col.sortCompareFunction = compareConceptNames;
-		sortField = new SortField(col.dataField, true, false, false);
-		sortField.compareFunction = col.sortCompareFunction;
-	}
-	if (sortField) {
-		var s:Sort = new Sort();
-		s.fields = [ sortField ];
-		conceptResults.sort = s;
-        conceptResults.refresh();
-	}
-}
-
-private function loadConceptsDegreeOfInterest():void {
-	DegreeOfInterestService.loadDegreeOfInterest(conceptResults.source, resultsDegreeOfInterestLoaded);
-	resultsDOIPopUpButton.startSpinning();
-}
-
-private function resultsDegreeOfInterestLoaded(changedResults:Array, error:String = null):void {
-	DegreeOfInterestService.debugItems(changedResults);
-	resultsDOIPopUpButton.stopSpinning();
-	if (!error) {
-		resultsDOIPopUpButton.enabled = true;
-		if (DegreeOfInterestService.isHighlighting(DOI_RESULTS)) {
-			repaintConceptResultRenderers();
-		}
-		if (DegreeOfInterestService.isFiltering(DOI_RESULTS)) {
-			conceptResults.refresh();
-		}
-		if (DegreeOfInterestService.isSorting(DOI_RESULTS)) {
-			resultsDOISortChanged(null);
-		}
-	}
-}
+//private function resultsDOIHighlightingChanged(event:Event):void {
+//	var on:Boolean = DegreeOfInterestService.isHighlighting(DOI_RESULTS);
+//	conceptsTextHighlighter.enabled = !on;
+//	repaintConceptResultRenderers();
+//}
+//
+//private function resultsDOIFilteringChanged(event:Event):void {
+//	conceptResults.refresh();
+//}
+//
+//private function resultsDOISortChanged(event:Event):void {
+//	var on:Boolean = DegreeOfInterestService.isSorting(DOI_RESULTS);
+//	var col:DataGridColumn = conceptResultsColumn;
+//	var sortField:SortField = null;
+//	if (on && (col.sortCompareFunction != DegreeOfInterestService.degreeOfInterestSortFunction)) {
+//		col.sortCompareFunction = DegreeOfInterestService.degreeOfInterestSortFunction;
+//		sortField = new SortField(col.dataField, false, false, true);
+//		sortField.compareFunction = col.sortCompareFunction;
+//	} else if (!on && (col.sortCompareFunction == DegreeOfInterestService.degreeOfInterestSortFunction)) {
+//		col.sortCompareFunction = compareConceptNames;
+//		sortField = new SortField(col.dataField, true, false, false);
+//		sortField.compareFunction = col.sortCompareFunction;
+//	}
+//	if (sortField) {
+//		var s:Sort = new Sort();
+//		s.fields = [ sortField ];
+//		conceptResults.sort = s;
+//        conceptResults.refresh();
+//	}
+//}
+//
+//private function loadConceptsDegreeOfInterest():void {
+//	DegreeOfInterestService.loadDegreeOfInterest(conceptResults.source, resultsDegreeOfInterestLoaded);
+//	resultsDOIPopUpButton.startSpinning();
+//}
+//
+//private function resultsDegreeOfInterestLoaded(changedResults:Array, error:String = null):void {
+//	DegreeOfInterestService.debugItems(changedResults);
+//	resultsDOIPopUpButton.stopSpinning();
+//	if (!error) {
+//		resultsDOIPopUpButton.enabled = true;
+//		if (DegreeOfInterestService.isHighlighting(DOI_RESULTS)) {
+//			repaintConceptResultRenderers();
+//		}
+//		if (DegreeOfInterestService.isFiltering(DOI_RESULTS)) {
+//			conceptResults.refresh();
+//		}
+//		if (DegreeOfInterestService.isSorting(DOI_RESULTS)) {
+//			resultsDOISortChanged(null);
+//		}
+//	}
+//}
 
 private function repaintConceptResultRenderers():void {
 	for each (var item:Object in conceptResults) {

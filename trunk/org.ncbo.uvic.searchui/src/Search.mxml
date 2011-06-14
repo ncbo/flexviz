@@ -191,8 +191,8 @@
 			<mx:PopUpButton id="showOntologyResultsButton" popUp="{ new OntologyResultsFilterPopUpBox() }"
 			 	toolTip="Filter the results by ontology" openAlways="true" label="Ontologies"/>
 			<mx:VRule height="20" width="12"/>
-			<ui:DOIPopUpButton id="resultsDOIPopUpButton" label="" width="50" height="23" openAlways="true" 
-				enabled="false" toolTip="Degree Of Interest Options"/>
+			<!--ui:DOIPopUpButton id="resultsDOIPopUpButton" label="" width="50" height="23" openAlways="true" 
+				enabled="false" toolTip="Degree Of Interest Options"/-->
 			<mx:Spacer width="100%" height="20"/>
 			<mx:PopUpButton id="columnsPopupButton" label="Columns" toolTip="Choose which columns are shown" 
 				popUp="{ new ColumnsPopUp() }" openAlways="true"/>

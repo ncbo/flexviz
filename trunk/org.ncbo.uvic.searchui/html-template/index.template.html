@@ -74,7 +74,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 	// if we've detected an acceptable version
 	// embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "${swf}?v=1.2.2, November 1st, 2010",
+			"src", "${swf}?v=1.2.2, June 14th, 2011",
 			"width", "${width}",
 			"height", "${height}",
 			"align", "middle",
@@ -84,7 +84,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 			"name", "${application}",
 			"allowScriptAccess","always",
 			"type", "application/x-shockwave-flash",
-			"flashVars", "server=&ontology=&search=&redirecturl=",
+			"flashVars", "log=true&server=&ontology=&search=&redirecturl=",
 			"pluginspage", "http://www.adobe.com/go/getflashplayer"
 	);
   } else {  // flash is too old or we can't detect the plugin
