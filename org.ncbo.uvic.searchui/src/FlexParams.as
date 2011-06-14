@@ -42,7 +42,7 @@ package
 		private function load():void {
 			_debug = Utils.getBooleanParam(DEBUG, DEFAULT_DEBUG, null, true);
 			_banner = Utils.getBooleanParam(BANNER, false, null, true);
-			_log = Utils.getBooleanParam(LOG, DEFAULT_LOG, null, true);
+			_log = Utils.getBooleanParam(LOG, DEFAULT_LOG, null, true) || Utils.getBooleanParam(LOGGING, DEFAULT_LOG, null, true);
 
 			_server = Utils.getParam(SERVER, null, null, true);
 			_redirectURL = Utils.getParam(REDIRECT_URL, null, null, true);
@@ -50,8 +50,10 @@ package
 			_ontology = Utils.getParam(ONTOLOGY, DEFAULT_ONTOLOGY, null, true);
 			_search = Utils.getParam(SEARCH, DEFAULT_SEARCH, null, true);
 			
-			_recent = Utils.getBooleanParam(SHOW_RECENT_SEARCHES, true, null, true);
-			_popular = Utils.getBooleanParam(SHOW_POPULAR_SEARCHES, true, null, true);
+			// only show these two options if logging is turned on
+			var show:Boolean = _log;
+			_recent = Utils.getBooleanParam(SHOW_RECENT_SEARCHES, show, null, true);
+			_popular = Utils.getBooleanParam(SHOW_POPULAR_SEARCHES, show, null, true);
 			
 			_doi = Utils.getBooleanParam(DOI, false, null, true);
 			

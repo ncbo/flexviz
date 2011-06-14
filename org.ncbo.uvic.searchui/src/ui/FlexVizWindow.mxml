@@ -39,10 +39,8 @@
 					var url:String = Application.application.loaderInfo.url;
 					var lastSlash:int = url.lastIndexOf("/");
 					url = url.substr(0, lastSlash + 1);
-					// FlexViz is located in a different directory? ../flexviz/ not working
-					var fullVersionURL:String = "http://keg.cs.uvic.ca/ncbo/flexviz/FlexoViz.html";
-					url = url + "BasicFlexoViz.swf?ontology=" + ontologyID + "&nodeid=" + conceptID + "&show=Neighborhood" + 
-							"&fullversionurl=" + fullVersionURL;
+					// Assume FlexViz is located in same directory?
+					url = url + "BasicFlexoViz.swf?ontology=" + ontologyID + "&nodeid=" + conceptID + "&show=Neighborhood";
 					if (server != null) { 
 						url += "&server=" + server;
 					}
