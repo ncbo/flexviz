@@ -226,6 +226,7 @@ package org.ncbo.uvic.ontologytree
 				_tree.editable = false;
 				_tree.enabled = false;
 				_tree.doubleClickEnabled = true;
+				_tree.horizontalScrollPolicy = ScrollPolicy.AUTO;
 				// remove folder/leaf icons
 				changeIcons(false);
 				_tree.dataDescriptor = dataDescriptor;
@@ -241,6 +242,7 @@ package org.ncbo.uvic.ontologytree
 				_tree.addEventListener(TreeEvent.ITEM_OPEN, treeNodeExpanded);
 				_tree.addEventListener(TreeEvent.ITEM_OPENING, treeNodeExpanding);
 				_tree.addEventListener(TreeEvent.ITEM_CLOSE, treeNodeCollapsed);
+				
 			}
 			return _tree;
 		}
