@@ -95,7 +95,7 @@ package org.ncbo.uvic.flex.ui
 		public function OntologyChooser(restService:IRestService, initialOntology:NCBOOntology = null, 
 										showVersions:Boolean = false) {
 			super(ContentWindow.OK | ContentWindow.CANCEL);
-			this.service = (restService == null ? new NCBORestService() : restService);
+			this.service = (restService == null ? new NCBORestService(NCBORestService.APIKEY_FLEXVIZ) : restService);
 			this.resizable = true;
 			this.showVersions = showVersions && initialOntology && initialOntology.ontologyID;
 			this.ontologies = new ArrayCollection([ new NCBOOntology("", "", "Loading...") ]);
