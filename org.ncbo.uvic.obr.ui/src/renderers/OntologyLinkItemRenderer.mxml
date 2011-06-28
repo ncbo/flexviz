@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ui:URLLinkButton xmlns:mx="http://www.adobe.com/2006/mxml"
+	textAlign="left" fontWeight="normal" 
+	xmlns:ui="flex.utils.ui.*">
+
+
+	<mx:Script>
+	<![CDATA[
+		import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+		import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			if (data is NCBOSearchResultConcept) {
+				var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+				label = concept.ontologyName;
+				
+				url = NavigateToBioPortal.getBioPortalOntologyMetaDataURL(concept.ontologyVersionID);
+				window = SAME_WINDOW;
+			}
+			toolTip = label + " (click to view in BioPortal)";
+		}
+		
+	]]>
+	</mx:Script>
+	
+</ui:URLLinkButton>

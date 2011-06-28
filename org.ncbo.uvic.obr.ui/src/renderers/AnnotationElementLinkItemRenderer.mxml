@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml"
+	textAlign="left" fontWeight="normal" click="elementClicked(event)">
+
+	<mx:Script>
+	<![CDATA[
+		import events.AnnotationLinkEvent;
+		import model.Annotation;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			if (data is Annotation) {
+				var annotation:Annotation = (data as Annotation);
+				label = annotation.elementID;
+			}
+			toolTip = label + " (click to view the full details for this element)";
+		}
+	
+		private function elementClicked(event:MouseEvent):void {
+			var annotation:Annotation = (data as Annotation);
+			// let the parent handle it
+			if (owner != null) {
+				owner.dispatchEvent(new AnnotationLinkEvent(AnnotationLinkEvent.ELEMENT_LINK_CLICKED, annotation, event));
+			}
+		}
+		
+	]]>
+	</mx:Script>
+	
+</mx:LinkButton>

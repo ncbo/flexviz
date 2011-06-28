@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:resize="flex.utils.ui.resize.*"
+	xmlns:flexutils="flex.utils.ui.*" 
+	xmlns:ui="ui.*" 
+	xmlns:util="util.*"
+	preloader="preloader.NCBOPreloader" layout="vertical"
+	paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"
+	verticalGap="0" horizontalAlign="left" 
+	pageTitle="NCBO Ontology Recommender Service"
+	creationComplete="created(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+		]]>
+	</mx:Script>
+	
+	<mx:Script source="OBARecommenderFunctions.as"/>
+	<mx:Style source="assets/style.css"/>
+	
+	<!--
+	<mx:Image id="banner" horizontalCenter="0" source="assets/ncbo.png"/>
+	-->
+	
+	<flexutils:TitledBorderWindow width="800" id="searchPanel" layout="vertical" 
+			paddingBottom="2" paddingLeft="2" paddingRight="5" paddingTop="2" 
+			title="NCBO Ontology Recommender Service" verticalGap="5">
+		<mx:Form id="searchForm" width="100%" paddingTop="0">
+			<flexutils:FormItemVerticalAlign label=" Recommendation scenario" styleName="barBox" 
+					width="100%" paddingLeft="0">
+				<mx:HBox horizontalGap="10" width="100%" verticalAlign="middle">
+					<mx:RadioButtonGroup id="scenarioGroup"/>
+					<mx:RadioButton label="Corpus" groupName="scenarioGroup" selected="true" id="corpusRadioButton"/>
+					<mx:RadioButton label="Keywords" groupName="scenarioGroup" id="keywordsRadioButton"/>
+				</mx:HBox>
+			</flexutils:FormItemVerticalAlign>
+			<mx:FormItem>
+				<mx:CheckBox id="normalizeCheckBox" label="Normalize by ontology size"/>
+			</mx:FormItem>
+			<mx:FormItem label="Repository">
+				<mx:VBox horizontalAlign="left">
+					<mx:RadioButtonGroup id="repositoryGroup"/>
+					<mx:RadioButton label="NCBO BioPortal ontologies only" groupName="repositoryGroup" id="ncboRadioButton"/>
+					<mx:RadioButton label="UMLS Metathesaurus ontologies only" groupName="repositoryGroup" id="umlsRadioButton"/>
+					<mx:RadioButton label="All Ontologies" groupName="repositoryGroup" selected="true" id="allRadioButton"/>
+				</mx:VBox>
+			</mx:FormItem>
+			<mx:FormItem label="Text" width="100%">
+				<resize:ResizableTextArea id="searchInput" width="100%" height="100"
+					keyDown="searchText_KeyDown(event)" textInput="searchText_TextInput(event)"/>
+			</mx:FormItem>
+			<mx:FormItem label="" width="100%" horizontalAlign="center">
+				<mx:Canvas width="100%">
+					<mx:LinkButton id="resetButton" click="resetForm(event)" label="Clear" 
+						toolTip="Reset the fields back to their defaults"
+						color="0x666666" fontSize="12" styleName="clearButton"
+						right="0"/>
+					<mx:Button id="searchButton" label="Recommend" styleName="searchButton" 
+						click="searchClicked(event)" horizontalCenter="0"/>
+				</mx:Canvas>
+			</mx:FormItem>
+		</mx:Form>
+	</flexutils:TitledBorderWindow>
+
+	<mx:Text width="800" styleName="error" id="errorLabel" textAlign="center"/>
+	
+	<flexutils:TitledBorderWindow id="tagCloudPanel" title="Ontology Tag Cloud" width="800" height="100%" 
+			layout="vertical" verticalGap="0" visible="false"
+			horizontalScrollPolicy="off">
+		<!-- <mx:Label text="Press CTRL when you click on an ontology to open the ontology in a new window"
+			color="#808080"/> -->
+		<ui:OntologyTagCloud width="100%" height="100%" id="tagCloud" tagClicked="tagClicked(event)"/>
+	</flexutils:TitledBorderWindow>
+	
+	<flexutils:EscapeWindow id="detailsWindow" visible="false" showCloseButton="true"
+		close="hideDetailsWindow(event)">
+		<mx:Form>
+			<mx:FormItem label="Link">
+				<mx:LinkButton id="detailsOntologyNameLink" click="ontologyLinkClicked(event)"
+					toolTip="Click on this link to open the ontology in BioPortal (press CTRL to open in a new window)"/>
+			</mx:FormItem>
+			<!--
+			<mx:FormItem label="ID">
+				<mx:Label id="detailsOntologyIDLabel"/>
+			</mx:FormItem>
+			-->
+			<mx:FormItem label="Score">
+				<mx:Label id="detailsScoreLabel"/>
+			</mx:FormItem>
+			<mx:FormItem label="Normalized Score">
+				<mx:Label id="detailsNormalizedLabel"/>
+			</mx:FormItem>
+			<mx:FormItem label="Overlap">
+				<mx:Label id="detailsOverlapLabel"/>
+			</mx:FormItem>
+			<mx:FormItem label="Annotating Terms">
+				<mx:Label id="detailsNumAnnotatingConceptsLabel"/>
+			</mx:FormItem>
+		</mx:Form>
+	</flexutils:EscapeWindow>
+
+	<util:HelpText textAlign="center" link="htmlLinkClicked(event)" paddingTop="10">
+		<util:htmlText>
+			<![CDATA[
+Learn more about the <a href="event:http://www.bioontology.org/wiki/index.php/Ontology_Recommender_Web_service ">NCBO Recommender web service</a>
+			]]>
+		</util:htmlText>
+	</util:HelpText>
+
+	
+</mx:Application>

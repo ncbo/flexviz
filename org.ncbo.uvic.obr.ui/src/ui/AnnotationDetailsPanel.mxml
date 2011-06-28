@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:EscapeWindow
+	xmlns:mx="http://www.adobe.com/2006/mxml"	
+	xmlns:ui="flex.utils.ui.*"
+	xmlns:containers="flexlib.containers.*"  creationComplete="created(event)"
+	width="550" height="600" layout="vertical" movable="true" resizable="true"
+	showCloseButton="true" backgroundColor="0xffffff" dotColor="0xdddddd">
+	
+	<mx:Script>
+		<![CDATA[
+			import model.Concept;
+			import model.GroupedAnnotation;
+			import model.Ontology;
+			import events.AnnotationContextLinkEvent;
+			import mx.events.FlexEvent;
+			import mx.core.Container;
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+			import model.Resource;
+			import service.OBSRestService;
+			import flash.net.navigateToURL;
+			import mx.controls.Alert;
+			import events.OBSEvent;
+			import mx.collections.ArrayCollection;
+			import model.AnnotationContext;
+			import model.Annotation;
+			import flex.utils.StringUtils;
+			import flex.utils.Utils;
+			
+			public var restService:OBSRestService;
+			private var _annotateText:Boolean = true;
+			private var _annotation:Annotation;
+			
+			[Bindable]
+			private var mgrepContexts:ArrayCollection = new ArrayCollection();
+			[Bindable]
+			private var mappingContexts:ArrayCollection = new ArrayCollection();
+			[Bindable]
+			private var isaContexts:ArrayCollection = new ArrayCollection();
+			[Bindable]
+			private var reportedContexts:ArrayCollection = new ArrayCollection();
+			
+			private var groupedAnnotationIndex:int = 0;
+			
+			private function created(event:FlexEvent):void {
+				mgrepDataGrid.addEventListener(AnnotationContextLinkEvent.CONTEXT_LINK_CLICKED, linkClicked);
+				isaDataGrid.addEventListener(AnnotationContextLinkEvent.CONTEXT_LINK_CLICKED, linkClicked);
+				mappingDataGrid.addEventListener(AnnotationContextLinkEvent.CONTEXT_LINK_CLICKED, linkClicked);
+			}
+			
+			private function linkClicked(event:AnnotationContextLinkEvent):void {
+				var conceptID:String = event.conceptID;
+				var ontID:String = event.ontologyVersionID;
+				if ((conceptID.length > 0) && (ontID.length > 0)) {
+					var ok:Boolean = true;
+					var ontology:Ontology = restService.getCachedOntology(ontID);
+					if (ontology && !ontology.isBioPortal) {
+						ok = false;
+					} else if (!ontology) {
+						// check if the ontology ID is a number (BioPortal ontologies are numbers)
+						var num:Number = Number(ontID);
+						ok = !isNaN(num);
+					}	
+					if (ok) {
+						// use latest version (virtual ontology id)
+						if (ontology && ontology.ontologyID) {
+							NavigateToBioPortal.viewConceptByID(conceptID, ontology.ontologyID, "ViewConceptWindow", true);
+						} else {
+							NavigateToBioPortal.viewConceptByID(conceptID, ontID);
+						}
+					} else {
+						Alert.show("Unfortunately this ontology cannot be viewed online at this time.", "Error");
+					}
+				}
+			}
+			
+			public function get annotateText():Boolean {
+				return _annotateText;
+			}
+			
+			public function set annotateText(annotate:Boolean):void {
+				_annotateText = annotate;
+				if (resourceFormItem) {
+					resourceFormItem.visible = !annotate;
+					resourceFormItem.height = (annotate ? 0 : NaN);
+				}
+			}
+			
+			public function get annotation():Annotation {
+				return _annotation;
+			}
+			
+			public function set annotation(annot:Annotation):void {
+				this._annotation = annot;
+				this.groupedAnnotationIndex = 0;
+				title = "Details for " + annot.concept.name;
+				resourceLink.label = annot.elementID;
+				resourceLink.url = "";
+				resourceLink.enabled = false;
+				resourceLabel.text = annot.resourceID;
+				scoreLabel.text = annot.score.toString(10);
+				conceptNameLink.label = annot.concept.name;
+				conceptNameFormItem.label = "Term Name:";
+				var ontID:String = annotation.ontologyVersionID;
+				var isVirtual:Boolean = false;
+				if (annotation.ontology && annotation.ontology.ontologyID) {
+					ontID = annotation.ontology.ontologyID;
+					isVirtual = true;
+				}
+				conceptNameLink.url = NavigateToBioPortal.getBioPortalURL(ontID, annot.conceptID, isVirtual);
+				ontologyLink.label = annot.ontologyName;
+				ontologyLink.enabled = (annot.ontology && annot.ontology.isBioPortal);
+				ontologyLink.url = NavigateToBioPortal.getBioPortalOntologyMetaDataURL(annotation.ontologyVersionID);
+				if (annot.resourceID.length > 0) {
+					var resource:Resource = restService.getResource(annot.resourceID);
+					if (resource != null) {
+						resourceLabel.text = resource.nameAndID;
+						resourceLogo.source = resource.logo;
+						resourceLogo.visible = true;
+						resourceLogo.toolTip = resource.name;
+						resourceLink.enabled = true;
+						resourceLink.url = resource.elementURL + annotation.elementID;
+					} else {
+						resourceLogo.source = null;
+						resourceLogo.visible = false;
+						resourceLogo.toolTip = "";
+					}
+				}
+				
+				// clear the previous annotations
+				setAnnotationContexts([], true);
+
+				// load the detailed annotations with context info
+				if ((annotation.elementID.length > 0) && (annotation.resourceID.length > 0)) {
+					restService.getDetailedAnnotation(annotation.elementID, annotation.ontology.id, 
+						annotation.concept.id, annotation.resourceID, annotationDetailsLoaded);
+				}
+				
+				// remove extra concept name links
+				while (conceptNameBox.numChildren > 1) {
+					conceptNameBox.removeChildAt(1);
+				}
+				
+				if (annot is GroupedAnnotation) {
+					var grouped:GroupedAnnotation = (annot as GroupedAnnotation);
+					// skip the first concept - it has already been added
+					var concepts:Array = grouped.filteredConcepts.slice(1);
+					if (concepts.length > 0) {
+						addExtraConceptLinks(concepts);
+						conceptNameFormItem.label = "Term Names:";
+					} 
+				}
+
+			}
+						
+			public function setAnnotationContexts(annotations:Array, clear:Boolean = false):void {
+				var mgrep:Array = [];
+				var mapping:Array = [];
+				var isa:Array = [];
+				var reported:Array = [];
+				for (var i:int = 0; i < annotations.length; i++) {
+					var context:AnnotationContext = (annotations[i] as Annotation).context;
+					if (context != null) {
+						if (context.isMgrep) {
+							mgrep.push(context);
+						} else if (context.isMapping) {
+							mapping.push(context);
+						} else if (context.isIsaClosure) {
+							isa.push(context);
+						} else {
+							trace("AnnotationsDetailsPanel: unknown context!! " + context.contextClass);
+						}
+					}
+				}
+				
+				updateDataGrid(mgrepDataGrid, mgrep, mgrepContexts, clear);
+				updateDataGrid(mappingDataGrid, mapping, mappingContexts, clear);
+				updateDataGrid(isaDataGrid, isa, isaContexts, clear);
+				updateDataGrid(reportedDataGrid, reported, reportedContexts, clear);
+			}
+			
+			private function annotationDetailsLoaded(event:OBSEvent):void {
+				var annotations:Array = event.items;
+				setAnnotationContexts(annotations, false /* don't clear */);
+				
+				// load additional grouped annotations
+				groupedAnnotationIndex++;
+				if (annotation is GroupedAnnotation) {
+					var filteredAnnotations:Array = (annotation as GroupedAnnotation).filteredAnnotations;
+					if (groupedAnnotationIndex < filteredAnnotations.length) {
+						var annotation:Annotation = filteredAnnotations[groupedAnnotationIndex];
+						if (annotation.elementID && annotation.resourceID) {
+							restService.getDetailedAnnotation(annotation.elementID, annotation.ontology.id, 
+								annotation.concept.id, annotation.resourceID, annotationDetailsLoaded);
+						}
+					}
+				}
+			}
+			
+			private function updateDataGrid(grid:DataGrid, newContexts:Array, contexts:ArrayCollection, clear:Boolean = false):void {
+				if (clear) {
+					// remove all the old contexts
+					contexts.removeAll();
+				}
+				// add the new contexts
+				for each (var newContext:AnnotationContext in newContexts) {
+					var exists:Boolean = false;
+					for each (var existingContext:AnnotationContext in contexts) {
+						if (existingContext.equals(newContext)) {
+							exists = true;
+							break;
+						}
+					}
+					if (!exists) {
+						contexts.addItem(newContext);
+					}
+				}
+				
+				// hide the parent
+				var parentBox:Container = (grid.parent as Container);
+				parentBox.visible = (contexts.length > 0);
+				parentBox.height = (contexts.length > 0 ? NaN : 0);
+			}
+			
+			private function addExtraConceptLinks(concepts:Array):void {
+				/* <ui:URLLinkButton id="conceptNameLink" label="" styleName="link" labelPlacement="left"
+						toolTip="Click to open this term in BioPortal" maxWidth="600"
+						click="viewInBioPortal()" window="BioPortal"/> */
+				for each (var concept:Concept in concepts) {
+					var link:URLLinkButton = new URLLinkButton();
+					link.styleName = "link";
+					link.labelPlacement = "left";
+					link.toolTip = "Click to open this term in BioPortal";
+					link.maxWidth = 600;
+					link.window = "BioPortal";
+					link.label = concept.name;
+					
+					var ontID:String = concept.ontologyID;
+					var isVirtual:Boolean = false;
+					if (concept.ontology && concept.ontology.ontologyID) {
+						ontID = concept.ontology.ontologyID;
+						isVirtual = true;
+					}
+					link.url = NavigateToBioPortal.getBioPortalURL(ontID, concept.id, isVirtual);
+					link.addEventListener(MouseEvent.CLICK, viewInBioPortal);
+					conceptNameBox.addChild(link);
+				}
+			}
+					
+			private function viewInBioPortal(event:MouseEvent = null):void {
+				if (annotation && annotation.ontology) {
+					if (!annotation.ontology.isBioPortal) {
+						Alert.show("UMLS ontologies are not loaded into BioPortal at this time.", "Error");
+					} else {
+						// not needed anymore
+						// use latest version (virtual ontology id)
+//						if (annotation.ontology.ontologyID) {
+//							NavigateToBioPortal.viewConcept(annotation.concept, annotation.ontology.ontologyID, "BioPortal", true);
+//						} else {
+//							NavigateToBioPortal.viewConcept(annotation.concept, annotation.ontology.id, "BioPortal");
+//						}
+					}
+				}
+			}
+
+			private function viewOntologyMetaData():void {
+				if (annotation && annotation.ontology) {
+					NavigateToBioPortal.viewOntologyMetaData(annotation.ontology, "BioPortal");
+				}
+			}
+
+			// not used anymore
+			private function viewOntology():void {
+				if (annotation && annotation.ontology) {
+					// use latest version (virtual ontology id)
+					var useVirtual:Boolean = (annotation.ontology.ontologyID.length > 0);
+					NavigateToBioPortal.viewOntology(annotation.ontology, "BioPortal", useVirtual);
+				}
+			}
+		
+			// not used anymore
+			private function viewResource():void {
+				if (annotation) {
+					var resource:Resource = restService.getResource(annotation.resourceID);
+					if (resource) {
+						navigateToURL(new URLRequest(resource.url), "Resource_" + resource.id);
+					}
+				}
+			}
+			
+			// not used
+			private function viewElementDetails():void {
+				if (annotation && (annotation.resourceID.length > 0)) {
+					var resource:Resource = restService.getResource(annotation.resourceID);
+					if (resource) {
+						var url:String = resource.elementURL + annotation.elementID;
+						navigateToURL(new URLRequest(url), "Resource_" + resource.id);
+					}
+				}
+			}
+			
+			private function indexLabelFunction(item:AnnotationContext, col:DataGridColumn):String {
+				var val:int = (col == startIndexColumn ? item.offsetStart : item.offsetEnd);
+				return (val == -1 ? "" : val.toString(10)); 
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:VBox width="100%" height="100%" verticalGap="2">
+		<mx:Form id="detailsForm" paddingLeft="0" paddingRight="0" paddingTop="0" paddingBottom="0" width="100%" verticalGap="0">
+			<mx:FormItem label="Element Resource:" width="100%" id="resourceFormItem" visible="true">
+				<mx:HBox verticalAlign="top" horizontalGap="10">
+					<mx:Image id="resourceLogo"/>
+					<mx:VBox verticalGap="0">
+						<ui:URLLinkButton id="resourceLink" styleName="link" label="" labelPlacement="left"
+							toolTip="Click to view this resource element in a new window"/>
+						<mx:Label id="resourceLabel"/>
+					</mx:VBox>
+				</mx:HBox>
+			</mx:FormItem>
+			<mx:FormItem label="Score:" width="100%" styleName="row">
+				<mx:Label id="scoreLabel"/>
+			</mx:FormItem>
+			<mx:FormItem label="Term Name:" width="100%" id="conceptNameFormItem">
+				<mx:HBox width="100%" horizontalGap="5" id="conceptNameBox">
+					<ui:URLLinkButton id="conceptNameLink" label="" styleName="link" labelPlacement="left"
+						toolTip="Click to open this term in BioPortal" maxWidth="600"
+						click="viewInBioPortal(event)" window="BioPortal"/>
+				</mx:HBox>
+			</mx:FormItem>
+			<mx:FormItem label="Ontology:" width="100%" styleName="row">
+				<mx:HBox width="100%">
+					<ui:URLLinkButton id="ontologyLink" label="" labelPlacement="left" maxWidth="600"
+						toolTip="Click to view the ontology metadata in BioPortal"  
+						styleName="link" window="BioPortal"/>
+				</mx:HBox>
+			</mx:FormItem>
+		</mx:Form>
+
+		<containers:WindowShade id="mgrepBox" width="100%" height="100%" opened="true" visible="false" 
+			label="Mgrep direct annotations" styleName="squareWindowShade">
+			<mx:DataGrid id="mgrepDataGrid" width="100%" height="100%" dataProvider="{mgrepContexts}">
+				<mx:columns>
+					<ui:SortableDataGridColumn headerText="Context Name" dataField="nameWithoutResource"/>
+					<ui:SortableDataGridColumn headerText="Term Name" dataField="conceptName"
+						itemRenderer="renderers.AnnotationContextLinkItemRenderer"/>
+					<ui:SortableDataGridColumn id="startIndexColumn" headerText="From" width="50" numeric="true" 
+						labelFunction="indexLabelFunction"/>
+					<ui:SortableDataGridColumn id="endIndexColumn" headerText="To" width="50" numeric="true" 
+						labelFunction="indexLabelFunction"/>
+				</mx:columns>
+			</mx:DataGrid>
+		</containers:WindowShade>
+		<containers:WindowShade id="directBox" width="100%" height="100%" opened="true" visible="false" 
+			label="Reported direct annotations"	styleName="squareWindowShade">
+			<mx:DataGrid id="reportedDataGrid" width="100%" height="100%" dataProvider="{reportedContexts}">
+				<mx:columns>
+					<ui:SortableDataGridColumn headerText="Context Name" dataField="nameWithoutResource"/>
+				</mx:columns>
+			</mx:DataGrid>
+		</containers:WindowShade>
+		<containers:WindowShade id="isaBox" width="100%" height="100%" opened="true" visible="false" 
+			label="Is_a Closure expanded annotations" styleName="squareWindowShade">
+			<mx:DataGrid id="isaDataGrid" width="100%" height="100%" dataProvider="{isaContexts}">
+				<mx:columns>
+					<ui:SortableDataGridColumn headerText="Context Name" dataField="nameWithoutResource"/>
+					<ui:SortableDataGridColumn headerText="Child Term" dataField="conceptName"
+						itemRenderer="renderers.AnnotationContextLinkItemRenderer"/>
+					<ui:SortableDataGridColumn headerText="Level" dataField="level" numeric="true"/>
+				</mx:columns>
+			</mx:DataGrid>
+		</containers:WindowShade>
+		<containers:WindowShade id="mappingBox" width="100%" height="100%" opened="true" visible="false"
+			label="Mapping expanded annotations" styleName="squareWindowShade">
+			<mx:DataGrid id="mappingDataGrid" width="100%" height="100%" dataProvider="{mappingContexts}">
+				<mx:columns>
+					<ui:SortableDataGridColumn headerText="Context Name" dataField="nameWithoutResource"/>
+					<ui:SortableDataGridColumn headerText="Mapped Term ID" dataField="fullConceptID"
+						itemRenderer="renderers.AnnotationContextLinkItemRenderer"/>
+					<ui:SortableDataGridColumn headerText="Mapping Type" dataField="mappingType"/>
+				</mx:columns>
+			</mx:DataGrid>
+		</containers:WindowShade>
+		
+	</mx:VBox>
+	
+</ui:EscapeWindow>

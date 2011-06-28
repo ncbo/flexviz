@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off" xmlns:ui="flex.utils.ui.*"
+	height="32">
+	
+	<mx:Script>
+		<![CDATA[
+			import model.Resource;
+			import model.Concept;
+			
+			public function newInstance():* {
+				var renderer:ResourceAnnotationCheckBox = new ResourceAnnotationCheckBox();
+				return renderer;
+			}
+			
+			public function get selected():Boolean {
+				return (checkbox ? checkbox.selected : false);
+			}
+			
+			public function set selected(sel:Boolean):void {
+				if (checkbox && checkbox.enabled) {
+					checkbox.selected = sel;
+				}
+			}
+			
+			override public function set data(value:Object):void {
+				super.data = value;
+				if (data is Resource) {
+					var resource:Resource = (data as Resource);
+					this.enabled = (resource.numAnnotations > 0);
+					checkbox.enabled = enabled;
+					numLabel.enabled = enabled;
+					numLabel.text = resource.numAnnotations + " annotation" + (resource.numAnnotations == 1 ? "" : "s");
+					checkbox.label = resource.nameAndID;
+//					if (resource.logo) {
+//						checkbox.imageSource = resource.logo;
+//					} else {
+//						checkbox.imageSource = null;
+//					}
+					toolTip = checkbox.label + " (" + numLabel.text + ")"
+					
+					var metrics:TextLineMetrics = numLabel.measureText(numLabel.text);
+		    		numLabel.width = metrics.width + 8;
+				}
+			}
+				
+		    override protected function updateDisplayList(w:Number, h:Number):void {
+		    	super.updateDisplayList(w, h);
+		    	
+		    	checkbox.width = w - numLabel.width;
+		    	checkbox.y = (h - checkbox.height) / 2;
+		    	numLabel.x = w - numLabel.width;
+		    	numLabel.y = (h - numLabel.height) / 2;
+		    }
+			
+		]]>
+	</mx:Script>
+	
+	<ui:CheckBox id="checkbox" x="4" width="100%" fontSize="14" fontWeight="bold"/><!-- imageHeight="32"/-->
+	<mx:Label id="numLabel" color="0x666666" fontSize="10"/>
+	
+</mx:Canvas>

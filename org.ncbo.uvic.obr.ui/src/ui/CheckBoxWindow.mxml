@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:EscapeWindow
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ui="flex.utils.ui.*"
+	xmlns:resize="flex.utils.ui.resize.*"
+	xmlns:ui1="ui.*"
+	layout="vertical" width="400" height="400" resizable="true"
+	showCloseButton="true" paddingLeft="0" paddingBottom="0" paddingRight="0" paddingTop="0"
+	creationComplete="created()" resize="windowResized(event)" 
+	verticalScrollPolicy="off" horizontalScrollPolicy="off">
+	
+	<mx:Script>
+		<![CDATA[
+			import flex.utils.ArrayUtils;
+			import flex.utils.ui.events.ItemsChangedEvent;
+			import renderers.OntologyCheckBox;
+			import flex.utils.ui.TextHighlighter;
+			import model.Ontology;
+			import flex.utils.ui.renderers.CheckBoxHighlighter;
+			import mx.core.Container;
+			import mx.containers.HBox;
+			import mx.events.ResizeEvent;
+			import mx.collections.ArrayCollection;
+			import mx.managers.PopUpManager;
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			
+			[Bindable]
+			private var items:ArrayCollection = new ArrayCollection();
+			private var initiallySelectedItems:Array = null;
+			
+			private var isOntologyList:Boolean;
+			[Bindable]
+			private var dataField:String = "nameAndID";
+		
+			public static function showWindow(title:String, parent:DisplayObject, 
+					data:Array, selectedItems:Array, callback:Function, 
+					isOntologyList:Boolean = false):CheckBoxWindow {
+				var window:CheckBoxWindow = new CheckBoxWindow();
+				window.title = title;
+				window.items.source = data;
+				window.initiallySelectedItems = selectedItems;
+				window.isOntologyList = isOntologyList;
+				if (isOntologyList) {
+					window.dataField = "nameAndAbbreviation";
+				}
+
+				var closeHandler:Function = function(event:CloseEvent):void {
+					PopUpManager.removePopUp(window);
+					var selItems:Array = window.selectedItems;
+					var allSelected:Boolean = (data.length == selItems.length);
+					callback((event.detail == Alert.OK ? selItems : null), allSelected);
+				};
+				window.addEventListener(CloseEvent.CLOSE, closeHandler);
+				PopUpManager.addPopUp(window, parent, true);
+				PopUpManager.centerPopUp(window);
+				return window;
+			}
+			
+			private function created():void {
+				if (isOntologyList) {
+//					ontologyFilterBox.height = NaN;
+//					ontologyFilterBox.visible = true;
+				}
+				var highlighter:TextHighlighter = new TextHighlighter(null,	function():String {
+					return filterBox.text;
+				});
+				if (isOntologyList) {
+					var itemRenderer:OntologyCheckBox = new OntologyCheckBox();
+					itemRenderer.highlighter = highlighter;
+					list.itemRenderer = itemRenderer;
+				} else {
+					list.itemRenderer = new CheckBoxHighlighter(highlighter);
+				}
+			
+				items.filterFunction = filterFunction;
+				
+				if (initiallySelectedItems != null) {
+					if (initiallySelectedItems.length >= 0) {
+						list.selectedItems = initiallySelectedItems;
+					} else {
+						// I don't think we actually want to select all, it makes the filtering not as useful
+						//list.selectAll();
+					}
+				}
+				windowResized(null);
+			}
+			
+			private function filterFunction(item:Object):Boolean {
+				var pass:Boolean = true;
+				if (isOntologyList) {
+					pass = restrictCombo.ontologiesFilterFunction(item);
+				}
+				if (pass) {
+					pass = filterBox.filterFunction(item);
+				}
+				return pass;
+			}
+			
+			public function get selectedItems():Array {
+				return (list ? list.selectedItems : []);
+			}
+			
+			private function saveClicked():void {
+				dispatchEvent(new CloseEvent(CloseEvent.CLOSE, false, false, Alert.OK));
+			}
+
+			private function cancelClicked():void {
+				dispatchEvent(new CloseEvent(CloseEvent.CLOSE, false, false, Alert.CANCEL));
+			}
+			
+			private function selectedItemsChanged(event:ItemsChangedEvent):void {
+				var selectedItems:Array = list.selectedItems;
+				if (selectedItems.length == items.source.length) {
+					selectedItemsLabel.text = "All selected";
+				} else {
+					var field:String = "id";
+					if (isOntologyList) {
+						field = "abbreviationOrName";
+					}
+					selectedItemsLabel.text = ArrayUtils.arrayToString(selectedItems, ", ", -1, field);
+				}
+				selectedItemsLabel.toolTip = selectedItemsLabel.text; 
+			}
+			
+			private function windowResized(event:ResizeEvent):void {
+				selectedItemsLabel.maxWidth = width - selItemsLabel.width - 20;
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:VBox id="innerBox" paddingBottom="0" paddingRight="0" paddingLeft="0" paddingTop="0" verticalGap="0"
+			verticalScrollPolicy="off" horizontalScrollPolicy="off" width="100%" height="100%">
+		<mx:HBox id="ontologyFilterBox" width="100%" horizontalAlign="center" horizontalGap="2" 
+			verticalAlign="middle" styleName="bar" backgroundColor="0xeeeeff" height="0" visible="false"
+			paddingTop="1" paddingBottom="1">
+			<mx:Label text="Filter:"/>
+			<ui1:RestrictOntologyCombo id="restrictCombo" change="{items.refresh()}"/>
+		</mx:HBox>			
+		<mx:HBox horizontalGap="2" verticalAlign="middle" styleName="bar" horizontalAlign="center" 
+			backgroundColor="0xeeeeee" width="100%" paddingTop="2" paddingBottom="2">
+			<mx:Label text="Filter:"/>
+			<ui:FilterBox id="filterBox" filterList="{list}" filterField="{dataField}"/>
+		</mx:HBox>			
+		<mx:HBox horizontalGap="2" styleName="bar" width="100%" horizontalAlign="center"
+			paddingTop="1" paddingBottom="1">
+			<mx:LinkButton label="Select All" click="{list.selectAll()}"/>
+			<mx:LinkButton label="Select None" click="{list.selectNone()}"/>
+		</mx:HBox>
+		<ui:ButtonBox id="list" width="100%" height="100%" dataField="{dataField}" dataProvider="{items}"
+			borderStyle="inset" borderColor="0x999999" itemsChanged="selectedItemsChanged(event)"
+			verticalScrollBarStyleName="highlightScrollTrack"/>
+		<mx:HBox width="100%" horizontalAlign="left" horizontalGap="0" horizontalScrollPolicy="off"
+			fontSize="12" verticalAlign="middle" styleName="bar" paddingTop="4" paddingBottom="4" id="selectedItemsBox">
+			<mx:Label id="selItemsLabel" text="Selected items:" fontWeight="bold" color="#C35617"/>
+			<mx:Label id="selectedItemsLabel" fontWeight="bold" truncateToFit="true"/>
+		</mx:HBox>
+	</mx:VBox>
+	<mx:ControlBar horizontalAlign="center" paddingTop="2" paddingRight="2" paddingLeft="2" paddingBottom="2" horizontalGap="4">
+		<mx:Button label="Save" id="saveButton" click="saveClicked()"/>
+		<mx:Button label="Cancel" id="cancelButton" click="cancelClicked()"/>
+	</mx:ControlBar>
+	
+</ui:EscapeWindow>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:chooser="flex.utils.ui.chooser.*"
+	xmlns:flexutils="flex.utils.ui.*"
+	xmlns:ui="ui.*" pageTitle="NCBO All Resources"
+	layout="absolute" creationComplete="created(event)" initialize="init(event)"
+	preloader="preloader.NCBOPreloader" xmlns:util="util.*" xmlns:resize="flex.utils.ui.resize.*">
+
+	<mx:Style source="assets/style.css"/>
+	<mx:Script source="OBRSearchByConceptFunctions.as"/>
+
+	<mx:VBox verticalGap="5" height="100%" paddingLeft="10" paddingTop="0" paddingRight="10" paddingBottom="5">
+		
+		<flexutils:TitledBorderWindow width="1000" layout="vertical" title="Search the NCBO Resource Index"
+			paddingLeft="4" paddingRight="4" paddingBottom="4" paddingTop="0" verticalGap="5" height="402">
+			
+			<mx:HDividedBox width="100%" height="100%" horizontalGap="8" verticalScrollPolicy="off">
+			
+				<mx:VBox height="100%" width="54%" horizontalScrollPolicy="off"
+					paddingBottom="0" paddingLeft="5" paddingRight="5" paddingTop="5" verticalGap="5">
+					<mx:HBox width="100%" verticalAlign="top" fontSize="12" styleName="roundedBox">
+						<mx:Label text="Step 1:" fontWeight="bold"/>
+						<mx:VBox verticalGap="0">
+							<mx:Text text="Search for your terms of interest." width="100%" fontSize="12"/> 
+							<mx:Text text="You can optionally restrict the search to a specific ontology." width="100%" fontSize="12"/> 
+						</mx:VBox>
+					</mx:HBox>
+					
+					<mx:Form width="100%" height="100%"	verticalGap="4" paddingTop="0" paddingBottom="0" paddingLeft="0" paddingRight="0">
+						<mx:FormItem label="Ontology" width="100%">
+							<mx:Canvas id="ontologiesWrapper" width="100%" resize="{ontologiesCombo.width = ontologiesWrapper.width;}">
+								<mx:ComboBox id="ontologiesCombo" dataProvider="{ontologies}" labelField="nameAndID" 
+									width="100%" enabled="false" selectedIndex="0" rowCount="10"
+									change="ontologiesSelectionChange(event)"/>
+							</mx:Canvas>
+						</mx:FormItem>
+						<mx:FormItem label="Term" width="100%">
+							<mx:HBox horizontalGap="2" width="100%">
+								<chooser:Chooser id="conceptChooser" keyDown="conceptChooserKeyDownHandler(event)" prompt="Enter term name"/>
+								<mx:Button label="Find" click="findConcepts(event)" id="findButton" enabled="false"/>
+							</mx:HBox>
+						</mx:FormItem>
+						<mx:FormItem label="Matches" width="100%" height="100%">
+							<mx:DataGrid id="conceptResultsList" width="100%" allowMultipleSelection="true"
+								dataProvider="{conceptResults}" enabled="false" 
+								doubleClickEnabled="true" doubleClick="addConceptsClicked(event)"
+								dragEnabled="true" dragMoveEnabled="false" height="100%">
+								<mx:columns>
+									<mx:DataGridColumn id="conceptNameColumn" headerText="Name" dataField="name"/>
+									<mx:DataGridColumn headerText="Ontology" dataField="ontologyName"/>
+								</mx:columns>
+							</mx:DataGrid>
+						</mx:FormItem>
+					</mx:Form>
+				</mx:VBox>
+				<mx:HBox height="100%" width="46%" horizontalGap="0" verticalScrollPolicy="off">
+					<mx:VBox height="100%" width="36" verticalAlign="middle" styleName="roundedBox" backgroundColor="0xeeeeee" paddingLeft="2" paddingRight="2">
+						<mx:Button id="addConceptsButton" height="30" width="30" label="&#xbb;" fontSize="12" fontWeight="bold"
+							paddingTop="0" paddingRight="0" paddingLeft="0" paddingBottom="0" 
+							enabled="{conceptResultsList.selectedIndex != -1}"
+							toolTip="Add the selected terms to the list on the right"
+							click="addConceptsClicked(event)"/>
+					</mx:VBox>
+					<mx:VBox height="100%" width="100%" verticalScrollPolicy="off" verticalGap="0"
+						paddingLeft="5" paddingTop="5" paddingRight="0" paddingBottom="0">
+
+						<mx:HBox width="100%" verticalAlign="top" fontSize="12" styleName="roundedBox">
+							<mx:Label text="Step 2:" fontWeight="bold"/>
+							<mx:VBox verticalGap="0">
+								<mx:Text text="Add the terms of interest to the list below." width="100%" fontSize="12"/> 
+								<mx:Text text="Either drag the terms or click the » button." width="100%" fontSize="12"/> 
+							</mx:VBox>
+						</mx:HBox>
+						<mx:Spacer width="100%" height="5"/>
+
+						<mx:HBox width="100%" styleName="barBox">
+							<mx:Label fontWeight="bold" text="Selected terms:"/>
+							<mx:Spacer width="100%" height="16"/>
+							<mx:LinkButton label="Remove All" textDecoration="underline" toolTip="Remove all the terms"
+								click="{selectedConcepts.removeAll()}" enabled="{selectedConcepts.length > 0}"/>
+						</mx:HBox>
+						<mx:DataGrid id="selectedConceptsGrid" width="100%" height="100%" 
+							dataProvider="{selectedConcepts}" allowMultipleSelection="false" selectable="false"
+							dropEnabled="true" dragOver="conceptDragOver(event)" dragDrop="conceptDragDrop(event)">
+							<mx:columns>
+								<mx:DataGridColumn headerText="" dataField="id" width="36" textAlign="center" fontWeight="bold" 
+									labelFunction="andOrColumnLabelFunction"/>
+								<mx:DataGridColumn headerText="Name" dataField="name"
+									itemRenderer="renderers.ConceptLinkItemRenderer"/>
+								<mx:DataGridColumn headerText="Ontology" dataField="ontologyName"
+									itemRenderer="renderers.OntologyLinkItemRenderer"/>
+								<mx:DataGridColumn headerText="" dataField="id" width="20" sortable="false" 
+									itemRenderer="renderers.RemoveConceptLinkItemRenderer" resizable="false"/>
+							</mx:columns>
+						</mx:DataGrid>
+					</mx:VBox>
+				</mx:HBox>
+			
+			</mx:HDividedBox>
+			
+			<mx:HBox width="100%" fontSize="12" styleName="roundedBox">
+				<mx:Label text="Step 3:" fontWeight="bold"/>
+				<mx:Text fontSize="12"
+					text="Select your resources and whether you want the union or intersection of the selected terms and press Search."/>
+			</mx:HBox>
+		
+			<mx:HBox width="100%" horizontalGap="5" verticalAlign="bottom">
+				<mx:Form paddingTop="0" paddingBottom="0" paddingLeft="0" paddingRight="0" height="100%">
+					<flexutils:FormItemVerticalAlign verticalAlign="top">
+						<!--
+						<flexutils:ButtonBox id="resourcesList" enabled="false" itemsChanged="resourcesSelected(event)"
+							dataField="nameAndID" dataTipField="description" verticalLineScrollSize="27"
+							width="350" height="86" dataProvider="{resources}" verticalPageScrollSize="81"
+							itemRenderer="renderers.ResourcesCheckBoxRenderer"/>
+						-->
+						<ui:MultilinePopUpButton id="resourcesPopUpButton" enabled="false" openAlways="true" 
+							label="Resources (0)" width="300" height="80">
+						  <ui:popUp>
+						  	<resize:ResizableBox width="350" height="277" verticalGap="0" direction="vertical">
+							  <flexutils:ButtonBox id="resourcesList" width="100%" height="100%"  
+								verticalLineScrollSize="25" verticalPageScrollSize="150"
+							  	itemsChanged="resourcesSelected(event)" dataProvider="{resources}"
+								dataField="nameAndID" dataTipField="description" 
+								itemRenderer="renderers.ResourcesCheckBoxRenderer"
+								toolTip="Click here to select your resources"/>
+							  <mx:HBox width="100%" horizontalAlign="center" styleName="barBox">
+							  	<mx:Button label="Select All " click="resourcesList.selectAll()"/>
+							  	<mx:Button label="Select None" click="resourcesList.selectNone()"/>
+							  	<mx:VRule height="22" width="10"/>
+							  	<mx:Button label="Close" click="resourcesPopUpButton.close()"/>
+							  </mx:HBox>
+						  	</resize:ResizableBox>
+						  </ui:popUp>
+						</ui:MultilinePopUpButton>
+					</flexutils:FormItemVerticalAlign>
+				</mx:Form>
+				<mx:Spacer width="10" height="100%"/>
+				<mx:Form verticalGap="2" height="100%">
+					<mx:FormItem label="Search mode">
+						<mx:HBox horizontalGap="8">
+							<flexutils:RadioButton label="OR" groupName="unionGroup" id="unionRadioButton"
+								change="andOrChanged(event)" selected="true" 
+								toolTip="Returns the union of the annotations done with the selected terms"/>
+							<flexutils:RadioButton label="AND" groupName="unionGroup" id="intersectionRadioButton"
+								change="andOrChanged(event)" 
+								toolTip="Returns the intersection of the annotations done with the selected terms"/>
+						</mx:HBox>
+					</mx:FormItem>
+					<mx:FormItem label="Max Results">
+						<mx:HBox horizontalGap="0">
+							<mx:Label text="0" textAlign="right"/>
+							<mx:HSlider id="maxResultsSlider" minimum="0" maximum="500" snapInterval="10" value="100" 
+								dataTipPrecision="0" width="100" showDataTip="true" liveDragging="false" height="22" tickInterval="100" 
+								showTrackHighlight="true" toolTip="{maxResultsSlider.value}"/>
+							<mx:Label text="500"/>
+						</mx:HBox>
+					</mx:FormItem>
+					<flexutils:URLLinkButton label="Learn more about resources" icon="@Embed(source='assets/help.png')"
+						url="http://rest.bioontology.org/resource_index/resources/list/"/>
+				</mx:Form>
+				<mx:Spacer width="100%" height="16"/>
+				<mx:ProgressBar id="progress" width="150" label="Searching..." indeterminate="true" styleName="progress"
+					labelPlacement="center" visible="false" height="22"/>
+				<mx:Spacer width="10" height="20"/>
+				<mx:Button id="searchButton" label="Search" enabled="{selectedConcepts.length > 0}" 
+					styleName="searchButton" click="searchButtonClicked(event)"/>
+			</mx:HBox>
+		
+		</flexutils:TitledBorderWindow>
+		
+		<mx:Text width="100%" textAlign="center" height="0" id="errorLabel" color="#cc0000" fontWeight="bold" fontSize="11"/>
+		
+		<mx:HDividedBox id="resultsBox" width="1000" height="100%" horizontalCenter="0" horizontalGap="8">
+		
+			<mx:VDividedBox width="350" height="100%">
+				<flexutils:TitledBorderWindow width="100%" height="100%" id="annotationConceptResultsPanel" layout="vertical" title="Term Filter"  
+					verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+					paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0">
+					<mx:VBox width="100%" height="100%" verticalGap="0" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+						<mx:HBox width="100%" height="24" horizontalAlign="center" horizontalGap="2" styleName="bar">
+							<mx:LinkButton label="Select All" click="{annotationConceptsBox.selectAll()}"/>
+							<mx:LinkButton label="Select None" click="{annotationConceptsBox.selectNone()}"/>
+						</mx:HBox>
+						<mx:Canvas id="annotationConceptsBoxWrapper" width="100%" height="100%" 
+							resize="{annotationConceptsBox.height = annotationConceptsBoxWrapper.height;}"
+							verticalScrollPolicy="off" horizontalScrollPolicy="off">
+							<flexutils:ButtonBox id="annotationConceptsBox" width="100%" height="100%" 
+								dataProvider="{annotationConcepts}" itemRenderer="renderers.ConceptAnnotationCheckBox"
+								itemsChanged="annotationConceptsChanged(event)"/>
+						</mx:Canvas>
+					</mx:VBox>
+				</flexutils:TitledBorderWindow>
+				<flexutils:TitledBorderWindow width="100%" height="100%" id="resourcesResultsPanel" layout="vertical" title="Resources Filter"  
+						verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+						paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0">
+					<mx:VBox width="100%" height="100%" verticalGap="0" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+						<mx:HBox width="100%" height="24" horizontalAlign="center" horizontalGap="2" styleName="bar">
+							<mx:LinkButton label="Select All" click="{resourceResultsBox.selectAll()}"/>
+							<mx:LinkButton label="Select None" click="{resourceResultsBox.selectNone()}"/>
+						</mx:HBox>
+						<mx:Canvas id="resourceResultsBoxWrapper" width="100%" height="100%" 
+							resize="{resourceResultsBox.height = resourceResultsBoxWrapper.height;}"
+							verticalScrollPolicy="off" horizontalScrollPolicy="off">
+							<flexutils:ButtonBox id="resourceResultsBox" width="100%" height="100%" 
+								dataProvider="{annotationResources}" itemsChanged="annotationConceptsChanged(event)"
+								itemRenderer="renderers.ResourceAnnotationCheckBox"
+								dataTipField="description"/>
+						</mx:Canvas>
+					</mx:VBox>
+				</flexutils:TitledBorderWindow>
+				
+			</mx:VDividedBox>
+					
+			<flexutils:TitledBorderWindow id="elementsPanel" title="Resource Elements" width="100%" height="100%" 
+					layout="vertical" verticalGap="0" paddingTop="0">
+				<mx:HBox styleName="barBox" width="100%">
+					<mx:Label text="Filter:"/>
+					<flexutils:FilterBox id="elementsFilterBox" filterList="{elementsDataGrid}"
+						filterFields="{[ 'elementID' ]}"/>
+						<!-- , 'conceptName', 'ontologyName' ,  Resource, Term, or Ontology -->
+					<mx:Label text="(filters by Element ID)" color="0x666666"/>
+				</mx:HBox>
+				<mx:DataGrid id="elementsDataGrid" width="100%" height="100%" dataProvider="{annotationResults}">
+					<mx:columns>
+						<flexutils:SortableDataGridColumn headerText="Element ID" dataField="elementID" 
+							dataGrid="{elementsDataGrid}" itemRenderer="renderers.AnnotationElementLinkItemRenderer"/>
+						<flexutils:SortableDataGridColumn headerText="Resource" dataField="resourceNameAndID" 
+							dataGrid="{elementsDataGrid}" width="200"/>
+						<!--
+						<flexutils:SortableDataGridColumn headerText="Term" dataField="conceptName" 
+							dataGrid="{elementsDataGrid}" itemRenderer="renderers.AnnotationConceptLinkItemRenderer"/>
+						<flexutils:SortableDataGridColumn headerText="Ontology" dataField="ontologyName" 
+							dataGrid="{elementsDataGrid}" itemRenderer="renderers.AnnotationOntologyLinkItemRenderer"/>
+						-->
+						<mx:DataGridColumn headerText="Score" dataField="score" width="80"/>
+					</mx:columns>
+				</mx:DataGrid>
+				
+			</flexutils:TitledBorderWindow>
+			
+		</mx:HDividedBox>
+		
+		<util:HelpText textAlign="center" link="htmlLinkClicked(event)">
+			<util:htmlText>
+				<![CDATA[
+Learn more about the <a href="event:http://www.bioontology.org/wiki/index.php/Resource_Index">NCBO Biomedical Resource Index</a>
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+
+	</mx:VBox>
+	
+	<ui:AnnotationDetailsPanel id="detailsPanel" title="Details" x="300" y="300" width="550" height="400" 
+			close="{detailsPanel.visible = false;}"	visible="false"/>
+	
+</mx:Application>

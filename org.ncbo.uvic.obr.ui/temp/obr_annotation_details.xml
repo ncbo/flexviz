@@ -1,0 +1,134 @@
+<list>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept>
+      <localConceptID>SNOMEDCT/C0025202</localConceptID>
+      <preferredName>Melanoma</preferredName>
+      <synonyms>
+        <string>[M]Naevocarcinoma</string>
+        <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+        <string>Malignant melanoma</string>
+        <string>Melanoma - malignant</string>
+        <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+        <string>[M]Melanocarcinoma</string>
+        <string>Malignant melanoma, NOS</string>
+        <string>Malignant melanoma (disorder)</string>
+        <string>[M]Melanosarcoma NOS</string>
+        <string>[M]Malignant melanoma NOS</string>
+        <string>Malignant melanoma (morphologic abnormality)</string>
+        <string>MM - Malignant melanoma</string>
+        <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+        <string>Melanoma, NOS</string>
+        <string>[M]Melanoma NOS</string>
+        <string>Melanosarcoma</string>
+        <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+      </synonyms>
+      <isTopLevel>false</isTopLevel>
+      <localOntologyID>SNOMEDCT</localOntologyID>
+      <localSemanticTypeIDs>
+        <string>T191</string>
+        <string>T000</string>
+      </localSemanticTypeIDs>
+    </concept>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228902</termID>
+      <termName>Malignant melanoma</termName>
+      <from>2</from>
+      <to>19</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>12</from>
+      <to>19</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>232</from>
+      <to>239</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>352</from>
+      <to>359</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>416</from>
+      <to>423</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>description</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>608</from>
+      <to>615</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>name</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>34</from>
+      <to>41</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+  <obs.common.beans.ObrAnnotationBean>
+    <score>2022.0</score>
+    <concept reference="../../obs.common.beans.ObrAnnotationBean/concept"/>
+    <context class="obs.common.beans.MgrepContextBean">
+      <contextName>name</contextName>
+      <isDirect>true</isDirect>
+      <termID>3228899</termID>
+      <termName>Melanoma</termName>
+      <from>157</from>
+      <to>164</to>
+    </context>
+    <localElementID>E-GEOD-9118</localElementID>
+  </obs.common.beans.ObrAnnotationBean>
+</list>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<form name="testForm" method="post" action="http://rest.bioontology.org/obs_hibernate/annotator" >
+
+  <table width="92%" border="2">
+		<tr>
+		<td>
+
+ 			<p><strong>longestOnly</strong>
+ 		    	    <input type="radio" name="longestOnly" value="true"/>true
+					<input type="radio" name="longestOnly" value="false" checked="checked"/>false[default: false]<br/>
+ 					(i.e., do you want the concept recognizer to match the longest sentence only or not.)<br/>
+ 					<br/>
+
+			<strong>wholeWordOnly</strong>
+						 	<input type="radio" name="wholeWordOnly" value="true" checked="checked"/>
+
+						 	true
+
+							<input type="radio" name="wholeWordOnly" value="false"/>
+							false
+
+							[default: true] <br/>
+							(i.e., do you want the concept recognizer to match whole word only.)<br/>
+							<br />
+ 			<strong>stopWords</strong>
+                                <input type="text" name="stopWords" size="100"/> [default: empty] <br />
+
+									(i.e., list of stop words to use (i.e., not to use for annotation) separated with comma (without spaces) e.g., in,am,be,is.<br />
+										<strong> withDefaultStopWords</strong>
+								<input type="radio" name="withDefaultStopWords" value="true" /> true
+								<input type="radio" name="withDefaultStopWords" value="false" checked="checked"/>false [default: false] <br />
+								(i.e., do you want to use our default stop word list available here: <a href="http://rest.bioontology.org/obs_hibernate/stopwords">/obs_hibernate/stopwords </a>. This cancel the above one.)<br/>
+
+			<strong><br />scored</strong>
+						 	    <input type="radio" name="scored" value="true" checked="checked"/> true
+								<input type="radio" name="scored" value="false" /> false
+								[default: true]	<br/>
+							(i.e., do you wan the annotations to be scored by relevance.) <br/>
+							<br/>
+
+			<strong>ontologiesToExpand</strong>
+
+			<input type="text" id="ontologies" name="ontologiesToExpand" size="100"/>
+							[default: all] <br/>
+							(i.e., list of ontologies you want to use to expand separated with comma (without spaces) e.g., SNOMEDCT,NCI,MSH.<br />
+							You can find the list of localOntologyIDs available here: <a href="http://rest.bioontology.org/obs_hibernate/ontologies">/obs_hibernate/ontologies</a>)<br/>
+							<br/>
+							
+			<strong>ontologiesToKeepInResult</strong>
+
+			<input type="text" id="ontologies" name="ontologiesToKeepInResult" size="100"/>
+							[default: all] <br/>
+							(i.e., list of ontologies you want to keep in result separated with comma (without spaces) e.g., SNOMEDCT,NCI,MSH.<br />
+							You can find the list of localOntologyIDs available here: <a href="http://rest.bioontology.org/obs_hibernate/ontologies">/obs_hibernate/ontologies</a>)<br/>
+							<br/>
+
+			<strong>semanticTypes</strong>
+
+			<input type="text" id="semanticTypes" name="semanticTypes" size="100"/>
+							[default: all] <br/>
+							(i.e., list of UMLS semantic types you want to use separated with comma (without spaces) e.g., T047,T048,T191.<br />
+							You can find the list of localSemanticTypeIDs available here: <a href="http://rest.bioontology.org/obs_hibernate/semanticTypes">/obs_hibernate/semanticTypes</a>)<br/>
+							<br/>
+
+
+			<strong>levelMax</strong>
+							<input type="text" name="levelMax" size="5" value="0"/>
+
+							[default: 0] <br/>
+							(i.e., the level you want the isa-transitive-closure expansion component to be restricted to.) <br/>
+							<br/>
+
+			<strong>mappingTypes</strong>
+
+			<input type="text" id="mappingTypes" name="mappingTypes" size="100"/>
+
+							[default: all]
+
+							<br/>
+							(i.e., list of mapping types you want to use for the mapping expansion component separated with comma (without spaces) e.g., inter-cui,from-mrrel.<br />
+							You can find the list of mapping types available here: <a href="http://rest.bioontology.org/obs_hibernate/mappingTypes">/obs_hibernate/mappingTypes</a>).
+							Note if you use the keyword <span class="style2">null</span> in your list, it will disable the mapping expansion component. <br/>
+
+							<br/>
+		                </p>
+			    </td>
+		        </tr><tr>
+ 				<td>
+			<strong>textToAnnotate</strong> (i.e., the text you want to annotate.) [default: empty]<br/>
+				<textarea id="textToAnnotate" name="textToAnnotate" cols="100" rows="10"></textarea> <br/>
+
+				Be careful to remove end-of-lines characters from your text.
+				</td>
+		        </tr><tr>
+ 				<td>
+		    <strong>format</strong> (i.e., the format of the results.) [default: asXml] <br/>
+		    				<input type="radio" id="format" name="format" value="xml" /> asXML <br/>
+							<input type="radio" id="format" name="format" value="text" /> asText <br/>
+
+							<input type="radio" id="format" name="format" value="tabDelimited" /> asTabDelimited (annotations only) <br/>
+		        </td>
+		        </tr>
+  </table>
+			<p>
+			<input type="hidden" name="sessionid" value="9c188a9b8de0fe0c21b9322b72255fb939a68bb2" />
+
+			<input type="submit" value="Annotate" />
+
+  </p>
+</form>
+
+
+</body>
+</html>

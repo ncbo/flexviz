@@ -1,0 +1,1290 @@
+<obs.common.beans.ObrResultBeanDetailled>
+  <resultID>OBR_RESULT_2d49</resultID>
+  <dictionary>
+    <dictionaryID>27</dictionaryID>
+    <dictionaryName>OBS_DICO_f957</dictionaryName>
+    <dictionaryDate>
+      <time>1232956800000</time>
+      <timezone>America/Los_Angeles</timezone>
+    </dictionaryDate>
+  </dictionary>
+  <statistics/>
+  <parameters>
+    <longestOnly>false</longestOnly>
+    <wholeWordOnly>true</wholeWordOnly>
+    <scored>true</scored>
+    <localOntologyIDs/>
+    <localSemanticTypeIDs/>
+    <levelMin>1</levelMin>
+    <levelMax>2147483647</levelMax>
+    <mappingTypes/>
+  </parameters>
+  <annotations/>
+  <localConceptIDs/>
+  <localElementID>E-GEOD-9118</localElementID>
+  <resourceID>AE</resourceID>
+  <mode>UNION</mode>
+  <offsetStart>1</offsetStart>
+  <offsetMax>10</offsetMax>
+  <directAnnotations>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>12</from>
+        <to>19</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>232</from>
+        <to>239</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>352</from>
+        <to>359</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>416</from>
+        <to>423</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>608</from>
+        <to>615</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>name</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>34</from>
+        <to>41</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>name</contextName>
+        <isDirect>true</isDirect>
+        <termID>3228899</termID>
+        <termName>Melanoma</termName>
+        <from>157</from>
+        <to>164</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>1258.0</score>
+      <concept>
+        <localConceptID>38677/DOID:1909</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Malignant Melanoma</string>
+          <string>melanoma</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+          <string>MALIGNANT MELANOMA</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38677</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>1501378</termID>
+        <termName>Malignant melanoma</termName>
+        <from>2</from>
+        <to>19</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>1258.0</score>
+      <concept>
+        <localConceptID>38677/DOID:1909</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Malignant Melanoma</string>
+          <string>melanoma</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+          <string>MALIGNANT MELANOMA</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38677</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>1501380</termID>
+        <termName>Malignant Melanoma</termName>
+        <from>2</from>
+        <to>19</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>1258.0</score>
+      <concept>
+        <localConceptID>38677/DOID:1909</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Malignant Melanoma</string>
+          <string>melanoma</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+          <string>MALIGNANT MELANOMA</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38677</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>description</contextName>
+        <isDirect>true</isDirect>
+        <termID>1501384</termID>
+        <termName>MALIGNANT MELANOMA</termName>
+        <from>2</from>
+        <to>19</to>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+  </directAnnotations>
+  <isaAnnotations>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>name</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>name</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0027651</childConceptID>
+        <level>1</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>328.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0027651</localConceptID>
+        <preferredName>Neoplasms</preferredName>
+        <synonyms>
+          <string>Neoplasm of unspecified nature (disorder)</string>
+          <string>[M]Neoplasms NOS (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature</string>
+          <string>Neoplastic disease, NOS</string>
+          <string>Neoplastic disease</string>
+          <string>New growth</string>
+          <string>Tumor NOS</string>
+          <string>Tumor, NOS</string>
+          <string>Neoplasm of unspecified nature NOS</string>
+          <string>Neoplastic disease (disorder)</string>
+          <string>Neoplastic syndrome</string>
+          <string>Unspecified nature neoplasm</string>
+          <string>NG - New growth</string>
+          <string>Neoplasm</string>
+          <string>Neoplasm (morphologic abnormality)</string>
+          <string>Neoplasm of unspecified nature NOS (disorder)</string>
+          <string>Unspecified nature neoplasm (disorder)</string>
+          <string>Tumour, NOS</string>
+          <string>Tumor</string>
+          <string>Tumour NOS</string>
+          <string>NG - Neoplastic growth</string>
+          <string>Neoplastic growth</string>
+          <string>Neoplasia</string>
+          <string>Tumour</string>
+          <string>Neoplasms NOS (disorder)</string>
+          <string>Neoplastic syndrome, NOS</string>
+          <string>Neoplasm, NOS</string>
+          <string>[M]Neoplasms NOS</string>
+          <string>Neoplasms NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>name</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>SNOMEDCT/C0025202</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>274.0</score>
+      <concept>
+        <localConceptID>NCI/C0007634</localConceptID>
+        <preferredName>Cells</preferredName>
+        <synonyms>
+          <string>Cell Types</string>
+          <string>Cell Type</string>
+          <string>Normal Cell</string>
+          <string>Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.IsaContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <childConceptID>NCI/C0025201</childConceptID>
+        <level>2</level>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+  </isaAnnotations>
+  <mappingAnnotations>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>NCI/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>CST/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>RCD/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>MDR/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>COSTAR/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>MTH/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>SNM/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>BI/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>OMIM/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+    <obs.common.beans.ObrAnnotationBean>
+      <score>2022.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025202</localConceptID>
+        <preferredName>Melanoma</preferredName>
+        <synonyms>
+          <string>[M]Naevocarcinoma</string>
+          <string>[M]Malignant melanoma NOS or melanocarcinoma or melanoma NOS</string>
+          <string>Malignant melanoma</string>
+          <string>Melanoma - malignant</string>
+          <string>Malignant melanoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>[M]Melanocarcinoma</string>
+          <string>Malignant melanoma, NOS</string>
+          <string>Malignant melanoma (disorder)</string>
+          <string>[M]Melanosarcoma NOS</string>
+          <string>[M]Malignant melanoma NOS</string>
+          <string>Malignant melanoma (morphologic abnormality)</string>
+          <string>MM - Malignant melanoma</string>
+          <string>Malignant melanoma, morphology (morphologic abnormality)</string>
+          <string>Melanoma, NOS</string>
+          <string>[M]Melanoma NOS</string>
+          <string>Melanosarcoma</string>
+          <string>[M]Malignant melanoma NOS (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MappingContextBean">
+        <contextName>description</contextName>
+        <isDirect>false</isDirect>
+        <mappedConceptID>AOD/C0025202</mappedConceptID>
+        <mappingType>inter-cui</mappingType>
+      </context>
+      <localElementID>E-GEOD-9118</localElementID>
+    </obs.common.beans.ObrAnnotationBean>
+  </mappingAnnotations>
+</obs.common.beans.ObrResultBeanDetailled>

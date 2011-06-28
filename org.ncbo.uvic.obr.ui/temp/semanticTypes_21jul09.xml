@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<success>
+  <accessedResource>/obs_hibernate/semanticTypes</accessedResource>
+  <accessDate>2009-07-21 15:07:59.452 PDT</accessDate>
+  <data>
+    <list>
+      <object-array>
+        <stopword>T033</stopword>
+        <stopword>Finding</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T000</stopword>
+        <stopword>UMLS concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T060</stopword>
+        <stopword>Diagnostic Procedure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T184</stopword>
+        <stopword>Sign or Symptom</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T034</stopword>
+        <stopword>Laboratory or Test Result</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T047</stopword>
+        <stopword>Disease or Syndrome</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T059</stopword>
+        <stopword>Laboratory Procedure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T191</stopword>
+        <stopword>Neoplastic Process</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T023</stopword>
+        <stopword>Body Part, Organ, or Organ Component</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T025</stopword>
+        <stopword>Cell</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T046</stopword>
+        <stopword>Pathologic Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T058</stopword>
+        <stopword>Health Care Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T190</stopword>
+        <stopword>Anatomical Abnormality</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T029</stopword>
+        <stopword>Body Location or Region</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T129</stopword>
+        <stopword>Immunologic Factor</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T121</stopword>
+        <stopword>Pharmacologic Substance</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T032</stopword>
+        <stopword>Organism Attribute</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T020</stopword>
+        <stopword>Acquired Abnormality</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T061</stopword>
+        <stopword>Therapeutic or Preventive Procedure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T080</stopword>
+        <stopword>Qualitative Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T170</stopword>
+        <stopword>Intellectual Product</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T185</stopword>
+        <stopword>Classification</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T079</stopword>
+        <stopword>Temporal Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T048</stopword>
+        <stopword>Mental or Behavioral Dysfunction</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T041</stopword>
+        <stopword>Mental Process</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T116</stopword>
+        <stopword>Amino Acid, Peptide, or Protein</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T054</stopword>
+        <stopword>Social Behavior</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T039</stopword>
+        <stopword>Physiologic Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T040</stopword>
+        <stopword>Organism Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T078</stopword>
+        <stopword>Idea or Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T053</stopword>
+        <stopword>Behavior</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T055</stopword>
+        <stopword>Individual Behavior</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T022</stopword>
+        <stopword>Body System</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T037</stopword>
+        <stopword>Injury or Poisoning</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T131</stopword>
+        <stopword>Hazardous or Poisonous Substance</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T038</stopword>
+        <stopword>Biologic Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T070</stopword>
+        <stopword>Natural Phenomenon or Process</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T019</stopword>
+        <stopword>Congenital Abnormality</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T169</stopword>
+        <stopword>Functional Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T049</stopword>
+        <stopword>Cell or Molecular Dysfunction</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T031</stopword>
+        <stopword>Body Substance</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T077</stopword>
+        <stopword>Conceptual Entity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T074</stopword>
+        <stopword>Medical Device</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T069</stopword>
+        <stopword>Environmental Effect of Humans</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T065</stopword>
+        <stopword>Educational Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T102</stopword>
+        <stopword>Group Attribute</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T081</stopword>
+        <stopword>Quantitative Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T100</stopword>
+        <stopword>Age Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T098</stopword>
+        <stopword>Population Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T016</stopword>
+        <stopword>Human</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T064</stopword>
+        <stopword>Governmental or Regulatory Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T082</stopword>
+        <stopword>Spatial Concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T101</stopword>
+        <stopword>Patient or Disabled Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T122</stopword>
+        <stopword>Biomedical or Dental Material</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T052</stopword>
+        <stopword>Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T067</stopword>
+        <stopword>Phenomenon or Process</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T042</stopword>
+        <stopword>Organ or Tissue Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T009</stopword>
+        <stopword>Invertebrate</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T091</stopword>
+        <stopword>Biomedical Occupation or Discipline</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T005</stopword>
+        <stopword>Virus</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T051</stopword>
+        <stopword>Event</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T024</stopword>
+        <stopword>Tissue</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T200</stopword>
+        <stopword>Clinical Drug</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T109</stopword>
+        <stopword>Organic Chemical</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T203</stopword>
+        <stopword>Drug Delivery Device</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T118</stopword>
+        <stopword>Carbohydrate</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T195</stopword>
+        <stopword>Antibiotic</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T197</stopword>
+        <stopword>Inorganic Chemical</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T125</stopword>
+        <stopword>Hormone</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T110</stopword>
+        <stopword>Steroid</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T126</stopword>
+        <stopword>Enzyme</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T111</stopword>
+        <stopword>Eicosanoid</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T130</stopword>
+        <stopword>Indicator, Reagent, or Diagnostic Aid</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T127</stopword>
+        <stopword>Vitamin</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T123</stopword>
+        <stopword>Biologically Active Substance</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T119</stopword>
+        <stopword>Lipid</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T115</stopword>
+        <stopword>Organophosphorus Compound</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T114</stopword>
+        <stopword>Nucleic Acid, Nucleoside, or Nucleotide</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T196</stopword>
+        <stopword>Element, Ion, or Isotope</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T124</stopword>
+        <stopword>Neuroreactive Substance or Biogenic Amine</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T167</stopword>
+        <stopword>Substance</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T168</stopword>
+        <stopword>Food</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T073</stopword>
+        <stopword>Manufactured Object</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T104</stopword>
+        <stopword>Chemical Viewed Structurally</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T043</stopword>
+        <stopword>Cell Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T062</stopword>
+        <stopword>Research Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T192</stopword>
+        <stopword>Receptor</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T002</stopword>
+        <stopword>Plant</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T007</stopword>
+        <stopword>Bacterium</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T030</stopword>
+        <stopword>Body Space or Junction</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T097</stopword>
+        <stopword>Professional or Occupational Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T063</stopword>
+        <stopword>Molecular Biology Research Technique</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T015</stopword>
+        <stopword>Mammal</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T090</stopword>
+        <stopword>Occupation or Discipline</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T194</stopword>
+        <stopword>Archaeon</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T026</stopword>
+        <stopword>Cell Component</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T018</stopword>
+        <stopword>Embryonic Structure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T083</stopword>
+        <stopword>Geographic Area</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T050</stopword>
+        <stopword>Experimental Model of Disease</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T045</stopword>
+        <stopword>Genetic Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T201</stopword>
+        <stopword>Clinical Attribute</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T093</stopword>
+        <stopword>Health Care Related Organization</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T044</stopword>
+        <stopword>Molecular Function</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T092</stopword>
+        <stopword>Organization</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T057</stopword>
+        <stopword>Occupational Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T089</stopword>
+        <stopword>Regulation or Law</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T094</stopword>
+        <stopword>Professional Society</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T068</stopword>
+        <stopword>Human-caused Phenomenon or Process</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T099</stopword>
+        <stopword>Family Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T013</stopword>
+        <stopword>Fish</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T028</stopword>
+        <stopword>Gene or Genome</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T056</stopword>
+        <stopword>Daily or Recreational Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T066</stopword>
+        <stopword>Machine Activity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T004</stopword>
+        <stopword>Fungus</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T072</stopword>
+        <stopword>Physical Object</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T087</stopword>
+        <stopword>Amino Acid Sequence</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T003</stopword>
+        <stopword>Alga</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T086</stopword>
+        <stopword>Nucleotide Sequence</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T011</stopword>
+        <stopword>Amphibian</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T008</stopword>
+        <stopword>Animal</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T006</stopword>
+        <stopword>Rickettsia or Chlamydia</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T103</stopword>
+        <stopword>Chemical</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T001</stopword>
+        <stopword>Organism</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T012</stopword>
+        <stopword>Bird</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T075</stopword>
+        <stopword>Research Device</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T120</stopword>
+        <stopword>Chemical Viewed Functionally</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T096</stopword>
+        <stopword>Group</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T014</stopword>
+        <stopword>Reptile</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T010</stopword>
+        <stopword>Vertebrate</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T017</stopword>
+        <stopword>Anatomical Structure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T095</stopword>
+        <stopword>Self-help or Relief Organization</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T085</stopword>
+        <stopword>Molecular Sequence</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T171</stopword>
+        <stopword>Language</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T071</stopword>
+        <stopword>Entity</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T088</stopword>
+        <stopword>Carbohydrate Sequence</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T021</stopword>
+        <stopword>Fully Formed Anatomical Structure</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T999</stopword>
+        <stopword>NCBO BioPortal concept</stopword>
+      </object-array>
+      <object-array>
+        <stopword>T998</stopword>
+        <stopword>Jax Mouse/Human Gene dictionary concept</stopword>
+      </object-array>
+    </list>
+  </data>
+</success>

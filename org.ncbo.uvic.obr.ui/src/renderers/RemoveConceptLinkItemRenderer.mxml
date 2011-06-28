@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml"
+	textAlign="center" useHandCursor="true" buttonMode="true" fontWeight="normal" click="linkClicked(event)"
+	icon="@Embed('/assets/x_gray.png')" overIcon="@Embed('/assets/x_red.png')" downIcon="@Embed('/assets/x_red.png')"
+	width="20" paddingLeft="2" paddingRight="2" toolTip="Remove">
+
+	<mx:Script>
+	<![CDATA[
+		import events.ConceptLinkEvent;
+		import org.ncbo.uvic.flex.model.NCBOSearchResultConcept;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			label = null;
+		}
+	
+		private function linkClicked(event:MouseEvent):void {
+			var concept:NCBOSearchResultConcept = (data as NCBOSearchResultConcept);
+			if (owner != null) {
+				owner.dispatchEvent(new ConceptLinkEvent(ConceptLinkEvent.REMOVE_LINK_CLICKED, concept, event));
+			}
+		}
+		
+	]]>
+	</mx:Script>
+	
+</mx:LinkButton>

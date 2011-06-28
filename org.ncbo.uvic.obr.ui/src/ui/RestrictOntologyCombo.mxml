@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:mx="http://www.adobe.com/2006/mxml" dataProvider="{OPTIONS}" selectedIndex="0">
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import model.Ontology;
+			
+			public static const RESTRICT_NONE:String = "UMLS and BioPortal Ontologies";
+			public static const RESTRICT_UMLS:String = "UMLS Only";
+			public static const RESTRICT_BIOPORTAL:String = "BioPortal Only";
+			
+			private static const OPTIONS:Array = [ RESTRICT_NONE, RESTRICT_UMLS, RESTRICT_BIOPORTAL ];
+			
+			public function ontologiesFilterFunction(ontology:Object):Boolean {
+				var isUMLS:Boolean = false;
+				var isBioPortal:Boolean = false;
+				if (ontology is Ontology) {
+					isUMLS = (ontology as Ontology).isUMLS;
+					isBioPortal = (ontology as Ontology).isBioPortal;
+				}
+				var restrict:String = String(selectedItem);
+				if (restrict == RESTRICT_NONE) {
+					return true;
+				}
+				if ((restrict == RESTRICT_UMLS) && !isUMLS) {
+					return false;
+				}
+				if ((restrict == RESTRICT_BIOPORTAL) && !isBioPortal) {
+					return false;
+				}
+				return true;
+			}
+			
+		]]>
+	</mx:Script>
+		
+</mx:ComboBox>
