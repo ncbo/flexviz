@@ -144,6 +144,11 @@ FlexoViz Parameters:
 					flexoviz.searchProvider.baseServerURL = serverURL;
 				}
 				
+				var apikey:String = FlexVizParams.getParam(NCBOAppParams.APIKEY);
+				if (apikey) {
+					flexoviz.searchProvider.service.apikey = apikey;
+				}
+				
 				// first check if the basic flexoviz saved anything to the cache
 				var loadedFromCache:Boolean = flexoviz.loadSharedGraph();
 				// if this failed, then load from the flashvars parameters

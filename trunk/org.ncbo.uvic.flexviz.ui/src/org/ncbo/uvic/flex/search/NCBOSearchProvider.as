@@ -255,7 +255,7 @@ package org.ncbo.uvic.flex.search
 					// also removes the busy cursor, and hides the progress panel
 					graph.error(error);
 				};
-				_service = new NCBORestService(NCBORestService.APP_ID_FLEXVIZ, baseServerURL, errorFunction, EMAIL);
+				_service = new NCBORestService(NCBORestService.APIKEY_FLEXVIZ, NCBORestService.APP_ID_FLEXVIZ, baseServerURL, errorFunction, EMAIL);
 				// use our own custom alert messages
 				_service.alertErrorFunction = alertErrorMessage;
 			}
