@@ -10,7 +10,6 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="Test.mxml"/>
     <application path="Search.mxml"/>
   </applications>
   <modules/>
