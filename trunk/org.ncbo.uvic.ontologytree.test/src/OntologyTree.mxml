@@ -50,7 +50,7 @@
 			
 			private function created(event:FlexEvent):void {
 				var server:String = Utils.getParam(NCBOAppParams.SERVER, null, parameters, true);
-				service = new NCBORestService(NCBORestService.APP_ID_FLEXVIZ, server, null, EMAIL);
+				service = new NCBORestService(NCBORestService.APIKEY_FLEXVIZ, NCBORestService.APP_ID_FLEXVIZ, server, null, EMAIL);
 				tree.service = service;
 				
 				var redirectURL:String = Utils.getParam(NCBOAppParams.REDIRECT_URL, null, parameters, true);

@@ -54,7 +54,7 @@
 			public const ICON:Class;
 			
 			private function created():void {
-				service = new NCBORestService();
+				service = new NCBORestService(NCBORestService.APIKEY_FLEXVIZ);
 				tree.service = service;
 				service.getNCBOOntologies(ontologiesLoaded);
 			}
