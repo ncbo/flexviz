@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageCheckBox xmlns="flex.utils.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" horizontalGap="2"
+	height="25" paddingTop="1" paddingBottom="1" fontWeight="{selected ? 'bold' : 'normal'}">
+	
+	
+	<mx:Script>
+		<![CDATA[
+			import model.Resource;
+			
+			override public function set data(value:Object):void {
+				super.data = value;
+				// show the logo?  They are all different sizes
+				// was imageHeight="48" height="50"
+//				var resource:Resource = (data as Resource);
+//				if (resource && resource.logo) {
+//					try {
+//						imageSource = resource.logo;
+//					} catch (error:Error) {
+//						trace("ERROR: " + error);
+//					}
+//				} else {
+//					imageSource = null;
+//				}
+			}
+						
+		]]>
+	</mx:Script>
+	
+</ImageCheckBox>

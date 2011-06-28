@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:URLLinkButton xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ui="flex.utils.ui.*"
+	textAlign="left" fontWeight="normal" click="elementClicked(event)">
+
+	<mx:Script>
+	<![CDATA[
+		import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+		import events.AnnotationContextLinkEvent;
+		import model.AnnotationContext;
+		
+		override public function set data(value:Object):void {
+			super.data = value;
+			enabled = true;
+			useHandCursor = true;
+			var context:AnnotationContext = (data as AnnotationContext);
+			label = context.conceptName;
+			if (!label || !context.ontologyVersionID || 
+				isNaN(Number(context.ontologyVersionID))) {
+				enabled = false;
+				useHandCursor = false;
+			}
+			if (enabled && (label.length > 0)) {
+				toolTip = label + " (click to view in BioPortal)";
+				//url = NavigateToBioPortal.getBioPortalURL(context.ontologyVersionID, context.conceptID, false);
+			} else {
+				//url = "";
+			}
+		}
+	
+		// not used anymore
+		private function elementClicked(event:MouseEvent):void {
+			var context:AnnotationContext = (data as AnnotationContext);
+			// let the parent handle it
+			if (owner != null) {
+				owner.dispatchEvent(new AnnotationContextLinkEvent(AnnotationContextLinkEvent.CONTEXT_LINK_CLICKED, context, event));
+			}
+		}
+		
+	]]>
+	</mx:Script>
+	
+</ui:URLLinkButton>

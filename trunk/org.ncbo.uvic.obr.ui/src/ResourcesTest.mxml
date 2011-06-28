@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.FaultEvent;
+			import mx.managers.CursorManager;
+			import mx.rpc.events.ResultEvent;
+			import mx.messaging.messages.HTTPRequestMessage;
+			import mx.rpc.http.HTTPService;
+			import flex.utils.StringUtils;
+			import flex.utils.Utils;
+			import mx.controls.CheckBox;
+			import mx.utils.StringUtil;
+			import mx.controls.TextInput;
+			import mx.core.UIComponent;
+			import mx.containers.FormItem;
+			
+			private static const URL:String = "http://rest.bioontology.org/resource_index/";
+			
+			private function submit(event:MouseEvent):void {
+				var params:Object = {};
+				for (var i:int = 0; i < form.numChildren; i++) {
+					var formItem:FormItem = (form.getChildAt(i) as FormItem);
+					if (!formItem) {
+						continue;
+					}
+					var lbl:String = formItem.label;
+					if (!lbl || (formItem.numChildren == 0)) {
+						continue;
+					}
+					var firstChild:UIComponent = (formItem.getChildAt(0) as UIComponent);
+					if (firstChild is TextInput) {
+						params[lbl] = StringUtil.trim((firstChild as TextInput).text);
+					} else if (firstChild is CheckBox) {
+						params[lbl] = (firstChild as CheckBox).selected;
+					} else if (firstChild is RadioButtonGroup) {
+						params[lbl] = String((firstChild as RadioButtonGroup).selectedValue);
+					}
+				}
+				
+				var url:String = URL;
+				if (methodGroup.selectedValue == "GET") {
+					url = URL + "?" + Utils.toParamString(params, "&");
+					send(url);
+				} else {
+					send(url, params);
+				}
+			}
+			
+			private function send(url:String, params:Object = null, timeout:int = 20 /*seconds*/):void {
+				tracer.text = "Sending...\n" + url + "\nParams:\n" + Utils.toParamString(params, "\n");
+				
+				var svc:HTTPService = new HTTPService();
+				svc.url = url;
+				svc.resultFormat = HTTPService.RESULT_FORMAT_E4X;
+				if (params) {
+					svc.method = HTTPRequestMessage.POST_METHOD;
+				} else {
+					svc.method = HTTPRequestMessage.GET_METHOD;
+				}
+				svc.headers["Pragma"] = "no-cache";
+				svc.headers["Cache-Control"] = "no-cache";
+				//svc.headers[APP_ID_KEY] = appID;
+				//svc.headers["email"] = EMAIL;
+				svc.requestTimeout = timeout;	// in seconds 
+				svc.addEventListener(ResultEvent.RESULT, resultHandler);
+				svc.addEventListener(FaultEvent.FAULT, faultHandler);
+				
+				svc.send(params);
+				CursorManager.setBusyCursor();
+			}
+			
+			private function resultHandler(event:ResultEvent):void {
+				CursorManager.removeBusyCursor();
+	
+				var xml:XML = null;
+				if (event.result is XML) {
+					xml = (event.result as XML);
+				} else {
+					try {
+						xml = XML(event.result);
+					} catch (error:Error) {
+						output.text = "Error parsing XML: " + error.message;
+					}
+				}
+				if (xml != null) {
+					// HACK remove the extra crap
+					delete xml.parameters.stopWords;
+					delete xml.dictionary;
+					delete xml.resultID;
+					delete xml.statistics;
+					output.text = xml.toXMLString();
+				}
+			}
+			
+			private function faultHandler(event:FaultEvent):void {
+				CursorManager.removeBusyCursor();
+				trace("Fault: " + event.fault);
+				output.text = event.fault.toString();
+			}
+			
+		]]>
+	</mx:Script>
+
+	<mx:Form x="10" y="10" id="form" verticalGap="2" paddingTop="0" paddingRight="0" paddingLeft="0" paddingBottom="0">
+		<mx:FormHeading label="Resource Index Test"/>
+		<mx:FormItem label="localOntologyIDs">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="localSemanticTypeIDs">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="levelMin">
+			<mx:TextInput text="0" width="50"/>
+		</mx:FormItem>
+		<mx:FormItem label="levelMax">
+			<mx:TextInput text="0" width="50"/>
+		</mx:FormItem>
+		<mx:FormItem label="mappingTypes">
+			<mx:TextInput text="null"/>
+		</mx:FormItem>
+		<mx:FormItem label="localConceptIDs">
+			<mx:TextInput text="1055/Melanoma,1032/Melanoma" width="300"/>
+		</mx:FormItem>
+		<mx:FormItem label="virtual">
+			<mx:CheckBox label=" " selected="true"/>
+		</mx:FormItem>
+		<mx:FormItem label="mode" direction="horizontal">
+			<mx:RadioButtonGroup id="modeGroup"/>
+			<mx:RadioButton label="UNION" groupName="modeGroup" selected="true"/>
+			<mx:RadioButton label="INTERSECTION" groupName="modeGroup"/>
+		</mx:FormItem>
+		<mx:FormItem label="localElementID">
+			<mx:TextInput/>
+		</mx:FormItem>
+		<mx:FormItem label="resourceID">
+			<mx:TextInput text="AE"/>
+		</mx:FormItem>
+		<mx:FormItem label="elementDetails">
+			<mx:CheckBox label=" "/>
+		</mx:FormItem>
+		<mx:FormItem label="withContext">
+			<mx:CheckBox label=" "/>
+		</mx:FormItem>
+		<mx:FormItem label="counts">
+			<mx:CheckBox label=" " selected="false"/>
+		</mx:FormItem>
+		<mx:FormItem label="from">
+			<mx:TextInput text="0" width="50"/>
+		</mx:FormItem>
+		<mx:FormItem label="number">
+			<mx:TextInput text="10" width="50"/>
+		</mx:FormItem>
+		<mx:FormItem label="format" direction="horizontal">
+			<mx:RadioButtonGroup id="formatGroup"/>
+			<mx:RadioButton label="asText" groupName="formatGroup"/>
+			<mx:RadioButton label="asTabDelimited" groupName="formatGroup" visible="false" width="0"/>
+			<mx:RadioButton label="asXML" groupName="formatGroup" selected="true"/>
+			<mx:RadioButton label="asOWL" groupName="formatGroup"/>
+		</mx:FormItem>
+		<mx:FormItem direction="horizontal">
+			<mx:RadioButtonGroup id="methodGroup"/>
+			<mx:RadioButton label="POST" groupName="methodGroup" selected="true"/>
+			<mx:RadioButton label="GET" groupName="methodGroup"/>
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:Button label="Get annotations" click="submit(event)"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:TextArea x="10" y="470" height="100%" id="tracer" width="441"/>
+	<mx:TextArea x="459" y="10" width="100%" height="100%" id="output" wordWrap="true" editable="false"/>
+	
+</mx:Application>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ui="flex.utils.ui.*"
+	implements="mx.core.IFactory"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off" verticalGap="0"
+	styleName="annotationListItem" creationComplete="created(event)">
+	
+	<mx:Script>
+		<![CDATA[
+			import model.AnnotationContext;
+			import mx.events.FlexEvent;
+			import flex.utils.ui.HighlightTextArea;
+			import model.Annotation;
+			import model.Concept;
+			import model.Ontology;
+			import flash.events.MouseEvent;
+			import org.ncbo.uvic.flex.util.NavigateToBioPortal;
+			
+			public var selected:Boolean = false;
+			private var isCreated:Boolean = false;
+			private var highlightOnCreate:Boolean = false;
+			private static var highlightFormat:TextFormat = null;
+			
+			public function newInstance():* {
+				var renderer:ConceptAnnotationListItemRenderer = new ConceptAnnotationListItemRenderer();
+				return renderer;
+			}
+			
+			override public function set data(value:Object):void {
+				super.data = value;
+				if (data is Annotation) {
+					var annotation:Annotation = (data as Annotation);
+					var ontology:Ontology = annotation.ontology;
+					conceptName.label = annotation.conceptName;
+					conceptName.enabled = ontology.isBioPortal;
+					ontologyName.label = annotation.ontologyName;
+					ontologyName.enabled = ontology.isBioPortal;
+					if (ontology.isBioPortal) {
+						conceptName.toolTip = "Click to view in BioPortal";
+						conceptName.url = NavigateToBioPortal.getBioPortalURL(ontology.id, annotation.conceptID, false);
+						ontologyName.toolTip = "Click to view in BioPortal";
+			    		if (ontology.ontologyID) {
+			    			ontologyName.url = NavigateToBioPortal.getBioPortalURL(ontology.ontologyID, "", true);
+			    		} else {
+			    			ontologyName.url = NavigateToBioPortal.getBioPortalURL(ontology.id, "", false);
+			    		}
+					} else {
+						conceptName.toolTip = "";
+						conceptName.url = null;
+						ontologyName.toolTip = "";
+						ontologyName.url = null;
+					}
+					if (annotation.context && annotation.context.sentence) {
+						var context:AnnotationContext = annotation.context;
+						sentenceLabel.text = context.sentence;
+						sentenceLabel.toolTip = context.sentence;
+						sentenceLabel.clearHighlight();
+						if (isCreated) {
+							highlightSentence();
+						} else {
+							highlightOnCreate = true;
+						}
+					} else {
+						sentenceFormItem.visible = sentenceFormItem.includeInLayout = false;
+					}
+				}
+		    }
+		    
+		    private function created(event:FlexEvent):void {
+		    	isCreated = true;
+		    	if (highlightOnCreate) {
+		    		highlightOnCreate = false;
+		    		highlightSentence();
+		    	}
+		    }
+		    
+		    private function highlightSentence():void {
+		    	if (data is Annotation) {
+		    		var annotation:Annotation = (data as Annotation);
+		    		var context:AnnotationContext = annotation.context;
+		    		if (context != null) {
+				    	var start:int = Math.max(-1, context.offsetStart - context.sentenceOffset - 1);
+						var end:int = Math.max(-1, context.offsetEnd - context.sentenceOffset);
+						if (highlightFormat == null) {
+							var hf:TextFormat = sentenceLabel.highlightTextFormat;
+							highlightFormat = new TextFormat(hf.font, hf.size, 0x0/*0x70A3C8*/, true, hf.italic, false);
+						}
+						if ((start >= 0) && (end > start)) {
+							sentenceLabel.highlightPortion(highlightFormat, start, end, false);
+						} else {
+							sentenceLabel.clearHighlight();
+						}
+		    		}
+		    	}
+		    }
+		    			
+			override protected function updateDisplayList(w:Number, h:Number):void {
+				super.updateDisplayList(w, h);
+				
+				var g:Graphics = graphics;
+				g.clear();
+				g.lineStyle(1, 0xa0a0a0, 0.7, true);
+				g.drawRoundRect(0, 0, w - 3, h, 8, 8);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Form width="100%" styleName="annotationListForm">
+		<mx:FormItem label="Term:" width="100%" labelStyleName="annotationListFormItem">
+			<ui:URLLinkButton id="conceptName"/>
+		</mx:FormItem>
+		<mx:FormItem width="100%" label="Ontology:" labelStyleName="annotationListFormItem">
+			<ui:URLLinkButton id="ontologyName"/>
+		</mx:FormItem>
+		<mx:FormItem width="100%" label="Context:" labelStyleName="annotationListFormItem" id="sentenceFormItem">
+			<ui:HighlightText id="sentenceLabel" width="100%" paddingLeft="4" fontWeight="normal" 
+				truncateToFit="true" resize="sentenceLabel.maxWidth = sentenceLabel.width;"/>
+		</mx:FormItem>
+	</mx:Form>
+	
+</mx:VBox>

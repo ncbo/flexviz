@@ -1,0 +1,2755 @@
+<obs.common.beans.ObaResultBean>
+  <resultID>OBA_RESULT_77d2</resultID>
+  <dictionary>
+    <dictionaryID>27</dictionaryID>
+    <dictionaryName>OBS_DICO_f957</dictionaryName>
+    <dictionaryDate>
+      <time>1232956800000</time>
+      <timezone>America/Los_Angeles</timezone>
+    </dictionaryDate>
+  </dictionary>
+  <statistics>
+    <obs.common.beans.StatisticsBean>
+      <contextName>MAPPING</contextName>
+      <nbAnnotation>0</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+    <obs.common.beans.StatisticsBean>
+      <contextName>ISA_CLOSURE</contextName>
+      <nbAnnotation>0</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+    <obs.common.beans.StatisticsBean>
+      <contextName>MGREP</contextName>
+      <nbAnnotation>100</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+  </statistics>
+  <parameters>
+    <longestOnly>false</longestOnly>
+    <wholeWordOnly>true</wholeWordOnly>
+    <scored>true</scored>
+    <localOntologyIDs/>
+    <localSemanticTypeIDs/>
+    <levelMin>0</levelMin>
+    <levelMax>0</levelMax>
+    <mappingTypes>
+      <string>null</string>
+    </mappingTypes>
+  </parameters>
+  <text>Osteosarcoma TE85 cell tissue culture study Amino acid conjugated surfaces and controls</text>
+  <annotations>
+    <obs.common.beans.AnnotationBean>
+      <score>16.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:32011</localConceptID>
+        <preferredName>Methylophilaceae</preferredName>
+        <synonyms>
+          <string>'Methylophilaceae'</string>
+          <string>beta-subdivision methylotrophs</string>
+          <string>Methylophilus group</string>
+          <string>beta subdivision methylotrophs</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5950958</termID>
+        <termName>Methylophilus group</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>16.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:32011</localConceptID>
+        <preferredName>Methylophilaceae</preferredName>
+        <synonyms>
+          <string>'Methylophilaceae'</string>
+          <string>beta-subdivision methylotrophs</string>
+          <string>Methylophilus group</string>
+          <string>beta subdivision methylotrophs</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5950959</termID>
+        <termName>beta subdivision methylotrophs</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:521846</localConceptID>
+        <preferredName>Flavobacterium sp. AKB-2008-JO41</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5955201</termID>
+        <termName>Flavobacterium sp. AKB-2008-JO41</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0407043</localConceptID>
+        <preferredName>Repair of multiple tendons</preferredName>
+        <synonyms>
+          <string>Repair of multiple tendons (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T061</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3650494</termID>
+        <termName>Repair of multiple tendons</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:130496</localConceptID>
+        <preferredName>Eimeria polita</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5875524</termID>
+        <termName>Eimeria polita</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:78698</localConceptID>
+        <preferredName>Ansellia</preferredName>
+        <synonyms>
+          <string>Ansellia Lindl.</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5566352</termID>
+        <termName>Ansellia</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:17981</localConceptID>
+        <preferredName>O-acetyl-L-serine</preferredName>
+        <synonyms>
+          <string>InChI=1/C5H9NO4/c1-3(7)10-2-4(6)5(8)9/h4H,2,6H2,1H3,(H,8,9)/t4-/m0/s1/f/h8H</string>
+          <string>O3-Acetyl-L-serine</string>
+          <string>O-acetyl-L-serine</string>
+          <string>CC(=O)OC[C@H](N)C(O)=O</string>
+          <string>L-Serine, acetate (ester)</string>
+          <string>O3-acetyl-L-serine</string>
+          <string>O-Acetyl-L-serine</string>
+          <string>InChIKey=VZXPDPZARILFQX-PLBDYLFSDN</string>
+          <string>C5H9NO4</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4939119</termID>
+        <termName>O-acetyl-L-serine</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C1529499</localConceptID>
+        <preferredName>5-pyridyl-4,5-dithiapentyl acrylate</preferredName>
+        <synonyms>
+          <string>pyridyl disulfide acrylate PDSA</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>759471</termID>
+        <termName>5-pyridyl-4,5-dithiapentyl acrylate</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0332756</localConceptID>
+        <preferredName>Miscellaneous fracture, NOS</preferredName>
+        <synonyms>
+          <string>Miscellaneous fracture -RETIRED-</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T037</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3605093</termID>
+        <termName>Miscellaneous fracture, NOS</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RXNORM/C0990717</localConceptID>
+        <preferredName>Thioguanine 40 MG</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RXNORM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1093772</termID>
+        <termName>Thioguanine 40 MG</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCBI/C1460633</localConceptID>
+        <preferredName>Olarius sp. KY-2002</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCBI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T009</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4198108</termID>
+        <termName>Olarius sp. KY-2002</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0059943</localConceptID>
+        <preferredName>Lambda exonuclease</preferredName>
+        <synonyms>
+          <string>Exodeoxyribonuclease (Lambda-induced)</string>
+          <string>Lambda exonuclease</string>
+          <string>Exodeoxyribonuclease (Lambda-induced) (substance)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T126</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3543166</termID>
+        <termName>Lambda exonuclease</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0476334</localConceptID>
+        <preferredName>[D]Mineral, blood level abnormal</preferredName>
+        <synonyms>
+          <string>[D]Mineral, blood level abnormal (situation)</string>
+          <string>[D]Mineral, blood level abnormal (context-dependent category)</string>
+          <string>Abnormal level of blood mineral</string>
+          <string>Abnormal level of blood mineral (finding)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T033</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3601545</termID>
+        <termName>[D]Mineral, blood level abnormal</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0223227</localConceptID>
+        <preferredName>Structure of articular process of second thoracic vertebra</preferredName>
+        <synonyms>
+          <string>Articular process of second thoracic vertebra, NOS</string>
+          <string>Articular process of second thoracic vertebra</string>
+          <string>Structure of articular process of second thoracic vertebra (body structure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T023</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3650734</termID>
+        <termName>Structure of articular process of second thoracic vertebra</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>GO/C1167535</localConceptID>
+        <preferredName>bipartite viral genome</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>GO</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T026</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2554663</termID>
+        <termName>bipartite viral genome</termName>
+        <from>24</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:360961</localConceptID>
+        <preferredName>Bacteroidetes bacterium VAS36</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5951852</termID>
+        <termName>Bacteroidetes bacterium VAS36</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C0751882</localConceptID>
+        <preferredName>Myasthenic Syndromes, Congenital</preferredName>
+        <synonyms>
+          <string>CONGEN MYASTHENIA GRAVIS</string>
+          <string>CONGEN MYASTHENIC SYNDROMES</string>
+          <string>Myasthenia Gravis, Congenital</string>
+          <string>Congenital Myasthenic Syndrome</string>
+          <string>Myasthenic Syndrome, Congenital</string>
+          <string>MYASTHENIC SYNDROMES CONGEN</string>
+          <string>Syndrome, Congenital Myasthenic</string>
+          <string>Congenital Myasthenic Syndromes</string>
+          <string>Congenital Myasthenia Gravis</string>
+          <string>MYASTHENIA GRAVIS CONGEN</string>
+          <string>Syndromes, Congenital Myasthenic</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>237421</termID>
+        <termName>Myasthenic Syndromes, Congenital</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0432115</localConceptID>
+        <preferredName>Supraorbital facial cleft - Tessier cleft 11</preferredName>
+        <synonyms>
+          <string>Frontal dysplasia</string>
+          <string>Supraorbital facial cleft - Tessier cleft 11 (disorder)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T019</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3490565</termID>
+        <termName>Supraorbital facial cleft - Tessier cleft 11</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCBI/C1501756</localConceptID>
+        <preferredName>Ranunculus venetus</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCBI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T002</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4368356</termID>
+        <termName>Ranunculus venetus</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CCPSS/C0743903</localConceptID>
+        <preferredName>FEMUR OSTEOSARCOMA</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CCPSS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2646699</termID>
+        <termName>FEMUR OSTEOSARCOMA</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0410081</localConceptID>
+        <preferredName>Lesion of joint capsule of pelvic region</preferredName>
+        <synonyms>
+          <string>Les of joint caps of pelv reg</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T046</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2057654</termID>
+        <termName>Lesion of joint capsule of pelvic region</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0523468</localConceptID>
+        <preferredName>Aldosterone and renin measurement following saline suppression</preferredName>
+        <synonyms>
+          <string>Aldosterone and renin measurement following saline suppression (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3574951</termID>
+        <termName>Aldosterone and renin measurement following saline suppression</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>UWDA/C0818641</localConceptID>
+        <preferredName>Compact bone of transverse process of thoracic vertebra</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>UWDA</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T023</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2659122</termID>
+        <termName>Compact bone of transverse process of thoracic vertebra</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCBI/C0995211</localConceptID>
+        <preferredName>Shewanella hanedai</preferredName>
+        <synonyms>
+          <string>Alteromonas hanedai Jensen et al. 1981</string>
+          <string>Shewanella hanedai (Jensen et al. 1981) MacDonell and Colwell 1986</string>
+          <string>Alteromonas hanedai</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCBI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T007</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4170374</termID>
+        <termName>Shewanella hanedai</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0183347</localConceptID>
+        <preferredName>Arm sling</preferredName>
+        <synonyms>
+          <string>Sling - arm</string>
+          <string>Arm sling (physical object)</string>
+          <string>Sling - arm (physical object)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T074</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3652511</termID>
+        <termName>Arm sling</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0411094</localConceptID>
+        <preferredName>Short gestation and unspecified low birth weight problems</preferredName>
+        <synonyms>
+          <string>Short gestation and unspecified low birthweight problems</string>
+          <string>Short gestation and unspecified low birth weight problems (disorder)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T033</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3620149</termID>
+        <termName>Short gestation and unspecified low birth weight problems</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0461936</localConceptID>
+        <preferredName>Reliacath 12Ch D5031 PVC female length nelaton catheter</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T074</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3665013</termID>
+        <termName>Reliacath 12Ch D5031 PVC female length nelaton catheter</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>UWDA/C0227292</localConceptID>
+        <preferredName>Duodenal serosa</preferredName>
+        <synonyms>
+          <string>Visceral peritoneum of duodenum</string>
+          <string>Serosa of duodenum</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>UWDA</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T023</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2681585</termID>
+        <termName>Duodenal serosa</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0275424</localConceptID>
+        <preferredName>Prosopis glandulosa poisoning</preferredName>
+        <synonyms>
+          <string>Prosopis glandulosa poisoning (disorder)</string>
+          <string>Mesquite poisoning</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T037</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3769486</termID>
+        <termName>Prosopis glandulosa poisoning</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0033774</localConceptID>
+        <preferredName>Pruritus</preferredName>
+        <synonyms>
+          <string>Itching of skin</string>
+          <string>Pruritus - disorder</string>
+          <string>Pruritus of skin</string>
+          <string>Irritation - sensation</string>
+          <string>Pruritus, NOS</string>
+          <string>Itch of skin (observable entity)</string>
+          <string>Itch</string>
+          <string>Itching of skin (finding)</string>
+          <string>Pruritus [dup] (finding)</string>
+          <string>Pruritic disorders (disorder)</string>
+          <string>Irritating sensation</string>
+          <string>Pruritic disorder</string>
+          <string>Pruritus of skin (finding) [Ambiguous]</string>
+          <string>Pruritus NOS</string>
+          <string>Pruritus [Ambiguous]</string>
+          <string>Pruritus (finding)</string>
+          <string>Itch of skin, NOS</string>
+          <string>Itching (finding)</string>
+          <string>Pruritus of skin, NOS</string>
+          <string>Itchy</string>
+          <string>[X]Pruritus, unspecified</string>
+          <string>[X]Pruritus, unspecified (disorder)</string>
+          <string>Itching</string>
+          <string>Pruritus NOS (disorder)</string>
+          <string>Pruritus of skin (finding)</string>
+          <string>Pruritic dermatitis, NOS</string>
+          <string>Itch of skin</string>
+          <string>Pruritic dermatitis</string>
+          <string>Pruritic disorders</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3252216</termID>
+        <termName>Pruritus</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:325308</localConceptID>
+        <preferredName>Ganoderma sp. MC6</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5598928</termID>
+        <termName>Ganoderma sp. MC6</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>ICD10AM/C0844053</localConceptID>
+        <preferredName>Cardiac myectomy</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>ICD10AM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T061</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4689432</termID>
+        <termName>Cardiac myectomy</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0197697</localConceptID>
+        <preferredName>Extraction of primary membranous cataract by phacofragmentation</preferredName>
+        <synonyms>
+          <string>Extraction of primary membranous cataract by phacofragmentation (procedure)</string>
+          <string>Extraction of primary membranous cataract by mechanical fragmentation</string>
+          <string>Extraction of primary membranous cataract by mechanical fragmentation (procedure) [Ambiguous]</string>
+          <string>Extraction of primary membranous cataract by mechanical fragmentation (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T061</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3480336</termID>
+        <termName>Extraction of primary membranous cataract by phacofragmentation</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0270183</localConceptID>
+        <preferredName>Neonatal haemorrhage</preferredName>
+        <synonyms>
+          <string>Neonatal bleed</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T046</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1896710</termID>
+        <termName>Neonatal haemorrhage</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0446736</localConceptID>
+        <preferredName>Spinal nerve root T7</preferredName>
+        <synonyms>
+          <string>Spinal nerve root T7 (body structure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T023</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3330939</termID>
+        <termName>Spinal nerve root T7</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>GO/C1522844</localConceptID>
+        <preferredName>R3/R4 development (sensu Endopterygota)</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>GO</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T043</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2556845</termID>
+        <termName>R3/R4 development (sensu Endopterygota)</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0153518</localConceptID>
+        <preferredName>Malignant neoplasm of short bone of lower limb, NOS</preferredName>
+        <synonyms>
+          <string>Malignant neoplasm of short bones of leg</string>
+          <string>Malignant neoplasm of short bones of leg NOS (disorder)</string>
+          <string>Malignant neoplasm of short bones of leg NOS</string>
+          <string>Malignant neoplasm of short bones of leg (disorder)</string>
+          <string>Malignant neoplasm of short bone of lower limb</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3660426</termID>
+        <termName>Malignant neoplasm of short bone of lower limb, NOS</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RXNORM/C1351933</localConceptID>
+        <preferredName>Bisacodyl 1 MG/ML Enema</preferredName>
+        <synonyms>
+          <string>BISACODYL 10MG/10ML RECTAL ENEMA (ML)</string>
+          <string>BISACODYL@10MG/10ML@RECTAL@ENEMA (ML)</string>
+          <string>BISACODYL @ 10MG/10ML @ ENEMA (ML)</string>
+          <string>BISACODYL 10MG/10ML ENEMA (ML)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RXNORM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1090953</termID>
+        <termName>Bisacodyl 1 MG/ML Enema</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0454017</localConceptID>
+        <preferredName>Time since stopped using moist tobacco</preferredName>
+        <synonyms>
+          <string>Time since stopped using moist tobacco (observable entity)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T033</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3379403</termID>
+        <termName>Time since stopped using moist tobacco</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:224944</localConceptID>
+        <preferredName>Steinernema sp. YNa55</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5858634</termID>
+        <termName>Steinernema sp. YNa55</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0444837</localConceptID>
+        <preferredName>Serotype A11</preferredName>
+        <synonyms>
+          <string>Serotype A11 (qualifier value)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T170</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3481666</termID>
+        <termName>Serotype A11</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0309727</localConceptID>
+        <preferredName>PENICILLIN G PROCAINE SUSPENSION</preferredName>
+        <synonyms>
+          <string>PENICILLIN G PROCAINE SUSPENSION (product)</string>
+          <string>PENICILLIN G PROCAINE SUSPENSION (substance)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3206482</termID>
+        <termName>PENICILLIN G PROCAINE SUSPENSION</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LNC/C0487054</localConceptID>
+        <preferredName>Lu^b Antibody</preferredName>
+        <synonyms>
+          <string>Lu^b Antibody</string>
+          <string>Lu^b AB</string>
+          <string>L little u super little b Ab</string>
+          <string>Lub AB</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T129</string>
+          <string>T116</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4595486</termID>
+        <termName>Lu^b Antibody</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCBI/C1210006</localConceptID>
+        <preferredName>Hantzschia</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCBI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T002</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4379464</termID>
+        <termName>Hantzschia</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:335971</localConceptID>
+        <preferredName>Venteria marina</preferredName>
+        <synonyms>
+          <string>'Venteria marina'</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5951927</termID>
+        <termName>Venteria marina</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:63282</localConceptID>
+        <preferredName>Ustilentylomataceae</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5605284</termID>
+        <termName>Ustilentylomataceae</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0578297</localConceptID>
+        <preferredName>Does manage stairs backwards</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T033</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1868808</termID>
+        <termName>Does manage stairs backwards</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:337870</localConceptID>
+        <preferredName>Flavobacterium sp. iMTIII21</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5954833</termID>
+        <termName>Flavobacterium sp. iMTIII21</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C1514825</localConceptID>
+        <preferredName>Regulation of Proteolysis</preferredName>
+        <synonyms>
+          <string>Proteolytic Regulation</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T044</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1034459</termID>
+        <termName>Regulation of Proteolysis</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0025526</localConceptID>
+        <preferredName>Metacarpal bone</preferredName>
+        <synonyms>
+          <string>Metacarpal, NOS</string>
+          <string>Metacarpal bone, NOS</string>
+          <string>Metacarpal</string>
+          <string>Bone structure of metacarpal (body structure)</string>
+          <string>Bone structure of metacarpal</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T023</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3254778</termID>
+        <termName>Metacarpal bone</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:470319</localConceptID>
+        <preferredName>Pythium sp. AW-M</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5868740</termID>
+        <termName>Pythium sp. AW-M</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C1529296</localConceptID>
+        <preferredName>Kilmicen</preferredName>
+        <synonyms>
+          <string>Pharmacia brand of tolciclate</string>
+          <string>Kilmicen</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T121</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>766082</termID>
+        <termName>Kilmicen</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0272503</localConceptID>
+        <preferredName>Fracture of bones of trunk</preferredName>
+        <synonyms>
+          <string>Fracture of bones of trunk (disorder)</string>
+          <string>Fracture of bones of trunk, NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T037</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3117392</termID>
+        <termName>Fracture of bones of trunk</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C0015111</localConceptID>
+        <preferredName>Ethylnitrosourea</preferredName>
+        <synonyms>
+          <string>ENU</string>
+          <string>1-Ethyl-1-nitrosourea</string>
+          <string>Nitrosoethylurea</string>
+          <string>N-Ethyl-N-nitrosourea</string>
+          <string>N-Nitroso-N-Ethylurea</string>
+          <string>Ethylnitrosourea</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T131</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>988330</termID>
+        <termName>N-Nitroso-N-Ethylurea</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C1311187</localConceptID>
+        <preferredName>cholera holotoxin, His(29)-</preferredName>
+        <synonyms>
+          <string>CT-E29H</string>
+          <string>cholera holotoxin, His(29)-</string>
+          <string>cholera holotoxin, histidyl(29)-</string>
+          <string>29-His-cholera holotoxin</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T131</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T126</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>638859</termID>
+        <termName>cholera holotoxin, histidyl(29)-</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>38802/NCBITaxon:441556</localConceptID>
+        <preferredName>Grandisonia larvata</preferredName>
+        <synonyms>
+          <string>Indian Ocean caecilian</string>
+          <string>Dermophis larvatus</string>
+          <string>Grandisonia larvata (Ahl, 1934)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38802</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5693825</termID>
+        <termName>Indian Ocean caecilian</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MTHFDA/C1169976</localConceptID>
+        <preferredName>CHLORPHENIRAMINE MALEATE 8 MG / PSEUDOEPHEDRINE HYDROCHLORIDE 120 MG ORAL CAPSULE [CHLORFED]</preferredName>
+        <synonyms>
+          <string>CHLORPHENIRAMINE MALEATE 8 MG / PSEUDOEPHEDRINE HYDROCHLORIDE 120 MG ORAL CAPSULE, EXTENDED RELEASE [CHLORFED]</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MTHFDA</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3032579</termID>
+        <termName>CHLORPHENIRAMINE MALEATE 8 MG / PSEUDOEPHEDRINE HYDROCHLORIDE 120 MG ORAL CAPSULE, EXTENDED RELEASE [CHLORFED]</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RCD/C0409318</localConceptID>
+        <preferredName>Deficiency of medial collateral ligament of knee</preferredName>
+        <synonyms>
+          <string>MCL - Medial collateral ligament deficiency of knee</string>
+          <string>Deficiency med collat lig knee</string>
+          <string>MCL - Med collateral lig def</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T037</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1918009</termID>
+        <termName>Deficiency med collat lig knee</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1299502</localConceptID>
+        <preferredName>Advance directive report</preferredName>
+        <synonyms>
+          <string>Advance directive report (record artifact)</string>
+          <string>Advance directive report (qualifier value)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T170</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3110098</termID>
+        <termName>Advance directive report (qualifier value)</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNMI/C0151773</localConceptID>
+        <preferredName>Bone marrow depression</preferredName>
+        <synonyms>
+          <string>Medullary hypoplasia</string>
+          <string>Hypoplasia of bone marrow</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNMI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2796683</termID>
+        <termName>Hypoplasia of bone marrow</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1273944</localConceptID>
+        <preferredName>Serum cystathione level</preferredName>
+        <synonyms>
+          <string>Serum cystathione level (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3604507</termID>
+        <termName>Serum cystathione level (procedure)</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0206646</localConceptID>
+        <preferredName>Abdominal fibromatosis</preferredName>
+        <synonyms>
+          <string>Abdominal fibromatosis (morphologic abnormality)</string>
+          <string>Abdominal desmoid tumour</string>
+          <string>Abdominal fibromatosis (disorder)</string>
+          <string>Mesenteric fibromatosis</string>
+          <string>Abdominal desmoid tumor</string>
+          <string>Retroperitoneal fibromatosis</string>
+          <string>Abdominal desmoid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3547430</termID>
+        <termName>Abdominal desmoid</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C1099871</localConceptID>
+        <preferredName>CTNNA3 protein, human</preferredName>
+        <synonyms>
+          <string>alpha-T catenin protein, human</string>
+          <string>CTNNA3 protein, human</string>
+          <string>catenin (cadherin-associated protein), alpha 3 protein, human</string>
+          <string>alphaT catenin protein, human</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>850421</termID>
+        <termName>alphaT catenin protein, human</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RCD/C0563479</localConceptID>
+        <preferredName>Injury of lateral cutaneous nerve of thigh</preferredName>
+        <synonyms>
+          <string>Injury lat cutan nerve thigh</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1883579</termID>
+        <termName>Injury lat cutan nerve thigh</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0313430</localConceptID>
+        <preferredName>hemoglobin F-Pendergrass</preferredName>
+        <synonyms>
+          <string>Hemoglobin F Pendergrass</string>
+          <string>HB F-Pendergrass</string>
+          <string>hemoglobin F-Pendergrass</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>759091</termID>
+        <termName>Hemoglobin F Pendergrass</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0036776</localConceptID>
+        <preferredName>Serum alkaline phosphatase measurement</preferredName>
+        <synonyms>
+          <string>Serum alkaline phosphatase</string>
+          <string>Serum alkaline phosphatase level</string>
+          <string>Serum alkaline phosphatase measurement (procedure)</string>
+          <string>Serum alkaline phosphatase NOS (procedure)</string>
+          <string>Serum alkaline phosphatase NOS</string>
+          <string>Phosph.- alk. - serum</string>
+          <string>Alk. phosphatase -serum</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3586865</termID>
+        <termName>Serum alkaline phosphatase measurement (procedure)</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0316308</localConceptID>
+        <preferredName>Salmonella Oldenburg</preferredName>
+        <synonyms>
+          <string>Salmonella 16:d:1,2</string>
+          <string>Salmonella enterica subsp. enterica ser. Oldenburg</string>
+          <string>Salmonella Oldenburg (organism)</string>
+          <string>Salmonella 16;d;1,2</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T007</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3501054</termID>
+        <termName>Salmonella 16;d;1,2</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RXNORM/C0690640</localConceptID>
+        <preferredName>Hydrochlorothiazide 25 MG / Triamterene 37.5 MG Oral Capsule</preferredName>
+        <synonyms>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZID 37.5-25MG ORAL CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>HYDROCHLOROTHIAZIDE 25 MG / TRIAMTERENE 37.5 MG ORAL CAPSULE [TRIAM]</string>
+          <string>HYDROCHLOROTHIAZIDE/TRIAMTERENE 25 MG-37.5 MG Oral (systemic) capsule</string>
+          <string>HYDROCHLOROTHIAZIDE 25MG/TRIAMTERENE 37.5MG CAP</string>
+          <string>HYDROCHLOROTHIAZIDE 25 MG / TRIAMTERENE 37.5 MG ORAL CAPSULE [TRIAMTERENE]</string>
+          <string>HYDROCHLOROTHIAZIDE/TRIAMTERENE 25-37.5MG ORAL CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZID 37.5-25MG CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZIDE@37.5-25MG@ORAL@CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZIDE 37.5-25MG CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZIDE @ 37.5-25MG @ CAPSULE (HARD, SOFT, ETC.)</string>
+          <string>HYDROCHLOROTHIAZIDE 25 MG / TRIAMTERENE 37.5 MG ORAL CAPSULE [TRIAMTERINE]</string>
+          <string>TRIAMTERENE/HYDROCHLOROTHIAZIDE 37.5-25MG ORAL CAPSULE (HARD, SOFT, ETC.)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RXNORM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1175145</termID>
+        <termName>TRIAMTERENE/HYDROCHLOROTHIAZIDE @ 37.5-25MG @ CAPSULE (HARD, SOFT, ETC.)</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RCD/C0467130</localConceptID>
+        <preferredName>Convatec S101 200mmx200mm Stomahesive wafer</preferredName>
+        <synonyms>
+          <string>Convatec S101 Stomahes. wafer</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T074</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1900890</termID>
+        <termName>Convatec S101 Stomahes. wafer</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>LNC/C0484101</localConceptID>
+        <preferredName>Aedes communis basophil bound Antibody:Arbitrary Concentration:Point in time:Whole blood:Quantitative:LEUKOCYTE HISTAMINE RELEASE</preferredName>
+        <synonyms>
+          <string>Aedes communis basophil bound Ab:ACnc:Pt:Bld:Qn:LHR</string>
+          <string>Mosquito BasoBnd Ab Qn</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T201</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4554505</termID>
+        <termName>Mosquito BasoBnd Ab Qn</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0287750</localConceptID>
+        <preferredName>Transcription Factor CHOP</preferredName>
+        <synonyms>
+          <string>Growth Arrest And DNA Damage Inducible Protein 153</string>
+          <string>DDIT3 Protein</string>
+          <string>Transcription Factor CHOP</string>
+          <string>DNA Damage Inducible Transcript 3 Protein</string>
+          <string>Growth Arrest And DNA Damage-Inducible Protein 153</string>
+          <string>C EBP Homologous Protein</string>
+          <string>Homologous Protein, C-EBP</string>
+          <string>CHOP, Transcription Factor</string>
+          <string>GADD153 Protein</string>
+          <string>C-EBP Homologous Protein</string>
+          <string>DNA Damage-Inducible Transcript 3 Protein</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>754714</termID>
+        <termName>DDIT3 Protein</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1531963</localConceptID>
+        <preferredName>Fenofibrate 43mg capsule</preferredName>
+        <synonyms>
+          <string>Fenofibrate 43mg capsule (product)</string>
+          <string>Fenofibrate micronised 43mg capsule</string>
+          <string>Fenofibrate micronized 43mg capsule</string>
+          <string>Fenofibrate micronized 43mg capsule (product)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3528520</termID>
+        <termName>Fenofibrate micronized 43mg capsule</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0693437</localConceptID>
+        <preferredName>Oxprenolol hydrochloride 160mg m/r tablet</preferredName>
+        <synonyms>
+          <string>Oxprenolol hydrochloride 160mg m/r tablet (substance)</string>
+          <string>Oxprenolol hydrochloride 160mg m/r tablet (product)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3086359</termID>
+        <termName>Oxprenolol hydrochloride 160mg m/r tablet (substance)</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0301462</localConceptID>
+        <preferredName>Diagnostic antiserum</preferredName>
+        <synonyms>
+          <string>Diagnostic antiserum (substance)</string>
+          <string>Diagnostic antiserum, NOS</string>
+          <string>Diagnostic antiserum</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T129</string>
+          <string>T130</string>
+          <string>T116</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3543968</termID>
+        <termName>Diagnostic antiserum, NOS</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0662209</localConceptID>
+        <preferredName>VM 55599</preferredName>
+        <synonyms>
+          <string>1H,5H-5a,12b-(Iminoethano)pyrrolizino(1,2-b)carbazol-14-one, 2,3,6,11,12,12a-hexahydro-1,12,12-trimethyl-, (1R-(1alpha,5abeta,12abeta,12bbeta))-</string>
+          <string>VM55599</string>
+          <string>VM 55599</string>
+          <string>VM-55599</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T121</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>750543</termID>
+        <termName>1H,5H-5a,12b-(Iminoethano)pyrrolizino(1,2-b)carbazol-14-one, 2,3,6,11,12,12a-hexahydro-1,12,12-trimethyl-, (1R-(1alpha,5abeta,12abeta,12bbeta))-</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C1563940</localConceptID>
+        <preferredName>Banworm</preferredName>
+        <synonyms>
+          <string>Pfizer Brand of Mebendazole</string>
+          <string>Banworm</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T121</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>476672</termID>
+        <termName>Pfizer Brand of Mebendazole</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0911800</localConceptID>
+        <preferredName>PSMD10 protein, human</preferredName>
+        <synonyms>
+          <string>hepatocellular carcinoma-associated protein p28-II, human</string>
+          <string>26S proteasome non-ATPase regulatory subunit 10 protein, human</string>
+          <string>gankyrin protein, human</string>
+          <string>PSMD10 protein, human</string>
+          <string>p28GANK, human</string>
+          <string>proteasome (prosome, macropain) 26S subunit, non-ATPase, 10 protein, human</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>766378</termID>
+        <termName>proteasome (prosome, macropain) 26S subunit, non-ATPase, 10 protein, human</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>GO/C1158676</localConceptID>
+        <preferredName>UTP metabolic process</preferredName>
+        <synonyms>
+          <string>UTP metabolism</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>GO</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T044</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2555622</termID>
+        <termName>UTP metabolism</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0413956</localConceptID>
+        <preferredName>Adverse reaction to drugs primarily affecting gastrointestinal system</preferredName>
+        <synonyms>
+          <string>[X]Unspecified agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use (disorder)</string>
+          <string>Drug groups primarily affect gastrointestin syst adver reac (disorder)</string>
+          <string>Adverse reaction to drugs primarily affecting gastrointestinal system (finding)</string>
+          <string>Adverse reaction to drugs primarily affecting the gastrointestinal system NOS (finding)</string>
+          <string>Drug groups primarily affecting gastrointestinal system adverse reaction (disorder)</string>
+          <string>Drug groups primarily affect gastrointestin syst adver reac</string>
+          <string>Drug groups primarily affecting gastrointestinal system adverse reaction</string>
+          <string>[X]Agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use</string>
+          <string>[X]Unspecified agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use (finding)</string>
+          <string>Drug groups primarily affecting the gastrointestinal system adverse reaction (disorder)</string>
+          <string>[X]Agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use (disorder)</string>
+          <string>Adverse reaction to drugs primarily affecting the gastrointestinal system NOS</string>
+          <string>[X]Agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use (finding)</string>
+          <string>Drug groups primarily affecting the gastrointestinal system adverse reaction</string>
+          <string>[X]Unspecified agents primarily affecting the gastrointestinal system causing adverse effects in therapeutic use</string>
+          <string>Adverse reaction to drugs primarily affecting the gastrointestinal system NOS (disorder)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T037</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3568215</termID>
+        <termName>Drug groups primarily affect gastrointestin syst adver reac</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0401313</localConceptID>
+        <preferredName>Ureteroneocystostomy with bladder flap</preferredName>
+        <synonyms>
+          <string>Boari operation with bladder flap</string>
+          <string>Replacement of ureter with bladder flap</string>
+          <string>Ureteroneocystostomy with bladder flap (procedure)</string>
+          <string>Boari flap anastomosis of ureter to bladder</string>
+          <string>Replacement of ureter bladder flap</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T061</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3747235</termID>
+        <termName>Boari flap anastomosis of ureter to bladder</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0265570</localConceptID>
+        <preferredName>Congenital complete absence of upper limb</preferredName>
+        <synonyms>
+          <string>Amelia of upper limb</string>
+          <string>Transverse deficiency of arm, shoulder level (disorder)</string>
+          <string>Transverse deficiency of arm, shoulder level</string>
+          <string>Amelia of the arm</string>
+          <string>Congenital absence of upper limb</string>
+          <string>Amelia of upper limb (disorder) [Ambiguous]</string>
+          <string>Congenital absence of upper limb (disorder)</string>
+          <string>Congenital complete absence of upper limb (disorder)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T019</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3543799</termID>
+        <termName>Congenital absence of upper limb</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0041441</localConceptID>
+        <preferredName>Tylosin</preferredName>
+        <synonyms>
+          <string>Tylosin (product)</string>
+          <string>Tylosin</string>
+          <string>Tylosin (substance)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T000</string>
+          <string>T195</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3310720</termID>
+        <termName>Tylosin (product)</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1705420</localConceptID>
+        <preferredName>Integrated Molecular Analysis of Genomes and their Expression Consortium</preferredName>
+        <synonyms>
+          <string>IMAGE</string>
+          <string>I.M.A.G.E. Consortium</string>
+          <string>I.M.A.G.E.</string>
+          <string>IMAGE Consortium</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T093</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>974498</termID>
+        <termName>IMAGE Consortium</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>LNC/C0365916</localConceptID>
+        <preferredName>Ibuprofen:Mass Concentration:Point in time:Serum/Plasma:Quantitative</preferredName>
+        <synonyms>
+          <string>Ibuprofen:MCnc:Pt:Ser/Plas:Qn</string>
+          <string>Ibuprofen SerPl-mCnc</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T201</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4591391</termID>
+        <termName>Ibuprofen:MCnc:Pt:Ser/Plas:Qn</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0969522</localConceptID>
+        <preferredName>GnRH receptor 3</preferredName>
+        <synonyms>
+          <string>GnRH receptors-3</string>
+          <string>GnRH receptor 3</string>
+          <string>GnRH receptor-3</string>
+          <string>receptor-3, GnRH</string>
+          <string>GnRH receptors 3</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T192</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>244268</termID>
+        <termName>receptor-3, GnRH</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1303372</localConceptID>
+        <preferredName>Hydrocolloid dressing semi-permeable sterile with adhesive border 19cm x 24cm rectangular</preferredName>
+        <synonyms>
+          <string>Hydrocolloid dressing semi-permeable sterile with adhesive border 19cm x 24cm rectangular (physical object)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T074</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3552002</termID>
+        <termName>Hydrocolloid dressing semi-permeable sterile with adhesive border 19cm x 24cm rectangular (physical object)</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>ICD10AM/C0495385</localConceptID>
+        <preferredName>Intrauterine hypoxia</preferredName>
+        <synonyms>
+          <string>Intrauterine hypoxia, unspecified</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>ICD10AM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T046</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4699480</termID>
+        <termName>Intrauterine hypoxia, unspecified</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1017383</localConceptID>
+        <preferredName>Halanaerobiales</preferredName>
+        <synonyms>
+          <string>Order Halanaerobiales</string>
+          <string>Order Halanaerobiales (organism)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T007</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3541599</termID>
+        <termName>Order Halanaerobiales</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RXNORM/C1359634</localConceptID>
+        <preferredName>CAL PHOS/MAGNESIUM/B COMP/B12 TABLET</preferredName>
+        <synonyms>
+          <string>CALCIUM PHOSPHATE/MAGNESIUM SALT/VITAMIN B COMPLEX/VIT B12 TABLET</string>
+          <string>CALCIUM PHOSPHATE/MAGNESIUM SALT/VITAMIN B COMPLEX/VIT B12 @ @ TABLET</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RXNORM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1085798</termID>
+        <termName>CALCIUM PHOSPHATE/MAGNESIUM SALT/VITAMIN B COMPLEX/VIT B12 TABLET</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0395529</localConceptID>
+        <preferredName>Pars plana lensectomy</preferredName>
+        <synonyms>
+          <string>Pars plana lensectomy (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T061</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3619963</termID>
+        <termName>Pars plana lensectomy (procedure)</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1246050</localConceptID>
+        <preferredName>Enalapril maleate + hydrochlorothiazide</preferredName>
+        <synonyms>
+          <string>Enalapril maleate + hydrochlorothiazide tablet</string>
+          <string>Enalapril maleate + hydrochlorothiazide tablet (product)</string>
+          <string>Enalapril maleate + hydrochlorothiazide (product)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T200</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3332571</termID>
+        <termName>Enalapril maleate + hydrochlorothiazide tablet (product)</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C1569230</localConceptID>
+        <preferredName>(4R,4aR,6S,7S,7aS)-6-hydroxy-7-hydroxymethyl-4-methylperhydrocyclopenta(c)pyran-1-one</preferredName>
+        <synonyms>
+          <string>6-HMCPP-O</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T109</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>760583</termID>
+        <termName>6-HMCPP-O</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>RCD/C0476097</localConceptID>
+        <preferredName>[M]Parathyroid adenomas and adenocarcinomas</preferredName>
+        <synonyms>
+          <string>[M]Parathyroid adenoma or adenocarcinoma NOS</string>
+          <string>[M]Parathyroid adenoma/ca NOS</string>
+          <string>[M]Parathyroid adenoma/ca</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1880999</termID>
+        <termName>[M]Parathyroid adenoma or adenocarcinoma NOS</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0079153</localConceptID>
+        <preferredName>Bullous Congenital Ichthyosiform Erythroderma</preferredName>
+        <synonyms>
+          <string>Bullous Erythroderma Ichthyosiforme</string>
+          <string>Hyperkeratoses, Epidermolytic</string>
+          <string>ICHTHYOSIFORM ERYTHRODERMA BULLOUS CONGEN</string>
+          <string>Erythroderma Ichthyosiforme, Bullous</string>
+          <string>Ichthyosiform Erythroderma, Bullous Congenital</string>
+          <string>BULLOUS CONGEN ICHTHYOSIFORM ERYTHRODERMA</string>
+          <string>CONGEN BULLOUS ICHTHYOSIFORM ERYTHRODERMA</string>
+          <string>Epidermolytic Hyperkeratoses</string>
+          <string>Epidermolytic Hyperkeratosis</string>
+          <string>Congenital Ichthyosiform Erythroderma, Bullous</string>
+          <string>Hyperkeratosis, Epidermolytic</string>
+          <string>Bullous Congenital Ichthyosiform Erythroderma</string>
+          <string>Congenital Bullous Ichthyosiform Erythroderma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T019</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>700390</termID>
+        <termName>Epidermolytic Hyperkeratosis</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>OMIM/C1837974</localConceptID>
+        <preferredName>CORNEAL DYSTROPHY, LATTICE TYPE IIIA</preferredName>
+        <synonyms>
+          <string>LATTICE CORNEAL DYSTROPHY, TYPE IIIA</string>
+          <string>CDL3A</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>OMIM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4146584</termID>
+        <termName>CDL3A</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1705060</localConceptID>
+        <preferredName>CASP10 wt Allele</preferredName>
+        <synonyms>
+          <string>Fas-Associated Death Domain Protein Gene</string>
+          <string>ALPS2</string>
+          <string>Caspase 10, Apoptosis-Related Cysteine Protease wt Allele</string>
+          <string>ICE-Like Apoptotic Protease 4 Gene</string>
+          <string>Interleukin-1B-Converting Enzyme 2 Gene</string>
+          <string>FAS-Associated Death Domain Protein Interleukin-1B-Converting Enzyme 2 Gene</string>
+          <string>Apoptotic Protease MCH-4 Gene</string>
+          <string>MCH4</string>
+          <string>FLICE2</string>
+          <string>FADD-Like ICE2 Gene</string>
+          <string>Caspase-10 Gene</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T028</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>963766</termID>
+        <termName>Fas-Associated Death Domain Protein Gene</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1640798</localConceptID>
+        <preferredName>Stress management education, guidance, and counseling</preferredName>
+        <synonyms>
+          <string>Stress management teaching, guidance, and counselling</string>
+          <string>Stress management education, guidance, and counselling</string>
+          <string>Stress management teaching, guidance, and counseling</string>
+          <string>Stress management teaching, guidance, and counseling (regime/therapy)</string>
+          <string>Stress management education, guidance, and counseling (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T065</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3549633</termID>
+        <termName>Stress management teaching, guidance, and counselling</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>HUGO/C1428169</localConceptID>
+        <preferredName>GPR148 gene</preferredName>
+        <synonyms>
+          <string>G protein-coupled receptor 148</string>
+          <string>PGR6</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>HUGO</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T028</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>8784</termID>
+        <termName>PGR6</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0155340</localConceptID>
+        <preferredName>Mechanical strabismus from other musculofascial disorder</preferredName>
+        <synonyms>
+          <string>Mechanical strabismus from other musculofascial disorder -RETIRED-</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T047</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3329154</termID>
+        <termName>Mechanical strabismus from other musculofascial disorder -RETIRED-</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0277844</localConceptID>
+        <preferredName>Barefoot walking</preferredName>
+        <synonyms>
+          <string>Barefoot walking (finding)</string>
+          <string>Barefoot</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T055</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3446781</termID>
+        <termName>Barefoot</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+  </annotations>
+  <ontologies>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>SNOMEDCT</localOntologyID>
+      <ontologyName>SNOMED Clinical Terms, 2007_01_31</ontologyName>
+      <ontologyVersion>2007_01_31</ontologyVersion>
+      <nbAnnotation>39</nbAnnotation>
+      <score>352.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38802</localOntologyID>
+      <ontologyName>NCBI organismal classification</ontologyName>
+      <ontologyVersion>1.2</ontologyVersion>
+      <nbAnnotation>13</nbAnnotation>
+      <score>140.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MSH</localOntologyID>
+      <ontologyName>Medical Subject Headings, 2007_2007_05_01</ontologyName>
+      <ontologyVersion>2007_2007_05_01</ontologyVersion>
+      <nbAnnotation>13</nbAnnotation>
+      <score>110.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>RCD</localOntologyID>
+      <ontologyName>Clinical Terms Version 3 (CTV3) (Read Codes), 1999</ontologyName>
+      <ontologyVersion>1999</ontologyVersion>
+      <nbAnnotation>7</nbAnnotation>
+      <score>62.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>NCBI</localOntologyID>
+      <ontologyName>NCBI Taxonomy, 2006_01_04</ontologyName>
+      <ontologyVersion>2006_01_04</ontologyVersion>
+      <nbAnnotation>4</nbAnnotation>
+      <score>40.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>RXNORM</localOntologyID>
+      <ontologyName>RxNorm Vocabulary, 07AA_070503F</ontologyName>
+      <ontologyVersion>07AA_070503F</ontologyVersion>
+      <nbAnnotation>4</nbAnnotation>
+      <score>36.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>NCI</localOntologyID>
+      <ontologyName>National Cancer Institute Thesaurus, 2006_03D</ontologyName>
+      <ontologyVersion>2006_03D</ontologyVersion>
+      <nbAnnotation>4</nbAnnotation>
+      <score>34.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>GO</localOntologyID>
+      <ontologyName>Gene Ontology, 2007_02_01</ontologyName>
+      <ontologyVersion>2007_02_01</ontologyVersion>
+      <nbAnnotation>3</nbAnnotation>
+      <score>28.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>LNC</localOntologyID>
+      <ontologyName>Logical Observation Identifier Names and Codes, 219</ontologyName>
+      <ontologyVersion>219</ontologyVersion>
+      <nbAnnotation>3</nbAnnotation>
+      <score>26.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>UWDA</localOntologyID>
+      <ontologyName>University of Washington Digital Anatomist, 1.7.3</ontologyName>
+      <ontologyVersion>1.7.3</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>ICD10AM</localOntologyID>
+      <ontologyName>International Statistical Classification of Diseases and Related Health Problems, 10th Revision, Australian Modification, January 2000 Release</ontologyName>
+      <ontologyVersion>2000</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>18.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>CCPSS</localOntologyID>
+      <ontologyName>Canonical Clinical Problem Statement System, 1999</ontologyName>
+      <ontologyVersion>1999</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38932</localOntologyID>
+      <ontologyName>Chemical entities of biological interest</ontologyName>
+      <ontologyVersion>1.47</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>HUGO</localOntologyID>
+      <ontologyName>HUGO Gene Nomenclature, 2007_01</ontologyName>
+      <ontologyVersion>2007_01</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>8.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>OMIM</localOntologyID>
+      <ontologyName>Online Mendelian Inheritance in Man, 2007_03_19</ontologyName>
+      <ontologyVersion>2007_03_19</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>8.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MTHFDA</localOntologyID>
+      <ontologyName>Metathesaurus FDA National Drug Code Directory, 2007_03_08</ontologyName>
+      <ontologyVersion>2007_03_08</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>8.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>SNMI</localOntologyID>
+      <ontologyName>SNOMED International, 1998</ontologyName>
+      <ontologyVersion>1998</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>8.0</score>
+    </obs.common.beans.OntologyUsedBean>
+  </ontologies>
+</obs.common.beans.ObaResultBean>

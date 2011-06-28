@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:flexlib="flexlib.controls.*" 
+	xmlns:ui="ui.*"
+	xmlns:util="util.*"
+	xmlns:flexutils="flex.utils.ui.*"
+	xmlns:containers="flexlib.containers.*"
+	xmlns:resize="flex.utils.ui.resize.*"
+	xmlns:validators="flex.utils.ui.validators.*"
+	xmlns:chooser="flex.utils.ui.chooser.*"
+	layout="absolute" backgroundColor="0xffffff" pageTitle="NCBO Annotator"
+	creationComplete="created(event)" initialize="init(event)"
+	preloader="preloader.NCBOPreloader">
+	
+	<mx:Script>
+		<![CDATA[
+			import service.OBSRestService;
+		]]>
+	</mx:Script>
+	
+	<mx:Style source="assets/style.css"/>
+	<mx:Script source="OBRSearchByElementFunctions.as"/>
+	
+	<validators:StringWordValidator id="annotateTextValidator" property="text" trim="true" 
+		required="true" requiredFieldError="Please enter at least 2 characters"
+		minLength="2" tooShortError="Please enter at least 2 characters" maxWords="{MAX_WORDS}" 
+		tooManyWordsError="The annotator allows a maximum of \{0\} word\{1\}.     You have entered \{2\} words."/>
+
+	<mx:StringValidator id="elementIDTextValidator" property="text"
+		required="true" requiredFieldError="Please enter at least 2 characters"
+		minLength="2" tooShortError="Please enter at least 2 characters"/>
+	
+	<mx:VBox verticalGap="5" width="100%" height="100%" 
+		paddingLeft="5" paddingTop="5" paddingRight="5" paddingBottom="5" horizontalAlign="left">
+		
+		<flexutils:TitledBorderWindow width="1000" id="searchPanel" layout="vertical" 
+				paddingBottom="5" paddingLeft="1" paddingRight="4" paddingTop="0"
+				horizontalScrollPolicy="off" verticalScrollPolicy="off" 
+				title="Annotator" verticalGap="5">
+			<mx:Form id="searchForm" width="100%">
+				<flexutils:FormItemVerticalAlign label="Ontologies" width="100%" id="ontologiesFormItem">
+					<mx:HBox width="100%">
+						<flexutils:BorderLabel text="{ontologiesText}" width="600" height="23"
+							styleName="borderLabelNoInput" paddingTop="3" paddingLeft="3" paddingRight="3"
+							id="ontologiesInput" toolTip="Select the ontologies by clicking the Choose button"/>
+						<mx:Button label="Choose..." click="chooseOntologies(event)"
+							toolTip="Click to choose the ontologies" id="chooseOntologiesButton"/>
+					</mx:HBox>
+				</flexutils:FormItemVerticalAlign>
+				<flexutils:FormItemVerticalAlign label="Semantic Types" width="100%" id="semanticTypesFormItem">
+					<mx:HBox width="100%">
+						<flexutils:BorderLabel text="{semanticTypesText}" width="600" height="23"
+							styleName="borderLabelNoInput" paddingTop="3" paddingLeft="3" paddingRight="3"
+							toolTip="Select the semantic types by clicking the Choose button" id="semanticTypesInput"/>
+						<mx:Button label="Choose..." click="chooseSemanticTypes(event)" 
+							id="chooseSemanticTypesButton" toolTip="Click to choose the semantic types"/>
+					</mx:HBox>
+				</flexutils:FormItemVerticalAlign>
+				<flexutils:FormItemVerticalAlign label="Options" width="100%">
+					<mx:HBox width="100%" horizontalGap="10">
+						<mx:Button label="Change..." id="optionsButton" click="chooseOptions(event)"/>
+						<mx:Spacer width="47" height="20"/>
+					</mx:HBox>
+				</flexutils:FormItemVerticalAlign>
+				<mx:FormItem width="100%">
+					<util:HelpText width="100%" link="htmlLinkClicked(event)" styleName="annotateHelpText">
+						<util:htmlText>
+							<![CDATA[
+The Annotator user interface is currently limited to <b>300 words</b>. Please use the <a href="event:http://bioontology.org/wiki/index.php/Annotator_Web_service">NCBO Annotator web service</a> for more advanced options.
+							]]>
+						</util:htmlText>
+					</util:HelpText>
+				</mx:FormItem>
+				<flexutils:FormItemVerticalAlign label="Text" width="100%" id="searchFormItem" verticalAlign="top">
+					<mx:HBox id="searchBox" verticalAlign="top" horizontalGap="2" width="100%">
+						<flexutils:HighlightTextArea id="annotateTextInput" minWidth="100" maxWidth="600"
+							width="600" height="80" minHeight="23" fontWeight="normal"
+							keyDown="annotateText_KeyDown(event)" link="annotateTextInputLinkClicked(event)"
+							mouseMove="annotateTextMouseMove(event)" resizable="true"/>
+						<mx:HBox verticalAlign="bottom" height="100%" id="innerSearchBox">
+							<mx:Button label="Annotate" id="searchButton" click="searchButtonClicked(event)" 
+								styleName="searchButton" height="23"/>
+							<mx:Spacer width="10" height="20"/>
+							<mx:ProgressBar id="progress" width="90" label="Searching..." indeterminate="true" 
+								styleName="progress" labelPlacement="center" visible="false" height="23"/>
+						</mx:HBox>
+						<mx:VBox height="100%" verticalAlign="bottom" id="vbox1">
+							<mx:LinkButton id="resetButton" click="resetForm()" label="Clear" 
+								toolTip="Reset the fields back to their defaults"
+								color="0x666666" fontSize="12" styleName="clearButton"/>
+						</mx:VBox>
+					</mx:HBox>
+				</flexutils:FormItemVerticalAlign>
+			</mx:Form>
+			
+		</flexutils:TitledBorderWindow>
+		
+		<mx:Text maxWidth="1000" id="errorLabel" styleName="error" width="100%" height="0" 
+			textAlign="center" link="htmlLinkClicked(event)"/>
+		
+		<mx:TabNavigator id="resultsBox" width="1000" height="100%" creationPolicy="all" 
+			paddingTop="4" historyManagementEnabled="false">
+
+			<mx:HDividedBox width="100%" height="100%" horizontalGap="8" label="Annotation Term List" id="termListBox">
+			
+				<flexutils:TitledBorderWindow width="300" height="100%" id="conceptsResultsPanel" layout="vertical" 
+						title="Terms" verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+						paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0" verticalGap="0">
+					<mx:HBox styleName="bar" width="100%">
+						<mx:Label text="Filter:"/>
+						<flexutils:FilterBox id="conceptsFilterBox" filterList="{conceptsBox}"/>
+					</mx:HBox>	
+					<mx:HBox width="100%" height="24" horizontalAlign="center" horizontalGap="2" styleName="bar"
+						backgroundColor="0xeeeeff">
+						<mx:LinkButton label="Select All" click="{conceptsBox.selectAll()}"/>
+						<mx:LinkButton label="Select None" click="{conceptsBox.selectNone()}"/>
+					</mx:HBox>
+					<mx:Canvas id="conceptsBoxWrapper" width="100%" height="100%" 
+						resize="{ontologiesBox.height = ontologiesBoxWrapper.height;}"
+						verticalScrollPolicy="off" horizontalScrollPolicy="off">
+						<flexutils:ButtonBox id="conceptsBox" width="100%" height="100%" labelFunction="conceptLabelFunction"
+							dataProvider="{conceptResults}" itemsChanged="conceptClicked(event)"/>
+					</mx:Canvas>
+				</flexutils:TitledBorderWindow>
+				
+				<flexutils:TitledBorderWindow width="200" height="100%" id="annotationResultsPanel" layout="vertical" 
+						title="Annotations" verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+						paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0" verticalGap="0">
+					<mx:HBox styleName="barBox" width="100%">
+						<mx:Label text="Filter:"/>
+						<flexutils:FilterBox id="annotationsFilterBox" filterList="{annotationsList}"
+							filterFields="{[ 'conceptName', 'ontologyName' ]}"/>
+						<mx:Label text="(filters by Term or Ontology)" color="0x666666"/>
+					</mx:HBox>
+					<mx:Canvas id="annotationsBoxWrapper" width="100%" height="100%" 
+						verticalScrollPolicy="off" horizontalScrollPolicy="off">
+						<mx:List id="annotationsList" width="100%" height="100%" labelField="conceptNameAndOntology"
+							dataProvider="{annotationResults2}" itemRenderer="renderers.ConceptAnnotationListItemRenderer"
+							selectable="false" variableRowHeight="true"/>
+					</mx:Canvas>
+					<containers:WindowShade width="100%" id="downloadPanel1" label="Download the annotations" 
+						opened="true" horizontalScrollPolicy="off" enabled="{lastAnnotatorParams != null}">
+						<mx:HBox horizontalGap="5">
+							<ui:ResultFormatButton source="@Embed(source='assets/txt_file.png')"
+								format="{OBSRestService.RESULT_FORMAT_TXT}" click="downloadResults(event)"
+								toolTip="Download these results in Text format"/>
+							<ui:ResultFormatButton source="@Embed(source='assets/csv_file.png')" 
+								format="{OBSRestService.RESULT_FORMAT_CSV}" click="downloadResults(event)"
+								toolTip="Download these results in Tab Delimited format"/>
+							<ui:ResultFormatButton source="@Embed(source='assets/xml_file.png')" 
+								format="{OBSRestService.RESULT_FORMAT_XML}" click="downloadResults(event)"
+								toolTip="Download these results in XML format"/>
+							<ui:ResultFormatButton source="@Embed(source='assets/rdf_file.png')" 
+								format="{OBSRestService.RESULT_FORMAT_RDF}" click="downloadResults(event)"
+								visible="false"
+								toolTip="Download these results in RDF format"/>
+							<ui:ResultFormatButton source="@Embed(source='assets/owl_file.png')" 
+								format="{OBSRestService.RESULT_FORMAT_OWL}" click="downloadResults(event)"
+								visible="false"
+								toolTip="Download these results in OWL format"/>
+						</mx:HBox>
+					</containers:WindowShade>
+				</flexutils:TitledBorderWindow>
+				
+			</mx:HDividedBox>
+
+
+			<mx:HDividedBox width="100%" height="100%" horizontalGap="8" label="Annotation Tag Cloud" id="termCloudBox">
+			
+				<flexutils:TitledBorderWindow width="300" height="100%" id="ontologyResultsPanel" layout="vertical" 
+						title="Ontologies" verticalScrollPolicy="off" horizontalScrollPolicy="off" 
+						paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0" verticalGap="0">
+					<mx:HBox width="100%" height="24" horizontalAlign="center" horizontalGap="2" styleName="bar">
+						<mx:LinkButton label="Select All" click="{ontologiesBox.selectAll()}"/>
+						<mx:LinkButton label="Select None" click="{ontologiesBox.selectNone()}"/>
+					</mx:HBox>
+					<mx:Canvas id="ontologiesBoxWrapper" width="100%" height="100%" 
+						resize="ontologiesBox.height = ontologiesBoxWrapper.height;"
+						verticalScrollPolicy="off" horizontalScrollPolicy="off">
+						<flexutils:ButtonBox id="ontologiesBox" width="100%" height="100%" dataField="name" 
+							itemsChanged="ontologyClicked(event)" itemRenderer="renderers.OntologyCheckBox"
+							dataProvider="{ontologyResults}"/>
+					</mx:Canvas>
+				</flexutils:TitledBorderWindow>
+				
+				<mx:VBox width="100%" height="100%" id="mainBox" verticalGap="0" horizontalScrollPolicy="off">
+					<flexutils:TitledBorderWindow id="tagCloudPanel" title="Annotation Tag Cloud" height="100%" layout="vertical" 
+						width="100%" verticalGap="0">
+						<containers:WindowShade width="100%" id="statsBox" label="Annotation statistics" opened="true">
+							<mx:Form id="annotationStatsBox" width="100%" verticalGap="0"
+								paddingLeft="8" paddingTop="4" paddingRight="0" paddingBottom="0"/>
+						</containers:WindowShade>
+
+						<ui:AnnotationTagCloud width="100%" height="100%" id="tagCloud" tagClicked="tagClicked(event)"/>
+
+						<containers:WindowShade width="100%" id="downloadPanel2" label="Download the annotations" 
+							opened="true" horizontalScrollPolicy="off" enabled="{lastAnnotatorParams != null}">
+							<mx:HBox horizontalGap="5">
+								<ui:ResultFormatButton source="@Embed(source='assets/txt_file.png')"
+									format="{OBSRestService.RESULT_FORMAT_TXT}" click="downloadResults(event)"
+									toolTip="Download these results in Text format"/>
+								<ui:ResultFormatButton source="@Embed(source='assets/csv_file.png')" 
+									format="{OBSRestService.RESULT_FORMAT_CSV}" click="downloadResults(event)"
+									toolTip="Download these results in Tab Delimited format"/>
+								<ui:ResultFormatButton source="@Embed(source='assets/xml_file.png')" 
+									format="{OBSRestService.RESULT_FORMAT_XML}" click="downloadResults(event)"
+									toolTip="Download these results in XML format"/>
+								<ui:ResultFormatButton source="@Embed(source='assets/rdf_file.png')" 
+									format="{OBSRestService.RESULT_FORMAT_RDF}" click="downloadResults(event)"
+									visible="false"
+									toolTip="Download these results in RDF format"/>
+								<ui:ResultFormatButton source="@Embed(source='assets/owl_file.png')" 
+									format="{OBSRestService.RESULT_FORMAT_OWL}" click="downloadResults(event)"
+									visible="false"
+									toolTip="Download these results in OWL format"/>
+							</mx:HBox>
+						</containers:WindowShade>
+					</flexutils:TitledBorderWindow>
+				</mx:VBox>
+			
+			</mx:HDividedBox>
+			
+		</mx:TabNavigator>
+		
+		<util:HelpText textAlign="center" link="htmlLinkClicked(event)">
+			<util:htmlText>
+				<![CDATA[
+Learn more about the <a href="event:http://bioontology.org/wiki/index.php/Annotator_Web_service">NCBO Annotator web service</a> | Learn more about the <a href="event:http://www.bioontology.org/wiki/index.php/Resource_Index">NCBO Biomedical Resource Index</a>
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+
+	</mx:VBox>
+	
+	<!-- HELP PANEL -->
+	<flexutils:EscapeWindow id="helpPanel" styleName="helpHighlightWindow" resizable="true" movable="true"
+		x="120" y="105" width="600" height="450" visible="false" title="Help" minHeight="16" minWidth="16" 
+		layout="vertical" horizontalScrollPolicy="off" showCloseButton="true" close="toggleHelp(event)"
+		titleIcon="@Embed(source='assets/help.png')">
+		
+		<mx:HBox width="100%">
+			<mx:Text width="100%" color="0x999999" 
+				text="Hover your mouse over the help items below to highlight the component(s) in question."/>
+		</mx:HBox>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{ontologiesFormItem}"
+			icon="@Embed(source='assets/1.gif')" link="htmlLinkClicked(event)">
+			<util:htmlText>
+				<![CDATA[
+Select the ontologies you want to use to annotate your text. <i>Both <a href="event:http://bioportal.bioontology.org/ontologies">BioPortal ontologies</a> and <a href="event:http://www.nlm.nih.gov/research/umls/metab4.html#sb4_0">UMLS Metathesaurus ontologies</a> (defined by their RSAB) are available.</i>
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{semanticTypesFormItem}"
+			icon="@Embed(source='assets/2.gif')" link="htmlLinkClicked(event)">
+			<util:htmlText>
+				<![CDATA[
+Select the semantic types you want to use to restrict the annotations to. <i>Semantic types are defined by the TUI in the <a href="event:http://www.nlm.nih.gov/research/umls/sem_net_doc.html">UMLS Semantic Network</a>. Notice that 2 additional TUI are available: T000 is added to all the UMLS concepts, T999 is added to all the BioPortal concepts</i>.			
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{optionsButton}"
+			icon="@Embed(source='assets/4.gif')">
+			<util:htmlText>
+				<![CDATA[
+You can now select the appropriate options:<li>Longest only = do you want the concept recognizer to match the longest sentence only or not</li><li>Whole word only = do you want the concept recognizer to match whole word only</li><li>Maximum level = level you want to use to restrict is_a transitive closure expansion (i.e., annotations generated with ancestor concepts)</li><li>Mappings = types of mapping you want to use to expand annotations (i.e., annotations generated with mapped concepts)</li>
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{searchButton}"
+			icon="@Embed(source='assets/5.gif')">
+			<util:htmlText>
+				<![CDATA[
+Click <b>"Annotate"</b> or <b>"Get Annotations"</b> to get your annotations!
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText id="annotateHelpItem" highlightBox="{helpHighlightBox}" highlightComponent="{annotateTextInput}"
+			icon="@Embed(source='assets/6.gif')" link="htmlLinkClicked(event)">
+			<util:htmlText>
+				<![CDATA[
+Please note that web-based access to the Annotator is currently limited to a maximum of <b>300 words</b> for usability purposes.  Please use the <a href="event:http://bioontology.org/wiki/index.php/Annotator_Web_service">NCBO Annotator web service</a> via programmatic access for more advanced options. 
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		
+	</flexutils:EscapeWindow>
+	
+	<!-- RESULTS HELP PANEL -->
+	<flexutils:EscapeWindow id="resultsHelpPanel" styleName="helpHighlightWindow" minHeight="16" minWidth="16"
+		x="150" y="350" width="600" height="250" visible="false" title="Help" resizable="true" movable="true"
+		layout="vertical" horizontalScrollPolicy="off" showCloseButton="true" close="toggleResultsHelp(event)"
+		titleIcon="@Embed(source='assets/help.png')">
+		
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{tagCloud}"
+			icon="@Embed(source='assets/bullet_blue.png')">
+			<util:htmlText>
+				<![CDATA[
+A tag cloud of terms has been generated to represent the annotations. The bigger a term in the cloud is, the higher the score of the corresponding annotation is.
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{ontologyResultsPanel}"
+			icon="@Embed(source='assets/bullet_blue.png')">
+			<util:htmlText>
+				<![CDATA[
+You can filter the cloud by activating or not ontologies with the list of ontologies on the left.
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{statsBox}"
+			icon="@Embed(source='assets/bullet_blue.png')">
+			<util:htmlText>
+				<![CDATA[
+Click on <b>"Annotation statistics"</b> to know the number of different kind of annotations generated.
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		<util:HelpText highlightBox="{helpHighlightBox}" highlightComponent="{tagCloud}"
+			icon="@Embed(source='assets/bullet_blue.png')">
+			<util:htmlText>
+				<![CDATA[
+If you click on a term in the cloud, you will get the details of the annotation with this term. 
+The score of an annotation is computed by taking into consideration those details (term frequency, synonym or not, ancestor or not, etc.).<br>
+From here, you can also link back to the original term in BioPortal!
+				]]>
+			</util:htmlText>
+		</util:HelpText>
+		
+	</flexutils:EscapeWindow>
+	
+	<mx:Canvas id="helpHighlightBox" x="26" y="68" width="304" height="86" visible="false" styleName="helpHighlightBox"/>
+	
+	<ui:AnnotationDetailsPanel id="detailsPanel" title="Details" x="300" y="300" width="550" height="400" 
+			close="{detailsPanel.visible = false;}"	visible="false"/>
+
+	<mx:Button id="helpButton" label="" visible="false" click="toggleHelp(event)" 
+		icon="@Embed(source='assets/help.png')" width="20" height="20" toolTip="Show the help panel"/>
+	<mx:Button id="resultsHelpButton" label="" visible="false" click="toggleResultsHelp(event)" 
+		icon="@Embed(source='assets/help.png')" width="20" height="20" toolTip="Show the help panel"/>
+
+</mx:Application>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:EscapeWindow 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:ui="flex.utils.ui.*"
+	layout="vertical" width="340" minHeight="245"
+	title="Search Options" showCloseButton="true"
+	resizable="true" dotColor="0xdddddd"
+	creationComplete="created()">
+
+	<mx:Script>
+		<![CDATA[
+			import service.ResourceIndexParameters;
+			import service.AnnotatorParameters;
+			import events.OBSEvent;
+			import mx.managers.PopUpManager;
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			import service.OBSRestService;
+		
+			public var restService:OBSRestService = null;
+			public var resourceIndexParams:ResourceIndexParameters = null;
+			public var annotatorParams:AnnotatorParameters = null;
+			
+			private var isAnnotate:Boolean;
+			
+			public static function showWindow(parent:DisplayObject, restService:OBSRestService, 
+					resourceIndexParams:ResourceIndexParameters, annotateParams:AnnotatorParameters, annotate:Boolean):SearchOptions {
+				var window:SearchOptions = new SearchOptions();
+				window.restService = restService;
+				window.resourceIndexParams = resourceIndexParams;
+				window.annotatorParams = annotateParams;
+				window.isAnnotate = annotate;
+				var closeHandler:Function = function(event:CloseEvent):void {
+					PopUpManager.removePopUp(window);
+				};
+				window.addEventListener(CloseEvent.CLOSE, closeHandler);
+				PopUpManager.addPopUp(window, parent, true);
+				PopUpManager.centerPopUp(window);
+				return window;
+			}
+			
+			private function created():void {
+				if (!isAnnotate) {
+					//longestOnlyFormItem.height = 0;
+					//longestOnlyFormItem.visible = false;
+					wholeWordFormItem.height = 0;
+					wholeWordFormItem.visible = false;
+				}
+				mappingTypesList.dataProvider = [ "Loading..." ]; 
+				cursorManager.setBusyCursor();
+				mappingTypesList.enabled = false;
+				restService.getMappingTypes(mappingTypesLoaded);
+			}
+			
+			private function mappingTypesLoaded(event:OBSEvent):void {
+				cursorManager.removeBusyCursor();
+				mappingTypesList.dataProvider = event.items.slice();
+				saveButton.enabled = true;
+				mappingTypesList.enabled = !disableMappingTypesCheckBox.selected;
+				loadParameters();
+			}
+			
+			private function saveClicked():void {
+				saveParameters();
+				dispatchEvent(new CloseEvent(CloseEvent.CLOSE, false, false, Alert.OK));
+			}
+
+			private function cancelClicked():void {
+				dispatchEvent(new CloseEvent(CloseEvent.CLOSE, false, false, Alert.CANCEL));
+			}
+			
+			private function saveParameters():void {
+				if (isAnnotate) {
+					//resourceIndexParams.longestOnly = longestCheckBox.selected;
+					//annotatorParams.longestOnly = longestCheckBox.selected; 
+					//resourceIndexParams.wholeWordOnly = wholeWordCheckBox.selected;
+					annotatorParams.wholeWordOnly = wholeWordCheckBox.selected; 
+				}
+				resourceIndexParams.levelMax = maxLevel.value;
+				annotatorParams.levelMax = maxLevel.value;
+
+				// we save this value just to keep the UI consistent, it isn't sent to the server
+				resourceIndexParams.setActivateMappings(!disableMappingTypesCheckBox.selected);
+				//annotatorParams.activateMappings = !disableMappingTypesCheckBox.selected;
+				
+				if (disableMappingTypesCheckBox.selected) {
+					resourceIndexParams.setMappingTypes([]);
+					annotatorParams.setMappingTypes([]);
+				} else {
+					var types:Array = mappingTypesList.selectedItems;
+					// special case - all are selected so we use null
+					if (types.length == mappingTypesList.dataCollection.length) {
+						resourceIndexParams.setMappingTypes(null);
+						annotatorParams.setMappingTypes(null);
+					} else {
+						resourceIndexParams.setMappingTypes(types);
+						annotatorParams.setMappingTypes(types);
+					}
+				}
+			}
+			
+			private function loadParameters():void {
+				//longestCheckBox.selected = annotatorParams.longestOnly;
+				wholeWordCheckBox.selected = annotatorParams.wholeWordOnly;
+				maxLevel.value = resourceIndexParams.levelMax;
+				var types:Array = resourceIndexParams.getMappingTypes();
+				if (types == null) {
+					// all selected
+					mappingTypesList.selectAll();
+				} else {
+					mappingTypesList.selectedItems = types;
+				}
+				disableMappingTypesCheckBox.selected = !resourceIndexParams.isActivateMappings();
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Form paddingBottom="0" paddingRight="0" paddingLeft="0" paddingTop="0" verticalGap="1">
+		<!-- Removing Longest only parameter from UI - GForge Tracker #3375 -->
+		<!--<mx:FormItem id="longestOnlyFormItem" label="Longest only" 
+				toolTip="Do you want the concept recognizer to match the longest sentence only?">
+			<mx:CheckBox id="longestCheckBox" label=" " selected="false"/>
+		</mx:FormItem>-->
+		<mx:FormItem label="Whole word only" id="wholeWordFormItem"
+				toolTip="Do you want the concept recognizer to match whole word only">
+			<mx:CheckBox label=" " id="wholeWordCheckBox" selected="true"/>
+		</mx:FormItem>
+		<mx:FormItem label="Maximum level"
+				toolTip="The maximum level for the isa-transitive-closure expansion component to be restricted to">
+			<mx:NumericStepper id="maxLevel" value="0" minimum="0" maximum="100" width="50"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:Spacer width="100%" height="5"/>
+	<mx:VBox styleName="box" verticalGap="0" width="100%" horizontalAlign="left" cornerRadius="4">
+		<mx:HBox width="100%" horizontalGap="0" styleName="bar">
+				<mx:CheckBox id="disableMappingTypesCheckBox" selected="false" label="Disable mappings"/>
+				<mx:LinkButton label="Select All" click="{mappingTypesList.selectAll()}" 
+					enabled="{!disableMappingTypesCheckBox.selected}"/>
+				<mx:LinkButton label="Select None" click="{mappingTypesList.selectNone()}" 
+					enabled="{!disableMappingTypesCheckBox.selected}"/>		
+		</mx:HBox>
+		<mx:Form paddingBottom="0" paddingRight="0" paddingLeft="0" paddingTop="0" verticalGap="1" width="100%">
+			<mx:FormItem label="Mapping types"
+					toolTip="Select the mapping types you want to use for the mapping expansion component">
+				<ui:ButtonBox width="160" id="mappingTypesList" buttonPadding="1"
+					borderColor="0xBBBBBB" borderStyle="inset" 
+					enabled="{!disableMappingTypesCheckBox.selected}"/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:VBox>
+
+	<mx:ControlBar horizontalAlign="center" paddingTop="2" paddingRight="2" paddingLeft="2" paddingBottom="2" horizontalGap="4">
+		<mx:Button label="Save" id="saveButton" click="saveClicked()" enabled="false"/>
+		<mx:Button label="Cancel" id="cancelButton" click="cancelClicked()"/>
+	</mx:ControlBar>
+	
+	
+</ui:EscapeWindow>

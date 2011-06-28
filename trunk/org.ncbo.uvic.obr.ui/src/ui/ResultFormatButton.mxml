@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="64" height="64" useHandCursor="true" buttonMode="true" 
+	mouseOver="mouseOverHandler(event)" mouseOut="mouseOutHandler(event)"
+	backgroundAlpha="0" backgroundColor="#79B3DD" mouseEnabled="true" mouseChildren="false" focusEnabled="true" mouseFocusEnabled="true"
+	implements="mx.managers.IFocusManagerComponent">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			[Bindable]
+			public var source:Class;
+			
+			[Bindable]
+			public var format:String;
+			
+			private function mouseOverHandler(event:MouseEvent):void {
+				setStyle("backgroundAlpha", 1);
+			}
+
+			private function mouseOutHandler(event:MouseEvent):void {
+				setStyle("backgroundAlpha", 0);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Image x="0" y="0" width="64" height="64" source="{source}"/>
+	
+</mx:Canvas>

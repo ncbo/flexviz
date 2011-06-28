@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<renderers:CheckBoxHighlighter xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory" 
+	xmlns:renderers="flex.utils.ui.renderers.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import model.Ontology;
+			
+			override public function newInstance():* {
+				var renderer:OntologyCheckBox = new OntologyCheckBox();
+				renderer.highlighter = highlighter;
+				return renderer;
+			}
+			
+			override public function set data(value:Object):void {
+				super.data = value;
+				if (value is Ontology) {
+					var ontology:Ontology = (value as Ontology);
+					styleName = (ontology.isBioPortal ? "bioPortal" : "umls");
+//					if (textField) {
+//						textField.styleName = styleName;
+//					}
+				}
+			}
+			
+			override public function set toolTip(value:String):void {
+				if (data is Ontology) {
+					value += ((data as Ontology).isBioPortal ? " [BioPortal]" : " [UMLS]"); 
+				}
+				super.toolTip = value;
+			}
+			
+		]]>
+	</mx:Script>
+	
+</renderers:CheckBoxHighlighter>

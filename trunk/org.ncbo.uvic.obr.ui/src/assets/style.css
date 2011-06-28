@@ -1,0 +1,319 @@
+/* CSS file */
+
+Application {
+/*	background-gradient-colors: #ffffff, #e2ebf0;
+	background-gradient-alphas: 1, 0.5; */
+	background-gradient-colors: #ffffff, #ffffff;
+	background-gradient-alphas: 1, 0.5;
+	background-color: #ffffff;
+	background-alpha: 1;	
+	color: #234979;
+}
+
+Form {
+	color: #234979;
+ 	indicator-gap: 5;
+	vertical-gap: 4;
+	padding-top: 6;
+	padding-right: 4;
+	padding-left: 4;
+	padding-bottom: 4;
+}
+
+VBox {
+	vertical-gap: 2;
+	horizontal-align: center;
+}
+
+HBox {
+	horizontal-gap: 2;	
+	vertical-align: middle;
+}
+
+HelpText {
+	vertical-align: top;	
+}
+
+Panel {
+	border-color: #8aa5b8;
+	border-alpha: 0.8;
+	highlight-alphas: 0.2, 0.2;
+	header-colors: #e5e5e5, #8aa5b8;
+	color: #000000;
+	font-size: 11;
+	border-thickness-left: 5;
+	border-thickness-top: 0;
+	border-thickness-right: 5;
+	border-thickness-bottom: 5;
+	header-height: 24;
+	title-style-name: "panelTitle";
+	status-style-name: "panelStatus";
+}
+
+.panelTitle {
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;		
+}
+
+.panelStatus {
+	color: #555555;	
+}
+
+/* , ResizableTitledBorderWindow */
+TitledBorderWindow {
+	border-color: #868687;
+	border-alpha: 1;
+	border-thickness: 1;
+	color: #000000;	
+	padding-top: 0;
+}
+
+.titledBorderBox {
+	title-style-name: "titleBorderTitle";
+	border-color: #868687;
+	color: #000000;	
+}
+
+.titleBorderTitle {
+	color: #000000;
+}
+
+ButtonBox {
+	alternating-item-colors: #ffffff,#f5fafa;
+	background-disabled-color: #f3f3f3;	
+	disabled-color: #333333;	
+	color: #000000;
+	border-style: solid;
+	border-thickness: 1;
+	horizontal-align: left;
+	button-padding: 4;
+	vertical-gap: 0;
+}
+
+DataGrid {
+	alternating-item-colors: #ffffff,#f5fafa;
+	background-disabled-color: #f3f3f3;
+}
+
+List {
+	alternating-item-colors: #ffffff,#f5fafa;
+	background-disabled-color: #f3f3f3;
+}
+
+EscapeWindow {
+	resize-handle-color: #ffffff;
+	move-handle-color: #ffffff;
+}
+
+LinkButton {
+	color: #234979;	
+	text-decoration: underline;
+}
+
+.link {
+   	icon: Embed(source="link.gif");
+   	disabled-icon: Embed(source="blank14.gif");
+}
+
+FormItemVerticalAlign {
+	vertical-align: middle;	
+}
+
+.contextTitle {
+	font-weight: bold;
+	font-size: 12;
+	padding-top: 5;
+	text-decoration: underline;	
+}
+
+.box {
+	border-color: #dddddd;
+	border-thickness: 1;
+	border-style: solid;	
+}
+
+.bar {
+	background-color: #e2ebf0;
+	vertical-align: middle;	
+	padding-left: 5;
+	padding-right: 5;
+}
+
+.barBox {
+	background-color: #e2ebf0;
+	vertical-align: middle;	
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 5;
+	padding-right: 5;
+	color: #234979;
+	border-color: #dddddd;
+	border-thickness: 1;
+	border-style: solid;	
+}
+
+.roundedBox {
+	padding-left: 5;
+	padding-right: 5;
+	padding-top: 3;
+	padding-bottom: 3;
+	background-color: #eeeeee;
+	border-color: #dddddd;
+	border-style: solid;
+	border-thickness: 1;
+	corner-radius: 5;
+	color: #666666;
+}
+
+.row {
+	background-color: #dddddd;	
+}
+
+.error {
+	color: #dd0000;
+	disabled-color: #dd4444;	
+	font-weight: bold;
+}
+
+.errorNormal {
+	color: #dd0000;
+	disabled-color: #dd4444;	
+	font-weight: normal;
+}
+
+.annotateHelpText {
+	color: #666666;	
+}
+
+.tagCloud {
+	color: #4F81BD;
+	font-size: 10;
+	font-weight: bold;
+	padding-left: 5;
+	padding-top: 5;
+	padding-right: 5;
+	padding-bottom: 5;
+}
+
+.bioPortal {
+	color: #2D5485;	
+}
+
+.umls {
+	color: #907020;
+}
+
+.clearButton {
+	icon: 		Embed("x_gray.png");
+	up-icon: 	Embed("x_gray.png");
+	over-icon: 	Embed("x_red.png");
+	down-icon: 	Embed("x_red.png");
+	font-weight: normal;
+	text-decoration: none;
+	color: #666666; 
+	fontSize: 12;
+}
+
+.searchButton {
+	fill-alphas: 0.8, 0.8, 0.75, 0.65;
+   	fill-colors: #4f83cd, #0356b4, #ffffff, #d8f0ff;
+   	border-color: #0076c1;
+   	color: #ffffff;
+   	font-size: 12;
+   	font-weight: bold;	
+   	icon: Embed(source="search.gif");
+   	disabled-icon: Embed(source="search_disabled.gif");
+}
+
+.progress {
+	track-height: 18;
+	color: #ffffff;
+	indeterminate-move-interval: 30;
+	theme-color: #336699;
+}
+
+WindowShade {
+  	headerClass: ClassReference('mx.controls.Button');
+  	header-style-name: windowShadeHeader;
+ 	drop-shadow-enabled: true;
+  	corner-radius: 10;
+  	border-style: solid;
+	background-color: #efefef;
+	background-alpha: 0.7;
+	font-size: 12;
+	padding-top: 0;
+	padding-left: 5;
+	padding-right: 5;
+	padding-bottom: 5;
+}
+
+.windowShadeHeader {
+	corner-radius: 10;	
+	padding-left: 10;
+}
+
+.squareWindowShade {
+	corner-radius: 0;	
+	header-style-name: squareWindowShadeHeader;
+	padding-left: 2;
+	padding-right: 2;
+	padding-bottom: 2;
+} 
+
+.squareWindowShadeHeader {
+	corner-radius: 0;
+}
+
+.helpHighlightWindow {
+	vertical-gap: 5;
+	padding-left: 5;
+	padding-top: 5;
+	padding-right: 5;
+	padding-bottom:5;
+	background-color: #ffffff;
+	background-alpha: 1;
+}
+
+.helpHighlightBox {
+	border-color: #00dd00;
+	border-thickness: 2;
+	border-style: solid;
+}
+
+.annotationListItem {
+	vertical-gap: 0;
+}
+
+.annotationListForm {
+	padding-left: 5; 
+	padding-bottom: 2;
+	padding-right: 5;
+	padding-top: 2;
+	vertical-gap: 0;
+	font-weight: bold;
+}
+
+.annotationListFormItem {
+	color: #606060;
+	font-weight: normal;
+}
+
+.highlightScrollTrack {
+	track-skin: ClassReference("flex.utils.ui.skins.HighlightListScrollTrackSkin");
+	highlightMinHeight: 2;
+	highlightColor: #C35617;
+}
+
+.borderLabelNoInput {
+	border-color: #969696;
+	border-style: inset;
+	color: #999999;
+	vertical-align: middle;
+}
+
+.borderLabel {
+	border-color: #969696;
+	border-style: inset;
+	color: #234979;
+}

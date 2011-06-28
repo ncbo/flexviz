@@ -1,0 +1,7 @@
+Sample text to annotate:
+
+Melanoma is a bad disease of the skin
+
+Melanoma is a disease of melanocytes and occurs in the skin, bowel and eye.
+
+Melanoma is a disease of melanocytes. It occurs in the skin, bowel and eye.

@@ -1,0 +1,51 @@
+<project name="org.ncbo.uvic.obs" default="zip_src" basedir=".">
+	<description>NCBO Annotator and Resources Build</description>
+	       
+	<!-- set global properties for this build -->
+	<property name="programName" value="org.ncbo.uvic.obs"/>
+	<property name="version_" value="1.1"/>
+	<property name="zip_prefix" value="${programName}_${version_}"/>
+	<property name="buildDir" location="build"/>
+	<property name="distDir" location="releases"/>
+	<property name="binDir" location="bin-release"/>
+	
+	<target name="clean" description="clean up" >
+    	<delete dir="${buildDir}"/>
+  	</target>
+
+	<target name="init" description="updates build properties">
+		<mkdir dir="${buildDir}"/>
+		<mkdir dir="${distDir}"/>
+		<tstamp>
+			<format property="TODAY1" pattern="ddMMMyy" />
+		</tstamp>
+	</target>
+	
+	<target name="zip_release" depends="init" description="Zips up the files in the bin directory">
+		<delete file="${distDir}/${zip_prefix}_${TODAY1}.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}.zip">
+			<zipfileset dir="${binDir}">
+				<include name="**/*"/>
+			</zipfileset>
+		</zip>
+	</target>
+
+    <target name="build_src" depends="clean,init" description="Copies all the source files into the build directory">
+    	<mkdir dir="${buildDir}/${programName}"/>
+		<copy todir="${buildDir}/${programName}">
+			<fileset dir=".">
+				<exclude name="bin-debug/**"/>
+				<exclude name="bin-release/**"/>
+				<exclude name="releases/**"/>
+				<exclude name="temp/**"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="zip_src" depends="build_src" description="Zips up all the files inside the build directory">
+		<delete file="${distDir}/${zip_prefix}_${TODAY1}_src.zip" failonerror="false"/>
+		<zip destfile="${distDir}/${zip_prefix}_${TODAY1}_src.zip" basedir="${buildDir}" />
+	</target>
+	
+</project>

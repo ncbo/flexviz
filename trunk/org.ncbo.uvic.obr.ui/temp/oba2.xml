@@ -1,0 +1,3133 @@
+<obs.common.beans.ObaResultBean>
+  <resultID>OBA_RESULT_5dc2</resultID>
+  <dictionary>
+    <dictionaryID>27</dictionaryID>
+    <dictionaryName>OBS_DICO_f957</dictionaryName>
+    <dictionaryDate>
+      <time>1232956800000</time>
+      <timezone>America/Los_Angeles</timezone>
+    </dictionaryDate>
+  </dictionary>
+  <statistics>
+    <obs.common.beans.StatisticsBean>
+      <contextName>MGREP</contextName>
+      <nbAnnotation>118</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+    <obs.common.beans.StatisticsBean>
+      <contextName>MAPPING</contextName>
+      <nbAnnotation>0</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+    <obs.common.beans.StatisticsBean>
+      <contextName>ISA_CLOSURE</contextName>
+      <nbAnnotation>0</nbAnnotation>
+    </obs.common.beans.StatisticsBean>
+  </statistics>
+  <parameters>
+    <longestOnly>false</longestOnly>
+    <wholeWordOnly>true</wholeWordOnly>
+    <scored>true</scored>
+    <localOntologyIDs/>
+    <localSemanticTypeIDs/>
+    <levelMin>0</levelMin>
+    <levelMax>0</levelMax>
+    <mappingTypes>
+      <string>null</string>
+    </mappingTypes>
+  </parameters>
+  <text>Osteosarcoma TE85 cell tissue culture study Amino acid conjugated surfaces and controls</text>
+  <annotations>
+    <obs.common.beans.AnnotationBean>
+      <score>28.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:37527</localConceptID>
+        <preferredName>acid</preferredName>
+        <synonyms>
+          <string>acids</string>
+          <string>acido</string>
+          <string>acide</string>
+          <string>Acid</string>
+          <string>Saeuren</string>
+          <string>an acid</string>
+          <string>Saeure</string>
+          <string>acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4882768</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>28.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:37527</localConceptID>
+        <preferredName>acid</preferredName>
+        <synonyms>
+          <string>acids</string>
+          <string>acido</string>
+          <string>acide</string>
+          <string>Acid</string>
+          <string>Saeuren</string>
+          <string>an acid</string>
+          <string>Saeure</string>
+          <string>acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4882772</termID>
+        <termName>acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>28.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:37527</localConceptID>
+        <preferredName>acid</preferredName>
+        <synonyms>
+          <string>acids</string>
+          <string>acido</string>
+          <string>acide</string>
+          <string>Acid</string>
+          <string>Saeuren</string>
+          <string>an acid</string>
+          <string>Saeure</string>
+          <string>acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4882764</termID>
+        <termName>acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>RCD/C0002520</localConceptID>
+        <preferredName>Amino acid</preferredName>
+        <synonyms>
+          <string>AA - Amino acid</string>
+          <string>Amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2018101</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>NCI/C0002520</localConceptID>
+        <preferredName>Amino Acid</preferredName>
+        <synonyms>
+          <string>Amino Acid</string>
+          <string>aa</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>932274</termID>
+        <termName>Amino Acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>CSP/C0002520</localConceptID>
+        <preferredName>amino acid</preferredName>
+        <synonyms>
+          <string>aminoacid</string>
+          <string>amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2268050</termID>
+        <termName>amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>CSP/C0002520</localConceptID>
+        <preferredName>amino acid</preferredName>
+        <synonyms>
+          <string>aminoacid</string>
+          <string>amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2268052</termID>
+        <termName>amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>NCI/C0002520</localConceptID>
+        <preferredName>Amino Acid</preferredName>
+        <synonyms>
+          <string>Amino Acid</string>
+          <string>aa</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>932273</termID>
+        <termName>Amino Acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0002520</localConceptID>
+        <preferredName>Amino acid</preferredName>
+        <synonyms>
+          <string>AA - Amino acid</string>
+          <string>Amino acid, NOS</string>
+          <string>AMINO ACID PREPARATION (substance)</string>
+          <string>AMINO ACID PREPARATION</string>
+          <string>Amino acid</string>
+          <string>Amino acid (substance)</string>
+          <string>AMINO ACID PREPARATION (product)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3325487</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>RCD/C0002520</localConceptID>
+        <preferredName>Amino acid</preferredName>
+        <synonyms>
+          <string>AA - Amino acid</string>
+          <string>Amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2018103</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>20.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0002520</localConceptID>
+        <preferredName>Amino acid</preferredName>
+        <synonyms>
+          <string>AA - Amino acid</string>
+          <string>Amino acid, NOS</string>
+          <string>AMINO ACID PREPARATION (substance)</string>
+          <string>AMINO ACID PREPARATION</string>
+          <string>Amino acid</string>
+          <string>Amino acid (substance)</string>
+          <string>AMINO ACID PREPARATION (product)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3325482</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>18.0</score>
+      <concept>
+        <localConceptID>38677/DOID:3347</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+          <string>Osteosarcoma - disorder</string>
+          <string>osteosarcoma</string>
+          <string>Skeletal Sarcoma</string>
+          <string>osteoid sarcoma</string>
+          <string>Osteosarcoma, no ICD-O subtype (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38677</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1501740</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>18.0</score>
+      <concept>
+        <localConceptID>38865/DOID:3347</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+          <string>Osteosarcoma - disorder</string>
+          <string>osteosarcoma</string>
+          <string>Skeletal Sarcoma</string>
+          <string>osteoid sarcoma</string>
+          <string>Osteosarcoma, no ICD-O subtype (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38865</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5005886</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>18.0</score>
+      <concept>
+        <localConceptID>38677/DOID:3347</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+          <string>Osteosarcoma - disorder</string>
+          <string>osteosarcoma</string>
+          <string>Skeletal Sarcoma</string>
+          <string>osteoid sarcoma</string>
+          <string>Osteosarcoma, no ICD-O subtype (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38677</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1501743</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>18.0</score>
+      <concept>
+        <localConceptID>38865/DOID:3347</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+          <string>Osteosarcoma - disorder</string>
+          <string>osteosarcoma</string>
+          <string>Skeletal Sarcoma</string>
+          <string>osteoid sarcoma</string>
+          <string>Osteosarcoma, no ICD-O subtype (morphologic abnormality)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38865</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5005883</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CPM/C0007634</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CPM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2393853</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>[M]Osteosarcoma NOS</string>
+          <string>Osteochondrosarcoma</string>
+          <string>Osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2117289</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Acid</localConceptID>
+        <preferredName>Acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5137166</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C0430400</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Culture Procedure</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1035489</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C0040284</localConceptID>
+        <preferredName>Tissue Culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1020566</termID>
+        <termName>Tissue Culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0040284</localConceptID>
+        <preferredName>tissue culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2254098</termID>
+        <termName>tissue culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MEDLINEPLUS/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MEDLINEPLUS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2748791</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>UWDA/C0040300</localConceptID>
+        <preferredName>Tissue</preferredName>
+        <synonyms>
+          <string>Textus</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>UWDA</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2653762</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNM/C0001128</localConceptID>
+        <preferredName>Acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2616751</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>AOD/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>AOD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>92908</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>DXP/C0029463</localConceptID>
+        <preferredName>OSTEOSARCOMA</preferredName>
+        <synonyms>
+          <string>BONE CANCER, OSTEOGENIC SARCOMA</string>
+          <string>OSTEOGENIC SARCOMA</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>DXP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1676141</termID>
+        <termName>OSTEOSARCOMA</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LCH/C0010453</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LCH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2572711</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LNC/C0947630</localConceptID>
+        <preferredName>Study</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4588012</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>HL7V3.0/C1550557</localConceptID>
+        <preferredName>and</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>HL7V3.0</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4445734</termID>
+        <termName>and</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNM/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteochondrosarcoma</string>
+          <string>Osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2586322</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38570/XAO:0003012</localConceptID>
+        <preferredName>cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38570</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5335838</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Tissue_Culture</localConceptID>
+        <preferredName>Tissue Culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5149267</termID>
+        <termName>Tissue Culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>OMIM/C1861886</localConceptID>
+        <preferredName>CELL</preferredName>
+        <synonyms>
+          <string>CARBOXYL-ESTER LIPASE-LIKE</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>OMIM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T028</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4126347</termID>
+        <termName>CELL</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>COSTAR/C0029463</localConceptID>
+        <preferredName>OSTEOSARCOMA</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>COSTAR</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2240491</termID>
+        <termName>OSTEOSARCOMA</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>37911/AAO:0000607</localConceptID>
+        <preferredName>tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>true</isTopLevel>
+        <localOntologyID>37911</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5336499</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Culture</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5182499</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNM/C0040284</localConceptID>
+        <preferredName>Tissue culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2599611</termID>
+        <termName>Tissue culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>PDQ/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms>
+          <string>osteogenic sarcoma</string>
+          <string>sarcoma, osteogenic</string>
+          <string>osteogenic sarcoma, osteoblastic</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>PDQ</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2475429</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteosarcoma - disorder (disorder)</string>
+          <string>Osteosarcoma - disorder</string>
+          <string>[M]Osteosarcoma NOS</string>
+          <string>Osteosarcoma, NOS</string>
+          <string>Osteochondrosarcoma</string>
+          <string>Osteosarcoma, no ICD-O subtype (morphologic abnormality)</string>
+          <string>Osteogenic sarcoma, NOS</string>
+          <string>Osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3488700</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0001128</localConceptID>
+        <preferredName>Acid</preferredName>
+        <synonyms>
+          <string>Acid (substance)</string>
+          <string>Acid, NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3838078</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0001128</localConceptID>
+        <preferredName>acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2267695</termID>
+        <termName>acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0040284</localConceptID>
+        <preferredName>Tissue culture</preferredName>
+        <synonyms>
+          <string>Tissue culture, NOS</string>
+          <string>Tissue culture (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3667063</termID>
+        <termName>Tissue culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>4513/Cell</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>4513</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5320043</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MDR/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Sarcoma osteogenic</string>
+          <string>Osteosarcoma NOS</string>
+          <string>Osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MDR</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2163940</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MTH/C0522529</localConceptID>
+        <preferredName>Conjugated</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MTH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T082</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2302068</termID>
+        <termName>Conjugated</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0010453</localConceptID>
+        <preferredName>culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2261123</termID>
+        <termName>culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNMI/C0522529</localConceptID>
+        <preferredName>Conjugated</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNMI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T082</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2900997</termID>
+        <termName>Conjugated</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Cell_Space</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5183330</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MDR/C0430400</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Culture NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MDR</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2166483</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>ICPC2P/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>ICPC2P</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1696713</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0007634</localConceptID>
+        <preferredName>cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2259777</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0430400</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Sample culture</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1938303</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>OMIM/C1704327</localConceptID>
+        <preferredName>OSTEOSARCOMA</preferredName>
+        <synonyms>
+          <string>LI-FRAUMENI SYNDROME 1, ARG248GLN</string>
+          <string>TP53, SER241PHE</string>
+          <string>LI-FRAUMENI SYNDROME 1, 1-BP INS, 151C</string>
+          <string>OSTEOGENIC SARCOMA</string>
+          <string>OSRC</string>
+          <string>HEPATOBLASTOMA, SER241PHE</string>
+          <string>TP53, ARG248GLN</string>
+          <string>TP53, 1-BP INS, 151C</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>OMIM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4033924</termID>
+        <termName>OSTEOSARCOMA</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CCPSS/C0430400</localConceptID>
+        <preferredName>CULTURE</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CCPSS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2649151</termID>
+        <termName>CULTURE</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>21275/RID4010</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>21275</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5247075</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C0010453</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Cultures</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>905785</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NDFRT/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NDFRT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1454960</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>UWDA/C0007634</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms>
+          <string>Cellula</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>UWDA</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2736215</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0557651</localConceptID>
+        <preferredName>Study</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T073</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2025597</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MTH/C1515981</localConceptID>
+        <preferredName>And</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MTH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2385284</termID>
+        <termName>And</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/And</localConceptID>
+        <preferredName>And</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5182179</termID>
+        <termName>And</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LCH/C0040284</localConceptID>
+        <preferredName>Tissue culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LCH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2566660</termID>
+        <termName>Tissue culture</termName>
+        <from>24</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms>
+          <string>osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1048737</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Normal_Tissue</localConceptID>
+        <preferredName>Tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5177784</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C0001128</localConceptID>
+        <preferredName>Acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1010635</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C0220814</localConceptID>
+        <preferredName>culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T169</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>361814</termID>
+        <termName>culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>AOD/C0040300</localConceptID>
+        <preferredName>tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>AOD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>94264</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Study</localConceptID>
+        <preferredName>Study</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5149904</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CCPSS/C1704327</localConceptID>
+        <preferredName>OSTEOSARCOMA</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CCPSS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2638414</termID>
+        <termName>OSTEOSARCOMA</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>HL7V2.5/C1547928</localConceptID>
+        <preferredName>Tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>HL7V2.5</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T170</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2943386</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38951/GO:0005623</localConceptID>
+        <preferredName>cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38951</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5048163</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CCPSS/C0001128</localConceptID>
+        <preferredName>ACID</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CCPSS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2639284</termID>
+        <termName>ACID</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LNC/C0040300</localConceptID>
+        <preferredName>Tissue</preferredName>
+        <synonyms>
+          <string>Tiss</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4514141</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Tissue</localConceptID>
+        <preferredName>Tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5188256</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms>
+          <string>osteogenic sarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2249133</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>37575/FBbt:00007002</localConceptID>
+        <preferredName>cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>37575</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5243891</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>LNC/C0430400</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>LNC</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4508890</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Amino_Acid</localConceptID>
+        <preferredName>Amino Acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5138422</termID>
+        <termName>Amino Acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0007634</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms>
+          <string>Cell, NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3706262</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>21275/RID1539</localConceptID>
+        <preferredName>tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>21275</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5244298</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Cell</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5187830</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNM/C0007634</localConceptID>
+        <preferredName>Cell</preferredName>
+        <synonyms>
+          <string>The Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2621294</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0522529</localConceptID>
+        <preferredName>Conjugated</preferredName>
+        <synonyms>
+          <string>Conjugated (qualifier value)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T082</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3702376</termID>
+        <termName>Conjugated</termName>
+        <from>56</from>
+        <to>65</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>13578/Osteosarcoma</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>13578</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5167655</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0430400</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Microbial culture</string>
+          <string>Microbial culture, NOS</string>
+          <string>Sample culture</string>
+          <string>Microbial culture (procedure)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T059</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3647571</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>4513/Amino_acid</localConceptID>
+        <preferredName>Amino acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>4513</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5330149</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MTH/C0029463</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MTH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2299235</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C0010453</localConceptID>
+        <preferredName>Culture</preferredName>
+        <synonyms>
+          <string>Cultural</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>991362</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>3134/MPATH:397</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>3134</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>102241</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0557651</localConceptID>
+        <preferredName>Study</preferredName>
+        <synonyms>
+          <string>Study (environment)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T073</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3805702</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CSP/C0040300</localConceptID>
+        <preferredName>tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CSP</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2259320</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>MSH/C0029463</localConceptID>
+        <preferredName>Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteogenic Sarcoma</string>
+          <string>Osteosarcomas</string>
+          <string>Sarcoma, Osteogenic</string>
+          <string>Osteogenic Sarcomas</string>
+          <string>Sarcomas, Osteogenic</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>639114</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>CCPSS/C0040300</localConceptID>
+        <preferredName>TISSUE</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>CCPSS</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2639039</termID>
+        <termName>TISSUE</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38762/PO:0009007</localConceptID>
+        <preferredName>tissue</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38762</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>5334926</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>NCI/C1515981</localConceptID>
+        <preferredName>And</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>984516</termID>
+        <termName>And</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>GO/C0007634</localConceptID>
+        <preferredName>cell</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>GO</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2535303</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>38924/MP:0003789</localConceptID>
+        <preferredName>osteosarcoma</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38924</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4997534</termID>
+        <termName>osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>10.0</score>
+      <concept>
+        <localConceptID>RCD/C0001128</localConceptID>
+        <preferredName>Acid</preferredName>
+        <synonyms/>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>RCD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T103</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1993623</termID>
+        <termName>Acid</termName>
+        <from>51</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:33709</localConceptID>
+        <preferredName>amino acids</preferredName>
+        <synonyms>
+          <string>Aminokarbonsaeure</string>
+          <string>an amino acid</string>
+          <string>amino acid</string>
+          <string>Aminocarbonsaeure</string>
+          <string>Aminosaeure</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4936942</termID>
+        <termName>amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>38924/MP:0005384</localConceptID>
+        <preferredName>cellular phenotype</preferredName>
+        <synonyms>
+          <string>cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38924</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4996487</termID>
+        <termName>cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1705923</localConceptID>
+        <preferredName>Study Object</preferredName>
+        <synonyms>
+          <string>Study</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T077</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>984004</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0007634</localConceptID>
+        <preferredName>Cells</preferredName>
+        <synonyms>
+          <string>Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>353564</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1269647</localConceptID>
+        <preferredName>Entire cell</preferredName>
+        <synonyms>
+          <string>Entire cell (body structure)</string>
+          <string>Entire cell (cell)</string>
+          <string>Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3499355</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C0040300</localConceptID>
+        <preferredName>Body tissue</preferredName>
+        <synonyms>
+          <string>Body tissue structure (body structure)</string>
+          <string>Body tissue, NOS</string>
+          <string>Body tissue structure</string>
+          <string>Tissue</string>
+          <string>Tissue, NOS</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3796042</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C0007634</localConceptID>
+        <preferredName>Cells</preferredName>
+        <synonyms>
+          <string>Cell Types</string>
+          <string>Cell Type</string>
+          <string>Normal Cell</string>
+          <string>Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T025</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>931187</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C0002838</localConceptID>
+        <preferredName>Andorra</preferredName>
+        <synonyms>
+          <string>AND</string>
+          <string>AD</string>
+          <string>020</string>
+          <string>AN</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T083</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1032988</termID>
+        <termName>AND</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1704653</localConceptID>
+        <preferredName>Cell Device Component</preferredName>
+        <synonyms>
+          <string>Cell</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T074</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>987627</termID>
+        <termName>Cell</termName>
+        <from>19</from>
+        <to>22</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C0008972</localConceptID>
+        <preferredName>Clinical Research</preferredName>
+        <synonyms>
+          <string>Clinical Studies</string>
+          <string>Study</string>
+          <string>Clinical Study</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T062</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1004933</termID>
+        <termName>Study</termName>
+        <from>39</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNM/C0002520</localConceptID>
+        <preferredName>Amino Acids</preferredName>
+        <synonyms>
+          <string>Amino Acids</string>
+          <string>Amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNM</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T121</string>
+          <string>T116</string>
+          <string>T000</string>
+          <string>T123</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2602420</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MSH/C0040300</localConceptID>
+        <preferredName>Tissues</preferredName>
+        <synonyms>
+          <string>Tissue</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MSH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>832174</termID>
+        <termName>Tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1522084</localConceptID>
+        <preferredName>Mouse Osteosarcoma</preferredName>
+        <synonyms>
+          <string>Osteosarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1010172</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C0040300</localConceptID>
+        <preferredName>Tissue Types</preferredName>
+        <synonyms>
+          <string>Normal Tissue</string>
+          <string>Tissues</string>
+          <string>tissue</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T024</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>939828</termID>
+        <termName>tissue</termName>
+        <from>24</from>
+        <to>29</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>MTH/C0010453</localConceptID>
+        <preferredName>Anthropological Culture</preferredName>
+        <synonyms>
+          <string>Culture</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>MTH</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T078</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>2296093</termID>
+        <termName>Culture</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1522083</localConceptID>
+        <preferredName>Osteosarcoma of the Mouse Prostate Gland</preferredName>
+        <synonyms>
+          <string>Osteosarcoma of the Prostate Gland</string>
+          <string>Osteosarcoma</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T191</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>975267</termID>
+        <termName>Osteosarcoma</termName>
+        <from>1</from>
+        <to>12</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>SNOMEDCT/C1706368</localConceptID>
+        <preferredName>And - dosing instruction fragment</preferredName>
+        <synonyms>
+          <string>And</string>
+          <string>And - dosing instruction fragment (qualifier value)</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>SNOMEDCT</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T170</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>3298926</termID>
+        <termName>And</termName>
+        <from>76</from>
+        <to>78</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>AOD/C0681854</localConceptID>
+        <preferredName>cell culture study</preferredName>
+        <synonyms>
+          <string>tissue culture study</string>
+          <string>culture cell study</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>AOD</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T062</string>
+          <string>T000</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>91859</termID>
+        <termName>tissue culture study</termName>
+        <from>24</from>
+        <to>43</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>38932/CHEBI:33704</localConceptID>
+        <preferredName>alpha-amino acids</preferredName>
+        <synonyms>
+          <string>alpha-amino acids</string>
+          <string>alpha-amino carboxylic acids</string>
+          <string>an alpha-amino acid</string>
+          <string>alpha-amino acid</string>
+          <string>Amino acid</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>38932</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T999</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>4940769</termID>
+        <termName>Amino acid</termName>
+        <from>45</from>
+        <to>54</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+    <obs.common.beans.AnnotationBean>
+      <score>8.0</score>
+      <concept>
+        <localConceptID>NCI/C1706355</localConceptID>
+        <preferredName>Culture Dose Form</preferredName>
+        <synonyms>
+          <string>Culture Dosage Form</string>
+          <string>CULTURE</string>
+        </synonyms>
+        <isTopLevel>false</isTopLevel>
+        <localOntologyID>NCI</localOntologyID>
+        <localSemanticTypeIDs>
+          <string>T000</string>
+          <string>T122</string>
+        </localSemanticTypeIDs>
+      </concept>
+      <context class="obs.common.beans.MgrepContextBean">
+        <contextName>MGREP</contextName>
+        <isDirect>true</isDirect>
+        <termID>1048885</termID>
+        <termName>CULTURE</termName>
+        <from>31</from>
+        <to>37</to>
+      </context>
+    </obs.common.beans.AnnotationBean>
+  </annotations>
+  <ontologies>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>NCI</localOntologyID>
+      <ontologyName>National Cancer Institute Thesaurus, 2006_03D</ontologyName>
+      <ontologyVersion>2006_03D</ontologyVersion>
+      <nbAnnotation>17</nbAnnotation>
+      <score>172.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>SNOMEDCT</localOntologyID>
+      <ontologyName>SNOMED Clinical Terms, 2007_01_31</ontologyName>
+      <ontologyVersion>2007_01_31</ontologyVersion>
+      <nbAnnotation>12</nbAnnotation>
+      <score>134.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>13578</localOntologyID>
+      <ontologyName>NCI Thesaurus</ontologyName>
+      <ontologyVersion>7.06D</ontologyVersion>
+      <nbAnnotation>11</nbAnnotation>
+      <score>110.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>CSP</localOntologyID>
+      <ontologyName>CRISP Thesaurus, 2006</ontologyName>
+      <ontologyVersion>2006</ontologyVersion>
+      <nbAnnotation>8</nbAnnotation>
+      <score>100.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38932</localOntologyID>
+      <ontologyName>Chemical entities of biological interest</ontologyName>
+      <ontologyVersion>1.47</ontologyVersion>
+      <nbAnnotation>5</nbAnnotation>
+      <score>100.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>RCD</localOntologyID>
+      <ontologyName>Clinical Terms Version 3 (CTV3) (Read Codes), 1999</ontologyName>
+      <ontologyVersion>1999</ontologyVersion>
+      <nbAnnotation>6</nbAnnotation>
+      <score>80.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>SNM</localOntologyID>
+      <ontologyName>SNOMED-2, 2</ontologyName>
+      <ontologyVersion>2</ontologyVersion>
+      <nbAnnotation>5</nbAnnotation>
+      <score>48.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MSH</localOntologyID>
+      <ontologyName>Medical Subject Headings, 2007_2007_05_01</ontologyName>
+      <ontologyVersion>2007_2007_05_01</ontologyVersion>
+      <nbAnnotation>5</nbAnnotation>
+      <score>46.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>CCPSS</localOntologyID>
+      <ontologyName>Canonical Clinical Problem Statement System, 1999</ontologyName>
+      <ontologyVersion>1999</ontologyVersion>
+      <nbAnnotation>4</nbAnnotation>
+      <score>40.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MTH</localOntologyID>
+      <ontologyName>UMLS Metathesaurus</ontologyName>
+      <ontologyVersion>UMLS 2007AC</ontologyVersion>
+      <nbAnnotation>4</nbAnnotation>
+      <score>38.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38865</localOntologyID>
+      <ontologyName>Human disease</ontologyName>
+      <ontologyVersion>1.17</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>36.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38677</localOntologyID>
+      <ontologyName>Human disease</ontologyName>
+      <ontologyVersion>1.11</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>36.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>LNC</localOntologyID>
+      <ontologyName>Logical Observation Identifier Names and Codes, 219</ontologyName>
+      <ontologyVersion>219</ontologyVersion>
+      <nbAnnotation>3</nbAnnotation>
+      <score>30.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>AOD</localOntologyID>
+      <ontologyName>Alcohol and Other Drug Thesaurus, 2000</ontologyName>
+      <ontologyVersion>2000</ontologyVersion>
+      <nbAnnotation>3</nbAnnotation>
+      <score>28.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>UWDA</localOntologyID>
+      <ontologyName>University of Washington Digital Anatomist, 1.7.3</ontologyName>
+      <ontologyVersion>1.7.3</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>OMIM</localOntologyID>
+      <ontologyName>Online Mendelian Inheritance in Man, 2007_03_19</ontologyName>
+      <ontologyVersion>2007_03_19</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>4513</localOntologyID>
+      <ontologyName>FMA</ontologyName>
+      <ontologyVersion>1.4</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>LCH</localOntologyID>
+      <ontologyName>Library of Congress Subject Headings, 1990</ontologyName>
+      <ontologyVersion>1990</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>21275</localOntologyID>
+      <ontologyName>RadLex</ontologyName>
+      <ontologyVersion>2.0</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MDR</localOntologyID>
+      <ontologyName>Medical Dictionary for Regulatory Activities Terminology (MedDRA), 10.0</ontologyName>
+      <ontologyVersion>10.0</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>20.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38924</localOntologyID>
+      <ontologyName>Mammalian phenotype</ontologyName>
+      <ontologyVersion>1.221</ontologyVersion>
+      <nbAnnotation>2</nbAnnotation>
+      <score>18.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>GO</localOntologyID>
+      <ontologyName>Gene Ontology, 2007_02_01</ontologyName>
+      <ontologyVersion>2007_02_01</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>37575</localOntologyID>
+      <ontologyName>Drosophila gross anatomy</ontologyName>
+      <ontologyVersion>1.25</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>MEDLINEPLUS</localOntologyID>
+      <ontologyName>MedlinePlus Health Topics_2004_08_14, 20040814</ontologyName>
+      <ontologyVersion>20040814</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>NDFRT</localOntologyID>
+      <ontologyName>National Drug File - Reference Terminology, 2004_01</ontologyName>
+      <ontologyVersion>2004_01</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>PDQ</localOntologyID>
+      <ontologyName>Physician Data Query, 2007_02</ontologyName>
+      <ontologyVersion>2007_02</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38951</localOntologyID>
+      <ontologyName>Molecular function</ontologyName>
+      <ontologyVersion>1.368</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>DXP</localOntologyID>
+      <ontologyName>DXplain, 1994</ontologyName>
+      <ontologyVersion>1994</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>37911</localOntologyID>
+      <ontologyName>Amphibian gross anatomy</ontologyName>
+      <ontologyVersion>1.8</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38762</localOntologyID>
+      <ontologyName>Plant structure</ontologyName>
+      <ontologyVersion>1.61</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>38570</localOntologyID>
+      <ontologyName>Xenopus anatomy and development</ontologyName>
+      <ontologyVersion>1.14</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>CPM</localOntologyID>
+      <ontologyName>Medical Entities Dictionary, 2003</ontologyName>
+      <ontologyVersion>2003</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>HL7V2.5</localOntologyID>
+      <ontologyName>HL7 Vocabulary Version 2.5, 2003_08_30</ontologyName>
+      <ontologyVersion>2003_08_30</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>ICPC2P</localOntologyID>
+      <ontologyName>ICPC-2 PLUS</ontologyName>
+      <ontologyVersion>2005</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>HL7V3.0</localOntologyID>
+      <ontologyName>HL7 Vocabulary Version 3.0, 2006_05</ontologyName>
+      <ontologyVersion>2006_05</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>COSTAR</localOntologyID>
+      <ontologyName>COSTAR, 1989-1995</ontologyName>
+      <ontologyVersion>89-95</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>SNMI</localOntologyID>
+      <ontologyName>SNOMED International, 1998</ontologyName>
+      <ontologyVersion>1998</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+    <obs.common.beans.OntologyUsedBean>
+      <localOntologyID>3134</localOntologyID>
+      <ontologyName>Mouse pathology</ontologyName>
+      <ontologyVersion>1.1</ontologyVersion>
+      <nbAnnotation>1</nbAnnotation>
+      <score>10.0</score>
+    </obs.common.beans.OntologyUsedBean>
+  </ontologies>
+</obs.common.beans.ObaResultBean>

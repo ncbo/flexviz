@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:ui="flex.utils.ui.*">
+
+	<mx:Script>
+		<![CDATA[
+			import service.AnnotatorParameters;
+			import events.AnnotateTextEvent;
+			import service.AdvancedParameters;
+			import events.OBSEvent;
+			import mx.controls.Alert;
+			import service.OBSRestService;
+			
+			private function test(num:int):void {
+				var callback:Function = function(event:OBSEvent):void {
+					if (event.isError) {
+						Alert.show(event.errorMessage, "Error");
+					} else {
+						list.dataProvider = event.items;
+						timeLabel.text = "Server:  " + event.serverTime + "ms, Parse: " + event.parseTime + "ms";
+					}
+				};
+				var svc:OBSRestService = new OBSRestService(null);
+				switch (num) {
+					case 0 :
+						svc.getSemanticTypes(callback);
+						break;
+					case 1 :
+						svc.getOntologies(callback);
+						break;
+					case 2 :
+						svc.getMappingTypes(callback);
+						break;
+					case 3 :
+						svc.getResources(callback);
+						break;
+					case 4 :
+						svc.getAnnotationsForConcept("13578", "Melanoma", "AE", callback);
+						break;
+					case 5 :
+						var ap:AdvancedParameters = new AdvancedParameters();
+						ap.resourceID = "AE";
+						ap.localElementID = "E-GEOD-9118";
+						svc.getAnnotationsForResourceElement(callback, ap);
+						break;
+					case 6 :
+						var params:Object = new Object();
+						params.localConceptIDs = "13578/Melanoma"; 
+						svc.getAnnotationsForConcepts(callback, params);
+						break;
+					case 7 :
+						svc.annotateTextTest(callback);
+						break
+				}
+				
+			}
+			
+			private function get annotateParams():AnnotatorParameters {
+				var params:AnnotatorParameters = new AnnotatorParameters("melanoma");
+				params.withDefaultStopWords = true;
+				return params;
+			}
+			
+		]]>
+	</mx:Script>
+
+	<mx:ApplicationControlBar x="10" y="10" horizontalGap="4">
+			<mx:Button label="Load Semantic Types" click="test(0)"/>
+			<mx:Button label="Load Ontologies" click="test(1)"/>
+			<mx:Button label="Load Mapping Types" click="test(2)"/>
+			<mx:Button label="Load Resources" click="test(3)"/>
+			<mx:VRule height="16"/>
+			<mx:Label id="timeLabel" fontWeight="bold" color="purple"/>
+	</mx:ApplicationControlBar>
+
+	<mx:List x="10" y="90" height="600" width="400" id="list"/>
+	<mx:ApplicationControlBar x="10" y="49">
+		<mx:Button label="Annotations For Term" click="test(4)"/>
+		<mx:Button label="Annotations For Resource Element" click="test(5)"/>
+		<mx:Button label="Annotations For Multiple Terms" click="test(6)"/>
+		<mx:Button label="Annotate Text" click="test(7)"/>
+	</mx:ApplicationControlBar>
+	
+</mx:Application>
