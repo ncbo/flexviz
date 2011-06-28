@@ -124,6 +124,11 @@ BasicFlexoViz Parameters:
 					flexoviz.searchProvider.baseServerURL = serverURL;
 				}
 				
+				var apikey:String = FlexVizParams.getParam(NCBOAppParams.APIKEY);
+				if (apikey) {
+					flexoviz.searchProvider.service.apikey = apikey;
+				}
+				
 				// load parameters
 				var isVirtual:Boolean = FlexVizParams.getBooleanParam(NCBOAppParams.ONTOLOGY_VIRTUAL, NCBOAppParams.DEFAULT_ONTOLOGY_VIRTUAL);
 				var ontologyID:String = FlexVizParams.getParam(NCBOAppParams.ONTOLOGY, NCBOAppParams.DEFAULT_ONTOLOGY);
