@@ -1,0 +1,267 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--  BEGIN Browser History required section -->
+<link rel="stylesheet" type="text/css" href="history/history.css" />
+<!--  END Browser History required section -->
+
+<title>BioPortal Ontology Tree</title>
+<script src="AC_OETags.js" language="javascript"></script>
+
+<!--  BEGIN Browser History required section -->
+<script src="history/history.js" language="javascript"></script>
+<!--  END Browser History required section -->
+
+<style>
+body { margin: 0px; overflow:hidden }
+</style>
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 9;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 124;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+/* 
+ * The following JavaScript functions allow you to interact with the Flash BioPortal Ontology Tree.  
+ * You can load an ontology by id, and get the current ontology id or name.
+ * Once an ontology is loaded then you can get the currently selected concept by id or name,
+ * and you can also select a concept by id or name.  
+ * You can also listen for one of these events by implementing the following functions (see the stubs below):
+ * appComplete, treeSelectionChanged, treeNodeDoubleClicked, or errorLoadingOntology
+ *
+ * These are the parameters that you can pass into the application using the "flashVars" parameter:
+ * (see the examples below):
+ * - ontology: the id of the ontology (version or virtual)
+ * - virtual: if false (default) then the ontology id above is the version id
+ * 			  if true then the above ontology id is assumed to be the virtual id 
+ * - alerterrors: (true/false) determines whether the application will display errors (default is false)
+ * - server: defines the URL of the rest server (null by default)
+ * - title: changes the default title for the page 
+ * - canchangeontology: if true then the ontology can be changed
+ * - rootconceptid: sets the optional root node of the tree
+ * - canchangeroot: if false then the root of the tree cannot be changed by the user (using context menu items)
+ */
+
+// get a handle for the flash application
+function getApp() {
+	if (navigator.appName.indexOf ("Microsoft") != -1) {
+		app = window["OntologyTree"];
+	} else {
+		app = document["OntologyTree"];
+	}
+	if (app == null) {
+		app = document.getElementById("OntologyTree");
+	}
+	if (app == null) {
+		alert("Could not get Flash object, JavaScript/Flex communication failed.");
+	}
+	return app;
+}
+
+// these are the available functions that you can call ONCE the 
+// flash SWF has finished loading
+
+/** Loads a new ontology by id. */
+function loadOntology(ontologyID) {
+	var app = getApp();
+	if (app && app.loadOntology) {
+		app.loadOntology(ontologyID);
+	}
+}
+
+/** Gets the id of the current ontology, will be null if no ontology is loaded. */
+function getOntologyID() {
+	var ontologyID = null;
+	var app = getApp();
+	if (app && app.getOntologyID) {
+		ontologyID = app.getOntologyID();
+	}
+	return ontologyID;
+}
+
+/** Gets the name of the current ontology, will be null if no ontology is loaded. */
+function getOntologyName() {
+	var ontologyName = null;
+	var app = getApp();
+	if (app && app.getOntologyName) {
+		ontologyName = app.getOntologyName();
+	}
+	return ontologyName;
+}
+
+/** Gets the id of the currently selected concept, will be null if nothing is selected. */
+function getSelectedConceptID() {
+	var conceptID = null;
+	var app = getApp();
+	if (app && app.getSelectedConceptID) {
+		conceptID = app.getSelectedConceptID();
+	}
+	return conceptID;
+}
+
+/** 
+ * Gets the full id (not all ontologies support this) of the currently selected concept. 
+ * Will be null if nothing is selected, will be the same as the conceptID if no fullID exists. 
+ */
+function getSelectedConceptFullID() {
+	var conceptID = null;
+	var app = getApp();
+	if (app && app.getSelectedConceptFullID) {
+		conceptID = app.getSelectedConceptFullID();
+	}
+	return conceptID;
+}
+
+/** Gets the name of the currently selected concept, will be null if nothing is selected. */
+function getSelectedConceptName() {
+	var conceptName = null;
+	var app = getApp();
+	if (app && app.getSelectedConceptName) {
+		conceptName = app.getSelectedConceptName();
+	}
+	return conceptName;
+}
+
+/** Loads and selects a concept (by id) in the current ontology. */
+function loadConceptByID(conceptID) {
+	var app = getApp();
+	if (app && app.loadConceptByID) {
+		app.loadConceptByID(conceptID);
+	} else {
+		alert("Couldn't call Flex loadConceptByID() function");
+	}
+}
+
+/** Attempts to load and select a concept (by name) in the current ontology. */
+function loadConceptByName(conceptName) {
+	var app = getApp();
+	if (app && app.loadConceptByName) {
+		app.loadConceptByName(conceptName);
+	}
+}
+
+/** This function gets call by flash when the swf has finished loading. */
+function appComplete(swfID) {
+//	alert("flash app finished loading: " + swfID);
+}
+
+/** Implement this function to listen for tree selection changes */
+function treeSelectionChanged(nodeID, nodeName, swfID) {
+//	alert("tree selection: " + nodeID + " - " + nodeName + " - " + swfID);
+}
+
+/** Implement this function to listen for tree double click events */
+function treeNodeDoubleClicked(nodeID, nodeName, swfID) {
+	alert("tree node double clicked: " + nodeID + " - " + nodeName + " - " + swfID);
+}
+
+/** Implement this function to listen for error messages when loading an ontology */
+function errorLoadingOntology(errorMsg, swfID) {
+//	alert("Error: " + errorMsg);
+}
+
+// -->
+</script>
+</head>
+
+<body scroll="no">
+<script language="JavaScript" type="text/javascript">
+<!--
+// Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
+var hasProductInstall = DetectFlashVer(6, 0, 65);
+
+// Version check based upon the values defined in globals
+var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+if ( hasProductInstall && !hasRequestedVersion ) {
+	// DO NOT MODIFY THE FOLLOWING FOUR LINES
+	// Location visited after installation is complete if installation is required
+	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+	var MMredirectURL = window.location;
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+    var MMdoctitle = document.title;
+
+	AC_FL_RunContent(
+		"src", "playerProductInstall",
+		"FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+		"width", "300",
+		"height", "100%",
+		"align", "middle",
+		"id", "OntologyTree",
+		"quality", "high",
+		"bgcolor", "#ffffff",
+		"name", "OntologyTree",
+		"allowScriptAccess","always",
+		"type", "application/x-shockwave-flash",
+		"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+} else if (hasRequestedVersion) {
+	// if we've detected an acceptable version
+	// embed the Flash Content SWF when all tests are passed
+	AC_FL_RunContent(
+			"src", "OntologyTree?v=1.7.1",
+			"width", "300",
+			"height", "100%",
+			"align", "middle",
+			"id", "OntologyTree",
+			"quality", "high",
+			"bgcolor", "#ffffff",
+			"name", "OntologyTree",
+			"allowScriptAccess","always",
+			"flashVars", "log=true&ontology=1032&virtual=true&alerterrors=false&canchangeontology=true&rootconceptid=&nodeid=Antigen_Gene",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+  } else {  // flash is too old or we can't detect the plugin
+    var alternateContent = 'Alternate HTML content should be placed here. '
+  	+ 'This content requires the Adobe Flash Player. '
+   	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
+    document.write(alternateContent);  // insert non-flash content
+  }
+// -->
+</script>
+<noscript>
+  	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			id="OntologyTree" width="300" height="100%"
+			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+			<param name="movie" value="OntologyTree.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#ffffff" />
+			<param name="allowScriptAccess" value="always" />
+			<param name="flashVars" value="ontology=&alerterrors=false&canchangeontology=true" />
+			<embed src="OntologyTree.swf" quality="high" bgcolor="#ffffff"
+				width="300" height="100%" name="OntologyTree" align="middle"
+				play="true"
+				loop="false"
+				allowScriptAccess="always"
+				type="application/x-shockwave-flash"
+				flashVars="ontology=&alerterrors=false&canchangeontology=true"
+				pluginspage="http://www.adobe.com/go/getflashplayer">
+			</embed>
+	</object>
+</noscript>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-768205-8");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
