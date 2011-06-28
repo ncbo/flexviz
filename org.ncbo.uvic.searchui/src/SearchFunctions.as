@@ -142,7 +142,8 @@ private function loadParameters():void {
 	searchText = params.search;
 	NavigateToBioPortal.baseURL = params.redirectURL;
 	LogService.initialize(params.log, "search", Utils.browserDomain);
-	service = new NCBORestService(NCBORestService.APP_ID_SEARCH, params.server, errorFunction, EMAIL);
+	var apikey:String = (params.apikey ? params.apikey : NCBORestService.APIKEY_SEARCH); 
+	service = new NCBORestService(apikey, NCBORestService.APP_ID_SEARCH, params.server, errorFunction, EMAIL);
 	
 	LogService.dispatcher.addEventListener(NCBOLogEvent.ITEM_LOGGED, searchItemLogged);
 	

@@ -7,7 +7,7 @@
 			import mx.events.FlexEvent;
 			import org.ncbo.uvic.flex.NCBORestService;
 			
-			private const service:NCBORestService = new NCBORestService(NCBORestService.APP_ID_SEARCH);
+			private const service:NCBORestService = new NCBORestService(NCBORestService.APIKEY_SEARCH, NCBORestService.APP_ID_SEARCH);
 			
 			private function created(event:FlexEvent):void {
 				

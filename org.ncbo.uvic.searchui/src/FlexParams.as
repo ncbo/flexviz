@@ -34,6 +34,7 @@ package
 		private var _recent:Boolean;
 		private var _popular:Boolean;
 		private var _doi:Boolean;
+		private var _apikey:String;
 
 		public function FlexParams() {
 			load();
@@ -57,10 +58,16 @@ package
 			
 			_doi = Utils.getBooleanParam(DOI, false, null, true);
 			
+			_apikey = Utils.getParam(APIKEY, null);
+
 			// hack - check for a special string
 			if (_search == "Enter term, e.g. Melanoma") {
 				_search = "";
-			}
+			}	
+		}
+		
+		public function get apikey():String {
+			return _apikey;
 		}
 		
 		public function get banner():Boolean {
