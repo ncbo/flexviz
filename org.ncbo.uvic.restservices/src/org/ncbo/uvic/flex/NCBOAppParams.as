@@ -59,6 +59,10 @@ package org.ncbo.uvic.flex
 		
 		public static const LOGGING:String = "logging";
 		
+		public static const APIKEY:String = "apikey";
+		
+		public static const USERAPIKEY:String = "userapikey";
+		
 		public static const DEFAULT_ONTOLOGY:String		= "";
 		public static const DEFAULT_ONTOLOGY_VIRTUAL:Boolean = false;
 		public static const DEFAULT_SEARCH:String		= "";

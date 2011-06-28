@@ -163,8 +163,17 @@ package org.ncbo.uvic.flex
 		public static const APP_ID_FLEXVIZ:String 	= "7jf77k32-3386-8122-293f-uk5rmnb322nn"; 
 		public static const APP_ID_SEARCH:String 	= "3kl54a87-2275-6435-211d-fe3bkib899df";
 		public static const APP_ID_OBS:String 		= "5dd32t44-7923-1768-877a-fm8pdeb208ug";
+
+		public static const APIKEY_FLEXVIZ:String 	= "46829a05-8c1c-422b-950d-186763ae0f7c"; 
+		public static const APIKEY_SEARCH:String 	= "9bd76c58-220d-4c7f-8ad0-0a5671164199";
+		public static const APIKEY_OBS:String 		= "2be5eb55-86eb-41d6-8b81-e28e525acc0c";
+		
+		public static const APIKEY:String 		= "apikey";
+		public static const UESRAPIKEY:String	= "userapikey";
+		
 		// The default application ID - this should be set by each application (FlexViz, Search, ...)
 		private var appID:String = "";	
+		public var apikey:String = "";	
 		// used for website tracking
 		public var email:String = "default@uvic.ca";
 		
@@ -203,8 +212,11 @@ package org.ncbo.uvic.flex
 		 */
 		public var alertErrorFunction:Function = null;
 		
-		public function NCBORestService(applicationID:String = null, baseServerURL:String = null, 
+		public function NCBORestService(apikey:String, applicationID:String = null, baseServerURL:String = null, 
 				errorFunction:Function = null, email:String = "default@uvic.ca", timeout:int = 20) {
+			if (apikey != null) {
+				this.apikey = apikey;		
+			}
 			if (applicationID != null) {
 				this.appID = applicationID;
 			}
@@ -363,6 +375,7 @@ package org.ncbo.uvic.flex
 			if (log) {
 				url = StringUtils.addURLParameter(url, "logonly", "true");
 				url = StringUtils.addURLParameter(url, APP_ID_KEY, appID);
+				url = StringUtils.addURLParameter(url, APIKEY, apikey);
 				url = StringUtils.addURLParameter(url, "email", email);
 				//trace("[REST_log] " + url);
 				var service:HTTPService = getService(url);
@@ -374,6 +387,7 @@ package org.ncbo.uvic.flex
 		private function send(url:String, xmlHandler:Function, callback:Function, 
 				allowMultipleCalls:Boolean = false, alertErrors:Boolean = true, logEvent:Boolean = true):void {
 			url = StringUtils.addURLParameter(url, APP_ID_KEY, appID);
+			url = StringUtils.addURLParameter(url, APIKEY, apikey);
 			url = StringUtils.addURLParameter(url, "email", email);
 			var params:NCBORestParams = new NCBORestParams(url, xmlHandler, callback, 
 												allowMultipleCalls, alertErrors, logEvent);
