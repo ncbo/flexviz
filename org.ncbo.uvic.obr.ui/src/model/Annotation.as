@@ -97,6 +97,16 @@ package model
 			return false;
 		}
 		
+		public function get mgrepContextCount():int {
+			var count:int = 0;
+			for each (var context:AnnotationContext in allContexts) {
+				if (context.isMgrep) {
+					count++;
+				}
+			}
+			return count;
+		}
+		
 		public function get hasMappingContext():Boolean {
 			for each (var context:AnnotationContext in allContexts) {
 				if (context.isMapping) {
@@ -104,6 +114,16 @@ package model
 				}
 			}
 			return false;
+		}
+		
+		public function get mappingContextCount():int {
+			var count:int = 0;
+			for each (var context:AnnotationContext in allContexts) {
+				if (context.isMapping) {
+					count++;
+				}
+			}
+			return count;
 		}
 		
 		public function get hasIsaContext():Boolean {
@@ -115,6 +135,16 @@ package model
 			return false;
 		}
 		
+		public function get isaContextCount():int {
+			var count:int = 0;
+			for each (var context:AnnotationContext in allContexts) {
+				if (context.isIsaClosure) {
+					count++;
+				}
+			}
+			return count;
+		}
+		
 		public function get hasDirectContext():Boolean {
 			for each (var context:AnnotationContext in allContexts) {
 				if (context.isDirect) {
@@ -123,5 +153,16 @@ package model
 			}
 			return false;
 		}
+		
+		public function get directContextCount():int {
+			var count:int = 0;
+			for each (var context:AnnotationContext in allContexts) {
+				if (context.isDirect) {
+					count++;
+				}
+			}
+			return count;
+		}
+		
 	}
 }
