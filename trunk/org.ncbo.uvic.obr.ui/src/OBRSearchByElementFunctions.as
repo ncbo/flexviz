@@ -763,18 +763,10 @@ private function calculateFilteredAnnotationStats():void {
 	var isa:uint = 0;
 	var direct:uint = 0;
 	for each (var result:Annotation in annotationResults) {
-		if (result.hasMgrepContext) {
-			mgrep++;
-		}
-		if (result.hasMappingContext) {
-			mapping++;
-		} 
-		if (result.hasIsaContext) {
-			isa++;
-		} 
-		if (result.hasDirectContext) {
-			direct++;
-		}
+		mgrep += result.mgrepContextCount;
+		mapping += result.mappingContextCount;
+		isa += result.isaContextCount;
+		direct += result.directContextCount;
 	}
 	for (var i:int = 0; i < annotationStatsBox.numChildren; i++) {
 		var formItem:FormItem = (annotationStatsBox.getChildAt(i) as FormItem);
