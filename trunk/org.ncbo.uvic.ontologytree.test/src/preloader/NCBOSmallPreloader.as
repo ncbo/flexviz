@@ -302,7 +302,10 @@ package preloader
             _bytesLoaded = event.bytesLoaded;
             _bytesExpected = event.bytesTotal;
             _fractionLoaded = Number(_bytesLoaded) / Number(_bytesExpected);
-            
+             if (isNaN(_fractionLoaded)) {
+            	_fractionLoaded = 0;
+            }
+           
            	draw();
         }
         
